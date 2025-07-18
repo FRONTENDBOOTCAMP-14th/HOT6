@@ -1,0 +1,43 @@
+:root {
+  /* 색상 */
+  --white: #FFFFFF;
+  --black: #181818;
+
+  --gray-800: #303033;
+
+  --green-400: #98D983;
+  --green-500: #60D53B;
+  --green-600: #00D52F;
+  --green-700: #3B9832;
+  --green-800: #318C33;
+  --green-900: #1A3736;
+
+  color-scheme: light dark;
+
+  /* 글자크기 */
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-24: 1.5rem;
+  --font-size-26: 1.625rem;
+  --font-size-30: 1.875rem;
+  --font-size-32: 2rem;
+
+  /* 여백 */
+  --padding-10: .625rem;
+  --padding-16: 1rem;
+  --padding-18: 1.125rem;
+  --padding-24: 1.5rem;
+
+  --margin-16: 1rem;
+  --margin-18: 1.125rem;
+  --margin-20: 1.25rem;
+  --margin-28: 1.75rem;
+  --margin-32: 2rem;
+
+  /* radius */
+  --radius-12: .75rem;
+  --radius-32: 2rem;
+  --radius-48: 3rem;
+
+}
