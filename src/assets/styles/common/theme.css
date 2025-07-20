@@ -1,16 +1,30 @@
 :root {
   /* 색상 */
-  --white: #FFFFFF;
-  --black: #181818;
+  --light: #FFFFFF;
+  --dark: #131313;
 
-  --gray-800: #303033;
+  --gray-100: #F7F7F7;
+  --gray-200: #DEDEDE;
+  --gray-300: #C4C4C4;
+  --gray-400: #ABABAB;
+  --gray-500: #919191;
+  --gray-600: #787878;
+  --gray-700: #5E5E5E;
+  --gray-800: #454545;
+  --gray-900: #2B2B2B;
 
-  --green-400: #98D983;
-  --green-500: #60D53B;
-  --green-600: #00D52F;
-  --green-700: #3B9832;
-  --green-800: #318C33;
-  --green-900: #1A3736;
+
+  --primary-light: #F5FFF8;
+  --primary-100: #E6FEED;
+  --primary-200: #B4FDC9;
+  --primary-300: #82FCA5;
+  --primary-400: #50FB81;
+  --primary-500: #1FFA5D;
+  --primary-600: #05E043;
+  --primary-700: #04B135;
+  --primary-800: #037D25;
+  --primary-900: #024B16;
+  --primary-dark: #011907;
 
   color-scheme: light dark;
 
