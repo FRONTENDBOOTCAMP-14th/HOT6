@@ -1,0 +1,15 @@
+/* 접근성 관련 CSS */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  /* 아래 두 가지 clip-path는 같은 값을 나타냄(안보임) */
+  clip-path: polygon(0 0, 0 0, 0 0);
+  clip-path: inset1(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
