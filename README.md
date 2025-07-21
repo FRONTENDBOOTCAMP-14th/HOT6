@@ -3,7 +3,7 @@
 # 🔥HOT6
 <div align="center"><img width="394" height="158" alt="Image" src="https://github.com/user-attachments/assets/68f72907-6318-481d-8297-d47cdf7cb7b5" /></div>
 
-### 📚 프로젝트 개요 < br/>
+### 📚 프로젝트 개요
 **Hot B66ks** 는 도서 검색 및 추천 서비스를 제공합니다.
 
 ### 📆 프로젝트 기간
@@ -29,7 +29,7 @@
 | ------ | ----- | ------ | ----- | 
 | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/48d8c0f5-3e7d-4137-8f48-55835fdac18c" /> | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/4a5f274d-4636-4957-826d-54d66552a9e1" /> | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/c8ba88bc-f55c-4e52-a3c2-070a1c5c0381" /> | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/9600a4f8-d752-4cc9-875a-ad0c76c48882" /> |
 | <div align="center">ESFJ</div> | <div align="center">INFP</div> | <div align="center">ISTP</div> | <div align="center">ENTJ<div> | 
-| <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/minji-kim0524)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/dohyeon0709)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>]([https://github.com/minji-kim0524](https://github.com/cjftns))</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/yoonseo23)</div> | 
+| <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/minji-kim0524)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/dohyeon0709)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/cjftns)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/yoonseo23)</div> | 
 
 ### 📂 프로젝트 폴더 구조 (1차)
 <details> 
@@ -37,21 +37,31 @@
   
 ```
 🔥 **HOT6**
-├── 📁 .github                
-├── 📁 .vscode   
+├── 📁 .github
+├── 📁 .vscode
 ├── 🌐 public
-│   ├── 📁 font   
+│   ├── 📁 favicon
+│   ├── 📁 logos
 ├── 📁 src
-│   ├── 📁 assets                 
+│   ├── 📁 assets
 │   │   ├── 📁 images
+│   │   │   ├── 📁 about
+│   │   │   ├── 📁 author
+│   │   │   ├── 📁 bg
+│   │   │   ├── 📁 icons
 │   │   └── 📁 styles
-│   │   │   ├── 📁 common                 
+│   │   │   ├── 📁 common
 │   │   │   │   ├── a11y.css
 │   │   │   │   ├── animation.css
 │   │   │   │   ├── base.css
 │   │   │   │   ├── modern-reset.css
 │   │   │   │   ├── normalize.css
 │   │   │   │   └── theme.css
+│   ├── 📁 components
+│   │   ├── 📁 card
+│   ├── 📁 pages
+│   ├── 📁 utils
+│   ├── main.css
 ├── .editorconfig
 ├── .gitattributes
 ├── .gitignore
@@ -59,11 +69,11 @@
 ├── .prettierrc.cjs
 ├── eslint.config.mjs
 ├── index.html
-├── package-lock.json                   
-├── package.json                      
+├── package.json
 ├── pnpm-lock.yami
-├── pnpm-workspace.yami                                                      
-└── README.md                     
+├── pnpm-workspace.yami
+├── README.md
+└── vite.config.js                   
 ```
 </details>
 
