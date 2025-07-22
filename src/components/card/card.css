@@ -21,7 +21,7 @@
   p {
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--light, #FFFFFF);
+    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
@@ -30,7 +30,7 @@
   }
 
   .divinder {
-    border: 0.5px solid var(--light, #FFFFFF);
+    border: 0.5px solid var(--primary-light, #F5FFF8);
   }
 
   .divinder:nth-of-type(1) {
@@ -53,7 +53,7 @@
 /* 모바일 컴포넌트 */
 .cardComponentMobile {
   margin-inline-start: var(--margin-40, 2.5rem);
-  margin-block-end: vaR(--margin-40, 2.5rem);
+  margin-block-end: var(--margin-40, 2.5rem);
   inline-size: 18.75rem;
   block-size: 8.75rem;
   display: flex;
@@ -69,7 +69,7 @@
     margin-block-start: var(--margin-4, .25rem);
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--light, #FFFFFF);
+    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
@@ -78,7 +78,7 @@
   }
 
   .divinder {
-    border: 0.5px solid var(--light, #FFFFFF);
+    border: 0.5px solid var(--primary-light, #F5FFF8);
   }
 
   .divinder:nth-of-type(1) {
@@ -117,7 +117,7 @@
   p {
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--light, #FFFFFF);
+    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
@@ -165,7 +165,7 @@
     margin-block-start: var(--margin-4, .25rem);
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--light, #FFFFFF);
+    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
