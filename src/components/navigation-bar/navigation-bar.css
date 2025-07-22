@@ -1,5 +1,5 @@
 .navigationBar {
-  --gap: .625rem;
+  --gap: var(--gap-10, 0.625rem);
 
   .navigationList {
     display: flex;
