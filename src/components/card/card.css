@@ -126,7 +126,7 @@
   }
 
   .divinder {
-    border: 0.5px solid var(--primary-light, #F5FFF8);
+    border: .0313rem solid var(--primary-light, #F5FFF8);
   }
 
   .divinder:nth-of-type(1) {
@@ -174,7 +174,7 @@
   }
 
   .divinder {
-    border: 0.5px solid var(--primary-light, #F5FFF8);
+    border: .0313rem solid var(--primary-light, #F5FFF8);
   }
 
   .divinder:nth-of-type(1) {
