@@ -11,11 +11,11 @@
   block-size: 17.8125rem;
   border-radius: 30px;
   box-shadow:
-    0.125rem 0.125rem 0.375rem 0rem #ffffff40 inset,
-    0.4375rem 0.375rem 0.875rem 0rem #00000040;
+    0.125rem 0.125rem 0.375rem 0rem var(--about-shadow-gray, #ffffff40) inset,
+    0.4375rem 0.375rem 0.875rem 0rem var(--about-shadow-dark, #00000040);
 
   /* Background property */
-  background-color: #00000040;
+  background-color: var(--about-bg-color, #00000040);
   backdrop-filter: blur(10px);
 
   color: var(--primary-light, #f5fff8);
