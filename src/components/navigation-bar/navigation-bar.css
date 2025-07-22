@@ -1,0 +1,36 @@
+@import url(../../assets/styles/common/normalize.css);
+@import url(../../assets/styles/common/modern-reset.css);
+@import url(../../assets/styles/common/theme.css);
+
+.navigationBar {
+  --gap: 10px;
+
+  .navigationList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--gap);
+
+    color: var(--primary-light, #f5fff8);
+    font-family: 'Pretendard Variable';
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    .isSelected {
+      color: var(--primary-700, #04b135);
+      font-weight: 600;
+    }
+
+    @media (width >= 700px) {
+      flex-direction: column;
+
+      font-size: var(--font-size-20, 1.25rem);
+
+      .isSelected {
+        font-size: var(--font-size-20, 1.25rem);
+      }
+    }
+  }
+}
