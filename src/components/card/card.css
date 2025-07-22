@@ -14,14 +14,14 @@
 
 /* 텍스트 컴포넌트 */
 .cardTextContentsMoblie {
-  margin: var(--margin-40, 2.5rem);
   inline-size: 9rem;
+  margin: var(--margin-40, 2.5rem);
   background-color: var(--gray-background, #181818);
 
   p {
+    color: var(--primary-light, #F5FFF8);
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
@@ -52,13 +52,13 @@
 
 /* 모바일 컴포넌트 */
 .cardComponentMobile {
-  margin-inline-start: var(--margin-40, 2.5rem);
-  margin-block-end: var(--margin-40, 2.5rem);
-  inline-size: 18.75rem;
-  block-size: 8.75rem;
   display: flex;
   flex-flow: row nowrap;
   column-gap: var(--gap-16, 1rem);
+  inline-size: 18.75rem;
+  block-size: 8.75rem;
+  margin-inline-start: var(--margin-40, 2.5rem);
+  margin-block-end: var(--margin-40, 2.5rem);
   background-color: var(--gray-background, #181818);
 
   .textContents {
@@ -67,9 +67,9 @@
     
   p {
     margin-block-start: var(--margin-4, .25rem);
+    color: var(--primary-light, #F5FFF8);
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
@@ -109,15 +109,15 @@
 
 /* 텍스트 컴포넌트 */
 .cardTextContentsPC {
-  margin: var(--margin-40, 2.5rem);
   inline-size: 12.375rem;
   block-size: 7.75rem;
+  margin: var(--margin-40, 2.5rem);
   background-color: var(--gray-background, #181818);
 
   p {
+    color: var(--primary-light, #F5FFF8);
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
@@ -148,13 +148,13 @@
 
 /* PC 컴포넌트 */
 .cardComponentPC {
-  margin-inline-start: var(--margin-40, 2.5rem);
-  margin-block-end: vaR(--margin-40, 2.5rem);
   inline-size: 12.3125rem;
   block-size: 25rem;
   display: flex;
   flex-flow: column nowrap;
   row-gap: var(--gap-12, .75rem);
+  margin-inline-start: var(--margin-40, 2.5rem);
+  margin-block-end: vaR(--margin-40, 2.5rem);
   background-color: var(--gray-background, #181818);
 
   .textContents {
@@ -162,10 +162,10 @@
     block-size: 8.5625rem;
     
   p {
+    color: var(--primary-light, #F5FFF8);
     margin-block-start: var(--margin-4, .25rem);
     font-size: var(--font-size-14, .875rem);
     font-weight: 200;
-    color: var(--primary-light, #F5FFF8);
   }
 
   .cardTextContentsTitle {
