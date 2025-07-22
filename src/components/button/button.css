@@ -16,7 +16,7 @@ body {
   .githubLabel {
     margin-inline-end: 0.25rem;
     writing-mode: vertical-rl;
-    font-size: var(--font-size-20);
+    font-size: var(--font-size-20, 1.25rem);
     transform: rotate(180deg);
   }
 }
@@ -56,11 +56,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-10);
+  gap: var(--gap-10, 0.625rem);
 
   .authorName {
     color: var(--primary-light, #f5fff8);
-    font-size: var(--font-size-16);
+    font-size: var(--font-size-16, 1rem);
   }
 
   &:hover {
