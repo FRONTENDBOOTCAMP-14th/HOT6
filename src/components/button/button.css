@@ -1,0 +1,71 @@
+/* 색상을 잘 보기 위한 배경 (지워야함) */
+body {
+  background: var(--gray-background);
+}
+
+/* 깃허브 버튼 */
+.githubButton {
+  color: var(--primary-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  text-decoration: none;
+
+  .githubLabel {
+    font-size: var(--font-size-20);
+    margin-inline-end: 0.25rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+}
+
+/* 좋아요 버튼 */
+.favoriteButton {
+  background: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3.125rem;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  .favoriteIcon {
+    fill: var(--gray-dark);
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:hover {
+    background: var(--gray-200);
+  }
+}
+
+/* JS에서 사용할 상태 클래스 추가 */
+.isClicked {
+  background: var(--favorite-color);
+  .favoriteIcon {
+    fill: var(--primary-light);
+  }
+}
+
+/* 작가 버튼 */
+.authorButton {
+  gap: var(--gap-10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .authorName {
+    font-size: var(--font-size-16);
+    color: var(--primary-light);
+  }
+
+  &:hover {
+    .authorName {
+      color: var(--primary-500);
+    }
+  }
+}
