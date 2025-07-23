@@ -17,7 +17,7 @@
   </head>
   <body>
     <!-- 좋아요 버튼 비활성화 -->
-    <button class="favoriteButton" type="button">
+    <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제" aria-hidden="true">
       <svg
         class="favoriteIcon"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,12 @@
     </button>
 
     <!-- 좋아요 버튼 활성화 -->
-    <button class="favoriteButton isClicked" type="button">
+    <button
+      class="favoriteButton isClicked"
+      type="button"
+      aria-label="즐겨찾기 추가/삭제"
+      aria-hidden="true"
+    >
       <svg
         class="favoriteIcon"
         xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +80,7 @@
     <!-- 프로필 버튼 -->
     <!-- sr 사용자를 위한 aria-label 사용 -->
     <!-- MOBILE -->
-    <button type="button" aria-label="내 프로필">
+    <button class="profileButton" type="button" aria-label="내 프로필">
       <img
         src="../../assets/images/others/login_profile_webp.webp"
         srcset="
@@ -89,7 +94,7 @@
     </button>
 
     <!-- PC -->
-    <button type="button" aria-label="내 프로필">
+    <button class="profileButton" type="button" aria-label="내 프로필">
       <img
         src="../../assets/images/others/login_profile_webp.webp"
         srcset="
@@ -126,7 +131,7 @@
     <!-- 로고 -->
     <!-- SEO 챙겨야해서 h1 사용 -->
     <!-- MOBILE -->
-    <h1>
+    <h1 class="mainLogo">
       <a href="/">
         <img
           src="/public/logos/logo_wide.png"
@@ -139,7 +144,7 @@
     </h1>
 
     <!-- PC -->
-    <h1>
+    <h1 class="mainLogo">
       <a href="/">
         <img
           src="/public/logos/logo_wide.png"
