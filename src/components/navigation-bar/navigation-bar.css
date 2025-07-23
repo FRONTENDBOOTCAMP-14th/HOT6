@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: center;
     gap: var(--gap);
-    padding-block: .625rem;
+    padding-block: var(--padding-10, 0.625rem);
     background: var(--dark, #131313);
 
     color: var(--primary-light, #f5fff8);
@@ -24,8 +24,8 @@
     @media (width >= 700px) {
       flex-direction: column;
       justify-content: start;
-      padding-block-start: 1rem;
-      padding-inline-start: 1rem;
+      padding-block-start: var(--padding-16, 1rem);
+      padding-inline-start: var(--padding-16, 1rem);
       block-size: 100vh;
       inline-size: 12.5rem;
 
