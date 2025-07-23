@@ -1,8 +1,11 @@
-@layer base, theme, modern-reset, normalize, a11y, animation;
+@layer base, theme, modern-reset, normalize, a11y, animation, components;
 
-@import "./assets/styles/common/base.css" layer(base);
-@import "./assets/styles/common/theme.css" layer(theme);
-@import "./assets/styles/common/modern-reset.css" layer(modern-reset);
-@import "./assets/styles/common/normalize.css" layer(normalize);
-@import "./assets/styles/common/a11y.css" layer(a11y);
-@import "./assets/styles/common/animation.css" layer(animation);
+@import './assets/styles/common/base.css' layer(base);
+@import './assets/styles/common/theme.css' layer(theme);
+@import './assets/styles/common/modern-reset.css' layer(modern-reset);
+@import './assets/styles/common/normalize.css' layer(normalize);
+@import './assets/styles/common/a11y.css' layer(a11y);
+@import './assets/styles/common/animation.css' layer(animation);
+
+/* searchbar 컴포넌트 url */
+@import './components/searchbar/searchbar.css' layer(components);
