@@ -4,7 +4,7 @@
 .searchBar {
   display: flex;
   padding-inline: var(--padding-20, 1.25rem);
-  padding-block-start: var(--padding-16, 0.875rem);
+  padding-block-start: var(--padding-16, 1rem);
 }
 
 /* form 전체 */
@@ -14,7 +14,7 @@
   inline-size: 100%;
   min-inline-size: 0;
   overflow: hidden;
-  background-color: var(--light);
+  background-color: var(--primary-light, #f5fff8);
   border: none;
   border-radius: var(--radius-8, 0.5rem);
   box-shadow: none;
@@ -27,10 +27,10 @@
   min-inline-size: 0;
   padding-inline: var(--padding-14, 0.875rem);
   padding-block: var(--padding-10, 0.625rem);
-  background-color: var(--light);
+  background-color: var(--primary-light, #f5fff8);
   border: none;
   outline: none;
-  color: var(--dark);
+  color: var(--primary-dark, #011907);
   font-size: var(--font-size-16, 1rem);
 }
 
@@ -62,8 +62,8 @@
 
 /* 브라우저 자동입력 스타일 제거 */
 #searchInput:-webkit-autofill {
-  box-shadow: 0 0 0 62.5rem var(--light) inset !important;
-  -webkit-text-fill-color: var(--dark) !important;
+  box-shadow: 0 0 0 62.5rem var(--primary-light, #f5fff8) inset !important;
+  -webkit-text-fill-color: var(--primary-dark, #011907) !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
