@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: center;
     gap: var(--gap);
+    padding-block: .625rem;
 
     color: var(--primary-light, #f5fff8);
     font-family: 'Pretendard Variable';
@@ -21,6 +22,8 @@
 
     @media (width >= 700px) {
       flex-direction: column;
+      padding-block-start: 1rem;
+      padding-inline-start: 1rem;
 
       font-size: var(--font-size-20, 1.25rem);
 
