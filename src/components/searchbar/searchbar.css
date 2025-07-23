@@ -3,7 +3,7 @@
 /* wrapper */
 .searchBar {
   display: flex;
-  padding-inline: var(--padding-20, 1.25rem);
+  /* padding-inline: var(--padding-20, 1.25rem); */
   padding-block-start: var(--padding-16, 1rem);
 }
 
@@ -71,6 +71,6 @@
 @media (min-width: 43.75rem) {
   .searchBar {
     inline-size: 27.5rem;
-    padding-block-start: var(--padding-34, 2.125rem);
+    /* padding-block-start: var(--padding-34, 2.125rem); */
   }
 }
