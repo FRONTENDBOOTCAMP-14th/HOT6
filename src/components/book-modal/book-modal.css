@@ -22,7 +22,7 @@
     .closeModal {
       position: absolute;
       inset: 1rem 1rem auto auto;
-      color: var(--primary-light);
+      color: var(--primary-light, #f5fff8);
       font-size: var(--font-size-32, 2rem);
     }
 
