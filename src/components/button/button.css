@@ -1,0 +1,71 @@
+/* 색상을 잘 보기 위한 배경 (지워야함) */
+body {
+  background: var(--gray-background);
+}
+
+/* 깃허브 버튼 */
+.githubButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.5rem;
+  text-decoration: none;
+  color: var(--primary-light, #f5fff8);
+
+  .githubLabel {
+    margin-inline-end: 0.25rem;
+    writing-mode: vertical-rl;
+    font-size: var(--font-size-20, 1.25rem);
+    transform: rotate(180deg);
+  }
+}
+
+/* 좋아요 버튼 */
+.favoriteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border-radius: 3.125rem;
+  background: var(--primary-light, #f5fff8);
+
+  .favoriteIcon {
+    inline-size: 1rem;
+    block-size: 1rem;
+    fill: var(--dark, #131313);
+  }
+
+  &:hover {
+    background: var(--gray-200, #dedede);
+  }
+}
+
+/* JS에서 사용할 상태 클래스 추가 */
+.isClicked {
+  background: var(--favorite-color, #ff3c3c);
+  .favoriteIcon {
+    fill: var(--primary-light, #f5fff8);
+  }
+}
+
+/* 작가 버튼 */
+.authorButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-10, 0.625rem);
+
+  .authorName {
+    color: var(--primary-light, #f5fff8);
+    font-size: var(--font-size-16, 1rem);
+  }
+
+  &:hover {
+    .authorName {
+      color: var(--primary-500, #1ffa5d);
+    }
+  }
+}
