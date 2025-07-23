@@ -1,7 +1,3 @@
-/* 색상을 잘 보기 위한 배경 (지워야함) */
-body {
-  background: var(--gray-background);
-}
 
 /* 깃허브 버튼 */
 .githubButton {
