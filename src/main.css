@@ -12,3 +12,12 @@
 
 /* card컴포넌트 url */
 @import './components/card/card.css' layer(components);
+
+/* profile-card컴포넌트 url */
+@import './components/profile-card/profile-card.css' layer(components);
+
+/* button컴포넌트 url */
+@import './components/button/button.css' layer(components);
+
+/* navigation-bar컴포넌트 url */
+@import './components/navigation-bar/navigation-bar.css' layer(components);
