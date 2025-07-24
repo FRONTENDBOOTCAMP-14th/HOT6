@@ -32,3 +32,6 @@
 
 /* home 페이지 url */
 @import './pages/home/home.css' layer(pages);
+
+/* favorites 페이지 url */
+@import './pages/favorites/favorites.css' layer(pages);
