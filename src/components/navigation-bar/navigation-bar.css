@@ -1,6 +1,8 @@
 .navigationBar {
   --gap: var(--gap-10, 0.625rem);
 
+  min-inline-size: 20rem;
+
   .navigationList {
     display: flex;
     flex-direction: row;
@@ -20,13 +22,15 @@
       color: var(--primary-700, #04b135);
       font-weight: 600;
     }
-
-    @media (width >= 700px) {
+  }
+  @media (width >= 700px) {
+    min-inline-size: 12.5rem;
+    .navigationList {
       flex-direction: column;
       justify-content: start;
       padding-block-start: var(--padding-16, 1rem);
       padding-inline-start: var(--padding-16, 1rem);
-      block-size: 100vh;
+      block-size: 100%;
       inline-size: 12.5rem;
 
       font-size: var(--font-size-20, 1.25rem);
