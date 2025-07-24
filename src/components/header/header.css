@@ -3,7 +3,7 @@
   min-inline-size: 20rem;
   padding-block-start: 0.9375rem;
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: var(--padding-20, 1.25rem);
   background-color: var(--dark, #131313);
 
   .profileButton {
