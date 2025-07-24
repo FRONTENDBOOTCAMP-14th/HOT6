@@ -68,7 +68,7 @@
 }
 
 /* 검색 바 - PC */
-@media (min-width: 43.75rem) {
+@media (min-width: 700px) {
   .searchBar {
     inline-size: 27.5rem;
     /* padding-block-start: var(--padding-34, 2.125rem); */

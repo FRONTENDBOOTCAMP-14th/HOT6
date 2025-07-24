@@ -24,7 +24,7 @@
   font-style: normal;
   line-height: 1.3125rem;
 
-  @media (width >= 700px) {
+  @media (min-width: 700px) {
     inline-size: 100%;
     max-inline-size: 21.875rem;
   }
@@ -57,7 +57,7 @@
         font-weight: 400;
         white-space: nowrap;
 
-        @media (width >= 700px) {
+        @media (min-width: 700px) {
           display: inline;
         }
       }
