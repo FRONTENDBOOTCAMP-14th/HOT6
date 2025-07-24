@@ -76,7 +76,7 @@
   }
 }
 
-@media (width >= 700px) {
+@media (min-width: 700px) {
   .modal {
     .modalContent.bookModal {
       display: flex;

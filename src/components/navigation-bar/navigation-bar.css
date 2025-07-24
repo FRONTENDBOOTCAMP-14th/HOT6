@@ -23,7 +23,7 @@
       font-weight: 600;
     }
   }
-  @media (width >= 700px) {
+  @media (min-width: 700px) {
     min-inline-size: 12.5rem;
     .navigationList {
       flex-direction: column;

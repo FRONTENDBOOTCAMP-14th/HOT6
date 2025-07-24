@@ -35,7 +35,7 @@
   max-inline-size: 47.5rem;
 }
 
-@media (width >= 700px) {
+@media (min-width: 700px) {
   .pageBody {
     display: flex;
   }
