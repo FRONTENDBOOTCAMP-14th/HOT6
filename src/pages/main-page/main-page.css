@@ -1,0 +1,34 @@
+body {
+  background-color: var(--gray-background, #181818);
+}
+
+main {
+  max-inline-size: 80rem;
+}
+
+.bookListWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  min-inline-size: 20rem;
+  max-inline-size: 80rem;
+  margin: 0 auto;
+  padding-inline: var(--padding-28, 1.75rem);
+  padding-block-start: var(--padding-20, 1.25rem);
+  row-gap: var(--gap-20, 1.25rem);
+  column-gap: var(--gap-30, 1.875rem);
+}
+
+@media (min-width: 700px) {
+  .cardImageContents img {
+    display: block;
+    inline-size: 12.3125rem;
+    block-size: 14.875rem;
+  }
+}
+
+@media (min-width: 700px) {
+  main {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}

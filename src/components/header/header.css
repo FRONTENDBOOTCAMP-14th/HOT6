@@ -1,7 +1,9 @@
 .aboutPageHeader {
   position: relative;
+  min-inline-size: 20rem;
   padding-block-start: 0.9375rem;
-  padding-inline: 1.25rem;
+  margin-inline: auto;
+  padding-inline: var(--padding-20, 1.25rem);
   background-color: var(--dark, #131313);
 
   .profileButton {
@@ -12,6 +14,7 @@
 
   @media (width >= 700px) {
     display: flex;
+    max-inline-size: 80rem;
     justify-content: space-between;
     align-content: center;
 
