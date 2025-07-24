@@ -4,6 +4,7 @@ body {
 
 main {
   max-inline-size: 80rem;
+  margin: auto;
 }
 
 .bookListWrapper {
