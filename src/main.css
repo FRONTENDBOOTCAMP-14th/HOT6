@@ -29,3 +29,6 @@
 
 /* main 페이지 url */
 @import './pages/main-page/main-page.css' layer(pages);
+
+/* authors 페이지 url */
+@import './pages/author/author.css' layer(pages);
