@@ -33,3 +33,65 @@ main {
     flex-flow: row nowrap;
   }
 }
+
+/* PC 버전 */
+/* form 전체 */
+.searchBarPC form {
+  display: none;
+  display: flex;
+  inline-size: 27.5rem;
+  margin: 0 auto;
+  align-items: center;
+  min-inline-size: 0;
+  margin-block-start: var(--margin-34, 2.125rem);
+  margin-block-end: 7.375rem;
+  overflow: hidden;
+  background-color: var(--primary-light, #f5fff8);
+  border: none;
+  border-radius: var(--radius-8, 0.5rem);
+  box-shadow: none;
+}
+
+.mainPagePC {
+  display: none;
+}
+
+.mainPageLogoPC {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (min-width: 700px) {
+  .searchBar form {
+    display: none;
+  }
+
+  .bookListWrapper {
+    display: none;
+  }
+
+  .bookListWrapperPC {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    column-gap: var(--gap-16, 1rem);
+    margin-block-end: 3.25rem;
+    padding-inline: var(--padding-14, 0.875rem);
+  }
+  .cardImageContents {
+    margin-block: var(--margin-30, 1.875rem);
+
+    &:nth-child(even) {
+      transform: translateY(4rem);
+    }
+    &:nth-child(odd) {
+      transform: translateY(0.625rem);
+    }
+  }
+
+  .mainPagePC {
+    display: block;
+  }
+}
