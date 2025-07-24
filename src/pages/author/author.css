@@ -13,19 +13,19 @@ main {
 .authorCard h2 {
   margin-block: var(--margin-32, 2rem);
   text-align: center;
-  color: var(--Primary-300, #82fca5);
+  color: var(--primary-300, #82fca5);
   font-family: 'Pretendard Variable';
   font-size: var(--font-size-24, 1.5rem);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.8125rem;
 }
 
 .authorCardImage {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(clamp(6.25rem, 30vw, 9.375rem), 1fr));
   justify-items: center;
-  gap: 2rem;
+  gap: var(--gap-32, 2rem);
 }
 
 .authorCardImage article {
@@ -44,19 +44,19 @@ main {
 }
 
 .authorCardImage h3 {
-  margin-block: 1rem;
-  color: var(--Primary-light, #f5fff8);
+  margin-block: var(--margin-16, 1rem);
+  color: var(--primary-light, #f5fff8);
   font-family: 'Pretendard Variable';
   font-size: var(--font-size-16, 1rem);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.1875rem;
 }
 
 @media (min-width: 700px) {
   .authorCardImage {
     grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
+    gap: var(--gap-16, 1rem);
   }
 
   .authorCard h2 {
