@@ -23,11 +23,11 @@ main {
     }
 
     .cardTextContentsTitle {
-      font-size: var(--font-size-20, 1.25rem);
-      font-weight: 400;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      font-size: var(--font-size-20, 1.25rem);
+      font-weight: 400;
     }
 
     .divider {
@@ -54,9 +54,9 @@ main {
 
 @media (min-width: 700px) {
   .cardComponent {
+    flex-flow: column nowrap;
     inline-size: 12.3125rem;
     block-size: 25rem;
-    flex-flow: column nowrap;
     row-gap: var(--gap-12, 0.75rem);
 
     img {
