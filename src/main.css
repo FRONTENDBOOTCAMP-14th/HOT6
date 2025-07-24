@@ -29,3 +29,6 @@
 
 /* main 페이지 url */
 @import './pages/main-page/main-page.css' layer(pages);
+
+/* favorites 페이지 url */
+@import './pages/favorites/favorites.css' layer(pages);
