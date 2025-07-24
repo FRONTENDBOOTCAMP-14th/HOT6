@@ -7,8 +7,9 @@
   /* Box property */
   padding-inline: 1.875rem;
   padding-block: 2.6875rem 1.25rem;
-  inline-size: 16.875rem;
-  block-size: 17.8125rem;
+  inline-size: clamp(16.875rem, calc(100% - 3.125rem), 20rem);
+  /* inline-size: 16.875rem; */
+  block-size: auto;
   border-radius: 30px;
   box-shadow:
     0.125rem 0.125rem 0.375rem 0rem var(--about-shadow-gray, #ffffff40) inset,
@@ -24,12 +25,15 @@
   line-height: 1.3125rem;
 
   @media (width >= 700px) {
-    inline-size: 21.875rem;
+
+    inline-size: 100%;
+    max-inline-size: 21.875rem;
   }
 
   .profileCardInfoBox {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 0.3125rem;
 
     .profileCardGithub {
@@ -50,6 +54,10 @@
         font-size: var(--font-size-20);
         margin-inline-end: 0.25rem;
       }
+    }
+
+    .profileCardImage {
+      min-inline-size: 6.25rem;
     }
 
     .profileCardAbout {
@@ -78,10 +86,10 @@
   }
 
   .profileCardComment {
-    inline-size: 13.125rem;
+    inline-size: 100%;
 
-    @media (width >= 700px) {
-      inline-size: 18.125rem;
-    }
+    /* @media (width >= 700px) {
+      inline-size: 100%;
+    } */
   }
 }
