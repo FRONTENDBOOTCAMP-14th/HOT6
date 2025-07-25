@@ -1,0 +1,154 @@
+.landingWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .landingLeft,
+  .landingRight {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100vh;
+  }
+
+  .landingLeft {
+    display: none;
+    background: var(--primary-light, #f5fff8);
+
+    .bookmark {
+      position: absolute;
+      inset: 0 2.25rem auto auto;
+      inline-size: 2.5rem;
+    }
+
+    .authorComment,
+    .authorName {
+      display: block;
+      max-inline-size: 100%;
+      margin: 3.125rem auto var(--margin-16, 1rem);
+    }
+  }
+
+  .landingRight {
+    padding-block-start: 40%;
+
+    .landingBg {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+
+      img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .hotSixs,
+    .meet {
+      display: block;
+      margin: 0 auto var(--margin-16, 1rem);
+    }
+
+    .hotSixs {
+      inline-size: 50%;
+      margin-block-end: -2.5rem;
+    }
+
+    .hotbooksLogo {
+      display: inline;
+      inline-size: 70%;
+      margin-inline-start: var(--margin-20, 1.25rem);
+    }
+
+    .s {
+      display: inline;
+      inline-size: 20%;
+      margin-block-start: 3.75rem;
+    }
+
+    .meet {
+      inline-size: 50%;
+    }
+    .goHotbooksWrapper {
+      display: flex;
+      justify-content: flex-end;
+
+      .goHotbooks {
+        margin-block-start: -2rem;
+
+        :hover {
+          scale: 1.1;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .landingWrapper {
+    flex-direction: row;
+
+    .landingLeft {
+      display: block;
+      max-inline-size: 50%;
+
+      .authorComment {
+        inline-size: 50%;
+      }
+      .authorName {
+        inline-size: 50%;
+      }
+    }
+
+    .landingRight {
+      inline-size: 50%;
+      padding-block-start: 10%;
+
+      .hotSixs {
+        max-inline-size: 19.375rem;
+        margin-block-start: var(--margin-20, 1.25rem);
+        transform: translateX(1.875rem);
+      }
+
+      .logoAndS {
+        display: flex;
+        justify-content: center;
+      }
+
+      .hotbooksLogo {
+        max-inline-size: 25rem;
+      }
+
+      .s {
+        max-inline-size: 6.25rem;
+      }
+
+      .meet {
+        max-inline-size: 20rem;
+        margin-block-start: var(--margin-20, 1.25rem);
+      }
+    }
+  }
+}
+
+/* 애니메이션 */
+@keyframes shake {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+  }
+  50% {
+    transform: rotateZ(5deg);
+  }
+  75% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.landingRight .hotbooksLogo {
+  animation: shake 1s ease-out forwards;
+}
