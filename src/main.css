@@ -9,16 +9,19 @@
 
 /* 각자 컴포넌트 url을 상대경로로 작성해주세요 */
 
-/* card컴포넌트 url */
+/* card 컴포넌트 url */
 @import './components/card/card.css' layer(components);
 
-/* profile-card컴포넌트 url */
+/* book-modal 컴포넌트 url */
+@import './components/book-modal/book-modal.css' layer(components);
+
+/* profile-card 컴포넌트 url */
 @import './components/profile-card/profile-card.css' layer(components);
 
-/* button컴포넌트 url */
+/* button 컴포넌트 url */
 @import './components/button/button.css' layer(components);
 
-/* navigation-bar컴포넌트 url */
+/* navigation-bar 컴포넌트 url */
 @import './components/navigation-bar/navigation-bar.css' layer(components);
 
 /* searchbar 컴포넌트 url */
@@ -29,6 +32,12 @@
 
 /* go-to-top button 컴포넌트 url */
 @import './components/go-to-top/go-to-top.css' layer(components);
+
+/* footer 컴포넌트 url */
+@import './components/footer/footer.css' layer(components);
+
+/* landing 페이지 url */
+@import './pages/landing/landing-page.css' layer(pages);
 
 /* main 페이지 url */
 @import './pages/main-page/main-page.css' layer(pages);
@@ -41,3 +50,10 @@
 
 /* authors 페이지 url */
 @import './pages/author/author.css' layer(pages);
+
+/* about 페이지 url */
+@import './pages/about/about-page.css' layer(pages);
+
+body {
+  background-color: var(--gray-background, #181818);
+}
