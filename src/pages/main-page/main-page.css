@@ -6,6 +6,22 @@
     margin: auto;
   }
 
+  .searchBarMainMobile {
+    padding-block-start: var(--padding-16, 1rem);
+  }
+
+  .searchBarMainMobile form {
+    display: flex;
+    align-items: center;
+    inline-size: 100%;
+    min-inline-size: 0;
+    overflow: hidden;
+    background-color: var(--primary-light, #f5fff8);
+    border: none;
+    border-radius: var(--radius-8, 0.5rem);
+    box-shadow: none;
+  }
+
   .bookListWrapperMobile {
     display: flex;
     flex-flow: row wrap;
@@ -23,18 +39,6 @@
       display: block;
       inline-size: 12.3125rem;
       block-size: 14.875rem;
-    }
-
-    .searchBarMainMobile form {
-      display: flex;
-      align-items: center;
-      inline-size: 100%;
-      min-inline-size: 0;
-      overflow: hidden;
-      background-color: var(--primary-light, #f5fff8);
-      border: none;
-      border-radius: var(--radius-8, 0.5rem);
-      box-shadow: none;
     }
 
     .bookListWrapperMobile {
