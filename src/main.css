@@ -27,6 +27,9 @@
 /* header 컴포넌트 url */
 @import './components/header/header.css' layer(components);
 
+/* go-to-top button 컴포넌트 url */
+@import './components/go-to-top/go-to-top.css' layer(components);
+
 /* main 페이지 url */
 @import './pages/main-page/main-page.css' layer(pages);
 

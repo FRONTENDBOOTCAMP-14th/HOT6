@@ -1,0 +1,44 @@
+.goToTopButton {
+  position: fixed;
+  inset-inline: 0;
+  inset-block-end: 2rem;
+  place-items: center;
+  z-index: 99;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  margin-inline: auto;
+  background: var(--primary-800, #037d25);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.goToTopButton:hover {
+  transform: translateY(-0.25rem);
+}
+
+.goToTopButton svg {
+  transform: translateY(0.25rem);
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+}
+
+@media (min-width: 700px) {
+  main {
+    position: relative;
+  }
+
+  .goToTopButton {
+    position: absolute;
+    inset-inline-end: 2rem;
+    inset-block-end: 2rem;
+    inset-inline-start: auto;
+    inline-size: 3rem;
+    block-size: 3rem;
+    margin-inline: unset;
+  }
+
+  .goToTopButton svg {
+    inline-size: 2rem;
+    block-size: 2rem;
+  }
+}
