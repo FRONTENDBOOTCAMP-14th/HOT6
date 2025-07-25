@@ -23,7 +23,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding-inline: 0.75rem;
+    padding-inline: var(--padding-12, 0.75rem);
     line-height: 1.3;
 
     .footerLink {
