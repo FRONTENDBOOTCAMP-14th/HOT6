@@ -1,0 +1,65 @@
+main {
+  max-inline-size: 80rem;
+  min-inline-size: 20rem;
+  margin-inline: auto;
+}
+
+.authorCard {
+  padding-block: var(--padding-32, 2rem);
+  padding-inline: var(--padding-16, 1rem);
+  background: var(--gray-background, #181818);
+}
+
+.authorCard h2 {
+  margin-block: var(--margin-32, 2rem);
+  text-align: center;
+  color: var(--primary-300, #82fca5);
+  font-family: 'Pretendard Variable';
+  font-size: var(--font-size-24, 1.5rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8125rem;
+}
+
+.authorCardImage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(6.25rem, 30vw, 9.375rem), 1fr));
+  justify-items: center;
+  gap: var(--gap-32, 2rem);
+}
+
+.authorCardImage article {
+  text-align: center;
+}
+
+.authorCardImage img {
+  display: block;
+  margin-inline: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.authorCardImage a:hover img {
+  transform: scale(1.05);
+}
+
+.authorCardImage h3 {
+  margin-block: var(--margin-16, 1rem);
+  color: var(--primary-light, #f5fff8);
+  font-family: 'Pretendard Variable';
+  font-size: var(--font-size-16, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1875rem;
+}
+
+@media (min-width: 700px) {
+  .authorCardImage {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--gap-16, 1rem);
+  }
+
+  .authorCard h2 {
+    text-align: start;
+  }
+}
