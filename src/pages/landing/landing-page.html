@@ -16,8 +16,9 @@
     <script type="module" src=""></script>
   </head>
   <body>
-    <main class="landingWrapper">
+    <div class="landingWrapper" role="main">
       <section class="landingLeft">
+        <h2 class="sr-only">작가의 말 페이지</h2>
         <img src="../../assets/images/landing/author_s.png" alt="작가의 말" class="authorComment" />
         <img
           src="../../assets/images/landing/team_name.png"
@@ -38,20 +39,39 @@
         </div>
         <h1 class="sr-only">핫식스의 핫북스를 만나보세요</h1>
 
-        <img src="../../assets/images/landing/hot6_s.png" alt="" class="hotSixs" />
+        <img
+          src="../../assets/images/landing/hot6_s.png"
+          alt="핫식스의"
+          class="hotSixs"
+          aria-hidden="true"
+        />
         <div class="logoAndS">
-          <img src="../../assets/images/landing/hotbooks.png" alt="" class="hotbooksLogo" />
-          <img src="../../assets/images/landing/_fmf.png" alt="" class="s" />
+          <img
+            src="../../assets/images/landing/hotbooks.png"
+            alt="핫북스"
+            class="hotbooksLogo"
+            aria-hidden="true"
+          />
+          <img src="../../assets/images/landing/_fmf.png" alt="를" class="s" aria-hidden="true" />
         </div>
-        <img src="../../assets/images/landing/meet.png" alt="" class="meet" />
+        <img
+          src="../../assets/images/landing/meet.png"
+          alt="만나보세요"
+          class="meet"
+          aria-hidden="true"
+        />
 
         <div class="goHotbooksWrapper">
           <a href="../main/main.html" class="goHotbooks">
             <span class="sr-only">핫북스 바로가기 버튼</span>
-            <img src="../../assets/images/landing/DH_button.svg" alt="" />
+            <img
+              src="../../assets/images/landing/DH_button.svg"
+              alt="핫북스 바로가기"
+              aria-hidden="true"
+            />
           </a>
         </div>
       </section>
-    </main>
+    </div>
   </body>
 </html>
