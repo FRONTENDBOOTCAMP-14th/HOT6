@@ -15,332 +15,37 @@
     <script type="module" src="/"></script>
   </head>
   <body>
-    <header class="aboutPageHeader">
-      <!-- Logo - togo Home -->
-      <h1 class="mainLogo">
-        <a href="/">
-          <img
-            src="/public/logos/logo_wide.png"
-            srcset="/public/logos/logo_wide.png 1x, /public/logos/logo_wide_2x.png 2x"
-            width="90"
-            height="36"
-            alt="HOT BOOKS - 홈으로 이동"
-          />
-        </a>
-      </h1>
-
-      <!-- profile button -->
-      <button class="profileButton" type="button" aria-label="내 프로필">
-        <img
-          src="../../assets/images/others/login_profile_webp.webp"
-          srcset="
-            ../../assets/images/others/login_profile_webp.webp    1x,
-            ../../assets/images/others/login_profile_webp_2x.webp 2x
-          "
-          width="24"
-          height="24"
-          alt="프로필"
-        />
-      </button>
-
-      <!-- search bar -->
-      <div class="searchBar">
-        <form action="" method="GET" role="search">
-          <label for="searchInput" class="sr-only">도서 검색</label>
-          <input
-            type="search"
-            id="searchInput"
-            name="keyword"
-            placeholder="도서명/저자를 입력해주세요"
-          />
-          <button class="searchButton" type="submit" aria-label="도서 검색">
-            <img src="../../assets/images/icons/icon_search.svg" alt="" />
-          </button>
-        </form>
-      </div>
-    </header>
-    <main>
-      <!-- 내비게이션 영역 -->
-      <nav class="navigationBar">
-        <ul class="navigationList">
-          <li class="navigationItem navigationHome isSelected"><a href="#">HOME</a></li>
-          <li class="navigationItem navigationFavorites"><a href="#">FAVORITES(0)</a></li>
-          <li class="navigationItem navigationAuthors"><a href="#">AUTHORS</a></li>
-          <li class="navigationItem navigationAbout"><a href="#">ABOUT</a></li>
-        </ul>
-      </nav>
-      <!-- 메인페이지 도서 목록영역 -->
-      <section class="bookListWrapper">
-        <h2 class="sr-only">도서목록(모바일버전)</h2>
-        <!-- 각 div 요소 안에 도서표지 사진은 추후 api를 이용해서 들어오게 할 예정-->
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-        <div class="cardImageContents">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-        </div>
-      </section>
-      <!-- PC 버전시 보이는 메인화면 -->
-      <section class="mainPagePC">
-        <h2 class="sr-only">도서목록(PC버전)</h2>
-        <div class="mainPageLogoPC">
-          <a href="/">
+    <div class="mainPageContainer">
+      <header class="aboutPageHeader">
+        <!-- Logo - togo Home -->
+        <h1 class="mainLogo">
+          <a href="../main-page/main-page.html">
             <img
               src="/public/logos/logo_wide.png"
               srcset="/public/logos/logo_wide.png 1x, /public/logos/logo_wide_2x.png 2x"
-              width="390"
-              height="158"
+              width="90"
+              height="36"
               alt="HOT BOOKS - 홈으로 이동"
             />
           </a>
-        </div>
-        <div class="searchBarPC">
+        </h1>
+
+        <!-- profile button -->
+        <button class="profileButton" type="button" aria-label="내 프로필">
+          <img
+            src="../../assets/images/others/login_profile_webp.webp"
+            srcset="
+              ../../assets/images/others/login_profile_webp.webp    1x,
+              ../../assets/images/others/login_profile_webp_2x.webp 2x
+            "
+            width="24"
+            height="24"
+            alt="프로필"
+          />
+        </button>
+
+        <!-- search bar -->
+        <div class="searchBarMainMobile">
           <form action="" method="GET" role="search">
             <label for="searchInput" class="sr-only">도서 검색</label>
             <input
@@ -354,7 +59,29 @@
             </button>
           </form>
         </div>
-        <div class="bookListWrapperPC">
+      </header>
+      <main>
+        <!-- 내비게이션 영역 -->
+        <nav class="navigationBar">
+          <ul class="navigationList">
+            <li class="navigationItem navigationHome isSelected">
+              <a href="../home/home.html">HOME</a>
+            </li>
+            <li class="navigationItem navigationFavorites">
+              <a href="../favorites/favorites.html">FAVORITES(<span>320</span>) </a>
+            </li>
+            <li class="navigationItem navigationAuthors">
+              <a href="../author/author.html">AUTHORS</a>
+            </li>
+            <li class="navigationItem navigationAbout">
+              <a href="../about/about-page.html">ABOUT</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- 메인페이지 도서 목록영역 -->
+        <section class="bookListWrapperMobile">
+          <h2 class="sr-only">도서목록(모바일버전)</h2>
+          <!-- 각 div 요소 안에 도서표지 사진은 추후 api를 이용해서 들어오게 할 예정-->
           <div class="cardImageContents">
             <picture>
               <source
@@ -459,9 +186,340 @@
                 alt="도서"
               />
             </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+          <div class="cardImageContents">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+          </div>
+        </section>
+        <!-- PC 버전시 보이는 메인화면 -->
+        <section class="mainPagePC">
+          <h2 class="sr-only">도서목록(PC버전)</h2>
+          <div class="mainPageLogoPC">
+            <a href="../home/home.html">
+              <img
+                src="/public/logos/logo_wide.png"
+                srcset="/public/logos/logo_wide.png 1x, /public/logos/logo_wide_2x.png 2x"
+                width="390"
+                height="158"
+                alt="HOT BOOKS - 홈으로 이동"
+              />
+            </a>
+          </div>
+          <div class="searchBarMainPC">
+            <form action="" method="GET" role="search">
+              <label for="searchInput" class="sr-only">도서 검색</label>
+              <input
+                type="search"
+                id="searchInput"
+                name="keyword"
+                placeholder="도서명/저자를 입력해주세요"
+              />
+              <button class="searchButton" type="submit" aria-label="도서 검색">
+                <img src="../../assets/images/icons/icon_search.svg" alt="" />
+              </button>
+            </form>
+          </div>
+          <div class="bookListWrapperPC">
+            <div class="cardImageContents">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    ../../assets/images/others/book_example_webp.webp    1x,
+                    ../../assets/images/others/book_example_webp_2x.webp 2x
+                  "
+                />
+                <img
+                  src="../../assets/images/others/book-example.jpg"
+                  srcset="
+                    ../../assets/images/others/book-example.jpg    1x,
+                    ../../assets/images/others/book-example-2x.jpg 2x
+                  "
+                  width="117"
+                  height="137"
+                  alt="도서"
+                />
+              </picture>
+            </div>
+            <div class="cardImageContents">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    ../../assets/images/others/book_example_webp.webp    1x,
+                    ../../assets/images/others/book_example_webp_2x.webp 2x
+                  "
+                />
+                <img
+                  src="../../assets/images/others/book-example.jpg"
+                  srcset="
+                    ../../assets/images/others/book-example.jpg    1x,
+                    ../../assets/images/others/book-example-2x.jpg 2x
+                  "
+                  width="117"
+                  height="137"
+                  alt="도서"
+                />
+              </picture>
+            </div>
+            <div class="cardImageContents">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    ../../assets/images/others/book_example_webp.webp    1x,
+                    ../../assets/images/others/book_example_webp_2x.webp 2x
+                  "
+                />
+                <img
+                  src="../../assets/images/others/book-example.jpg"
+                  srcset="
+                    ../../assets/images/others/book-example.jpg    1x,
+                    ../../assets/images/others/book-example-2x.jpg 2x
+                  "
+                  width="117"
+                  height="137"
+                  alt="도서"
+                />
+              </picture>
+            </div>
+            <div class="cardImageContents">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    ../../assets/images/others/book_example_webp.webp    1x,
+                    ../../assets/images/others/book_example_webp_2x.webp 2x
+                  "
+                />
+                <img
+                  src="../../assets/images/others/book-example.jpg"
+                  srcset="
+                    ../../assets/images/others/book-example.jpg    1x,
+                    ../../assets/images/others/book-example-2x.jpg 2x
+                  "
+                  width="117"
+                  height="137"
+                  alt="도서"
+                />
+              </picture>
+            </div>
+            <div class="cardImageContents">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    ../../assets/images/others/book_example_webp.webp    1x,
+                    ../../assets/images/others/book_example_webp_2x.webp 2x
+                  "
+                />
+                <img
+                  src="../../assets/images/others/book-example.jpg"
+                  srcset="
+                    ../../assets/images/others/book-example.jpg    1x,
+                    ../../assets/images/others/book-example-2x.jpg 2x
+                  "
+                  width="117"
+                  height="137"
+                  alt="도서"
+                />
+              </picture>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footerContainer">
+        <!-- 로고 -->
+        <div class="footerLogo">
+          <img
+            src="./../../../public/logos/footer_logo.png"
+            alt="핫북스 로고"
+            width="280"
+            height="112"
+          />
+        </div>
+
+        <div class="footerContents">
+          <!-- 내비게이션 메뉴 -->
+
+          <nav aria-label="푸터 내비게이션">
+            <ul class="footerLinkList">
+              <li class="footerLink"><a href="./../../pages/home/home.html">Home</a></li>
+              <li class="footerLink">
+                <a href="./../../pages/favorites/favorites.html">Favorite</a>
+              </li>
+              <li class="footerLink"><a href="./../../pages/author/author.html">Authors</a></li>
+              <li class="footerLink"><a href="./../../pages/about/about-page.html">About</a></li>
+              <li class="footerLink">
+                <a href="mailto:dohy0709@naver.com" target="_blank" rel="noopener noreferrer"
+                  >FEEDBACK</a
+                >
+              </li>
+              <li class="footerLink">
+                <a
+                  href="https://company.lottechilsung.co.kr/kor/brand/hot6/contentsid/625/index.do"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >FAMILY SITE</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- 찾아오시는 길 -->
+          <address class="footerAddress">
+            <small>서울특별시 핫식스마시구 화이팅하길 핫북스타워 6층</small>
+          </address>
+
+          <!-- 저작권 -->
+          <div class="footerCopyright">
+            <small>&copy; <strong>HOT B66KS</strong> since 2025. All rights reserved.</small>
           </div>
         </div>
-      </section>
-    </main>
+      </footer>
+    </div>
   </body>
 </html>
