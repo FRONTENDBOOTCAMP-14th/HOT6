@@ -1,12 +1,16 @@
-main {
+.authorPageContainer {
   max-inline-size: 80rem;
   min-inline-size: 20rem;
   margin-inline: auto;
+
+  @media (min-width: 700px) {
+    display: flex;
+  }
 }
 
 .authorCard {
   padding-block: var(--padding-32, 2rem);
-  padding-inline: var(--padding-16, 1rem);
+  padding-inline: 3.5rem;
   background: var(--gray-background, #181818);
 }
 
