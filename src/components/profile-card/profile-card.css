@@ -66,5 +66,6 @@
 
   .profileCardComment {
     inline-size: 100%;
+    word-break: keep-all;
   }
 }
