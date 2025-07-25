@@ -1,7 +1,7 @@
 .goToTopButton {
   position: fixed;
   inset-inline: 0;
-  inset-block-end: 1.25rem;
+  inset-block-end: 2rem;
   place-items: center;
   z-index: 99;
   inline-size: 2.5rem;
