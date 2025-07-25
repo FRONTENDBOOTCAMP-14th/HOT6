@@ -3,9 +3,9 @@
   inset-inline: 0;
   inset-block-end: 1.25rem;
   place-items: center;
+  z-index: 99;
   inline-size: 2.5rem;
   block-size: 2.5rem;
-  z-index: 999;
   margin-inline: auto;
   background: var(--primary-800, #037d25);
   border-radius: 50%;
