@@ -2,7 +2,7 @@
 <html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
-    <title>Favorites 페이지 구현</title>
+    <title>Favorites</title>
     <meta name="description" content="핫북스의 Favorites 페이지 입니다." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -18,7 +18,7 @@
     <header class="aboutPageHeader">
       <!-- Logo - togo Home -->
       <h1 class="mainLogo">
-        <a href="/">
+        <a href="../main-page/main-page.html">
           <img
             src="/public/logos/logo_wide.png"
             srcset="/public/logos/logo_wide.png 1x, /public/logos/logo_wide_2x.png 2x"
@@ -63,10 +63,18 @@
       <!-- 내비게이션 영역 -->
       <nav class="navigationBar">
         <ul class="navigationList">
-          <li class="navigationItem navigationHome isSelected"><a href="#">HOME</a></li>
-          <li class="navigationItem navigationFavorites"><a href="#">FAVORITES(0)</a></li>
-          <li class="navigationItem navigationAuthors"><a href="#">AUTHORS</a></li>
-          <li class="navigationItem navigationAbout"><a href="#">ABOUT</a></li>
+          <li class="navigationItem navigationHome isSelected">
+            <a href="../home/home.html">HOME</a>
+          </li>
+          <li class="navigationItem navigationFavorites">
+            <a href="../favorites/favorites.html">FAVORITES(<span>100</span>) </a>
+          </li>
+          <li class="navigationItem navigationAuthors">
+            <a href="../author/author.html">AUTHORS</a>
+          </li>
+          <li class="navigationItem navigationAbout">
+            <a href="../about/about-page.html">ABOUT</a>
+          </li>
         </ul>
       </nav>
       <!-- 메인페이지 도서 목록영역 -->
@@ -380,5 +388,53 @@
         </div>
       </section>
     </main>
+    <footer class="footerContainer">
+      <!-- 로고 -->
+      <div class="footerLogo">
+        <img
+          src="./../../../public/logos/footer_logo.png"
+          alt="핫북스 로고"
+          width="280"
+          height="112"
+        />
+      </div>
+
+      <div class="footerContents">
+        <!-- 내비게이션 메뉴 -->
+
+        <nav aria-label="푸터 내비게이션">
+          <ul class="footerLinkList">
+            <li class="footerLink"><a href="./../../pages/home/home.html">Home</a></li>
+            <li class="footerLink">
+              <a href="./../../pages/favorites/favorites.html">Favorite</a>
+            </li>
+            <li class="footerLink"><a href="./../../pages/author/author.html">Authors</a></li>
+            <li class="footerLink"><a href="./../../pages/about/about-page.html">About</a></li>
+            <li class="footerLink">
+              <a href="mailto:dohy0709@naver.com" target="_blank" rel="noopener noreferrer"
+                >FEEDBACK</a
+              >
+            </li>
+            <li class="footerLink">
+              <a
+                href="https://company.lottechilsung.co.kr/kor/brand/hot6/contentsid/625/index.do"
+                target="_blank"
+                rel="noopener noreferrer"
+                >FAMILY SITE</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <!-- 찾아오시는 길 -->
+        <address class="footerAddress">
+          <small>서울특별시 핫식스마시구 화이팅하길 핫북스타워 6층</small>
+        </address>
+
+        <!-- 저작권 -->
+        <div class="footerCopyright">
+          <small>&copy; <strong>HOT B66KS</strong> since 2025. All rights reserved.</small>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
