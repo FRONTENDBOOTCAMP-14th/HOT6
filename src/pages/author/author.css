@@ -5,6 +5,10 @@
 
   @media (min-width: 700px) {
     display: flex;
+
+    .goToTopButton {
+      display: none;
+    }
   }
 }
 
