@@ -38,10 +38,9 @@ main {
 /* form 전체 */
 .searchBarPC form {
   display: none;
-  display: flex;
+  align-items: center;
   inline-size: 27.5rem;
   margin: 0 auto;
-  align-items: center;
   min-inline-size: 0;
   margin-block-start: var(--margin-34, 2.125rem);
   margin-block-end: 7.375rem;
@@ -59,13 +58,17 @@ main {
 .mainPageLogoPC {
   display: flex;
   flex-flow: column nowrap;
-  margin: 0 auto;
   align-items: center;
+  margin: 0 auto;
 }
 
 @media (min-width: 700px) {
   .searchBar form {
     display: none;
+  }
+
+  .searchBarPC form {
+    display: flex;
   }
 
   .bookListWrapper {
