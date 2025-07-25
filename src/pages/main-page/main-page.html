@@ -64,11 +64,13 @@
         <!-- 내비게이션 영역 -->
         <nav class="navigationBar">
           <ul class="navigationList">
-            <li class="navigationItem navigationHome isSelected">
+            <li class="navigationItem navigationHome">
               <a href="../home/home.html">HOME</a>
             </li>
             <li class="navigationItem navigationFavorites">
-              <a href="../favorites/favorites.html">FAVORITES(<span>320</span>) </a>
+              <a href="../favorites/favorites.html"
+                >FAVORITES(<span id="favoritesBookCount">100</span>)
+              </a>
             </li>
             <li class="navigationItem navigationAuthors">
               <a href="../author/author.html">AUTHORS</a>
@@ -334,6 +336,10 @@
               />
             </picture>
           </div>
+          <button type="button" class="goToTopButton" aria-label="맨 위로 이동">
+            <img src="../../assets/images/icons/go_to_top.svg.svg" alt="" />
+            <span class="sr-only">맨 위로 이동</span>
+          </button>
         </section>
         <!-- PC 버전시 보이는 메인화면 -->
         <section class="mainPagePC">
