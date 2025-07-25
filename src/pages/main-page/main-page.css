@@ -6,7 +6,7 @@
     margin: auto;
   }
 
-  .bookListWrapper {
+  .bookListWrapperMobile {
     display: flex;
     flex-flow: row wrap;
     min-inline-size: 20rem;
@@ -114,7 +114,6 @@
         padding-inline: var(--padding-14, 0.875rem);
         overflow-x: auto;
         overflow-y: hidden;
-        /* white-space: nowrap; */
         &::-webkit-scrollbar {
           display: none; /* Chrome/Safari */
           -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
@@ -138,7 +137,6 @@
     }
 
     .footerContainer {
-      /* padding-inline-start: 200px; */
       margin: auto;
     }
   }
@@ -180,18 +178,10 @@
       display: flex;
     }
 
-    .bookListWrapper {
+    .bookListWrapperMobile {
       display: none;
     }
 
-    .bookListWrapperPC {
-      display: flex;
-      flex-flow: row wrap;
-      margin: 0 auto;
-      column-gap: var(--gap-16, 1rem);
-      margin-block-end: 3.25rem;
-      padding-inline: var(--padding-14, 0.875rem);
-    }
     .cardImageContents {
       margin-block: var(--margin-30, 1.875rem);
 
