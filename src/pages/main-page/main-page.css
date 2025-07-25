@@ -112,6 +112,7 @@
         column-gap: var(--gap-16, 1rem);
         margin-block-end: 3.25rem;
         padding-inline: var(--padding-14, 0.875rem);
+        padding-block-end: 4rem;
         overflow-x: auto;
         overflow-y: hidden;
         &::-webkit-scrollbar {
