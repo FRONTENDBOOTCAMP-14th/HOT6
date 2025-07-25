@@ -1,6 +1,7 @@
 .footerContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding-block: var(--padding-32, 2rem);
   text-align: center;
@@ -33,7 +34,7 @@
       white-space: nowrap;
 
       &:hover {
-        color: var(--primary-800, #024B16);
+        color: var(--primary-800, #024b16);
       }
     }
   }
