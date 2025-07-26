@@ -40,6 +40,10 @@
       display: block;
       inline-size: 12.3125rem;
       block-size: 14.875rem;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: translateY(-0.25rem);
+      }
     }
 
     .bookListWrapperMobile {
