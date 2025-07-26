@@ -59,7 +59,7 @@
         </form>
       </div>
     </header>
-    <main>
+    <main class="homePageContainer">
       <!-- 내비게이션 영역 -->
       <nav class="navigationBar">
         <ul class="navigationList">
@@ -67,7 +67,9 @@
             <a href="../home/home.html">HOME</a>
           </li>
           <li class="navigationItem navigationFavorites">
-            <a href="../favorites/favorites.html">FAVORITES(<span>320</span>) </a>
+            <a href="../favorites/favorites.html"
+              >FAVORITES(<span id="favoritesBookCount">100</span>)
+            </a>
           </li>
           <li class="navigationItem navigationAuthors">
             <a href="../author/author.html">AUTHORS</a>
@@ -77,292 +79,629 @@
           </li>
         </ul>
       </nav>
-      <!-- 메인페이지 도서 목록영역 -->
-      <section class="bookListWrapper">
-        <h2 class="sr-only">도서목록</h2>
-        <div class="cardComponent">
-          <picture>
-            <source
-              type="image/webp"
+      <div class="bookListResultWrapper">
+        <p class="searchBookComment">Found <span id="searchBookCount">12</span> results for "<span id="searchBookName">어린왕자</span
+          >"</p>
+        <!-- 메인페이지 도서 목록영역 -->
+        <section class="bookListWrapperHome">
+          <h2 class="sr-only">도서목록</h2>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+              <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <div class="cardComponent">
+            <picture class="openModal" aria-haspopup="dialog" aria-controls="bookModal" tabindex="0">
+              <source
+                type="image/webp"
+                srcset="
+                  ../../assets/images/others/book_example_webp.webp    1x,
+                  ../../assets/images/others/book_example_webp_2x.webp 2x
+                "
+              />
+              <img
+                src="../../assets/images/others/book-example.jpg"
+                srcset="
+                  ../../assets/images/others/book-example.jpg    1x,
+                  ../../assets/images/others/book-example-2x.jpg 2x
+                "
+                width="117"
+                height="137"
+                alt="도서"
+              />
+            </picture>
+            <div class="textContents">
+              <p class="cardTextContentsTitle">
+                책 제목
+                <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+                  <svg
+                    class="favoriteIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    data-name="Layer 1"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+                    />
+                  </svg>
+                </button>
+              </p>
+              <div class="divider"></div>
+              <p>작가</p>
+              <div class="divider"></div>
+              <p>출판사</p>
+              <div class="divider"></div>
+              <p>가격</p>
+              <div class="divider"></div>
+            </div>
+          </div>
+          <dialog class="modal" role="dialog" aria-modal="true">
+      <article class="modalContent bookModal">
+        <header class="bookHeader">
+          <button class="closeModal" aria-label="닫기">&times;</button>
+          <div class="bookImageWrapper">
+            <img
+              src="../../assets/images/others/book_example_webp.webp"
               srcset="
                 ../../assets/images/others/book_example_webp.webp    1x,
                 ../../assets/images/others/book_example_webp_2x.webp 2x
               "
+              alt="책 표지"
+              class="bookCover"
             />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-          <div class="textContents">
-            <p class="cardTextContentsTitle">
-              책 제목
-              <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-                <svg
-                  class="favoriteIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-                  />
-                </svg>
-              </button>
-            </p>
-            <div class="divider"></div>
-            <p>작가</p>
-            <div class="divider"></div>
-            <p>출판사</p>
-            <div class="divider"></div>
-            <p>가격</p>
-            <div class="divider"></div>
           </div>
-        </div>
-        <div class="cardComponent">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-          <div class="textContents">
-            <p class="cardTextContentsTitle">
-              책 제목
-              <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-                <svg
-                  class="favoriteIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-                  />
-                </svg>
-              </button>
-            </p>
-            <div class="divider"></div>
-            <p>작가</p>
-            <div class="divider"></div>
-            <p>출판사</p>
-            <div class="divider"></div>
-            <p>가격</p>
-            <div class="divider"></div>
-          </div>
-        </div>
-        <div class="cardComponent">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-          <div class="textContents">
-            <p class="cardTextContentsTitle">
-              책 제목
-              <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-                <svg
-                  class="favoriteIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-                  />
-                </svg>
-              </button>
-            </p>
-            <div class="divider"></div>
-            <p>작가</p>
-            <div class="divider"></div>
-            <p>출판사</p>
-            <div class="divider"></div>
-            <p>가격</p>
-            <div class="divider"></div>
-          </div>
-        </div>
-        <div class="cardComponent">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-          <div class="textContents">
-            <p class="cardTextContentsTitle">
-              책 제목
-              <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-                <svg
-                  class="favoriteIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-                  />
-                </svg>
-              </button>
-            </p>
-            <div class="divider"></div>
-            <p>작가</p>
-            <div class="divider"></div>
-            <p>출판사</p>
-            <div class="divider"></div>
-            <p>가격</p>
-            <div class="divider"></div>
-          </div>
-        </div>
-        <div class="cardComponent">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-          <div class="textContents">
-            <p class="cardTextContentsTitle">
-              책 제목
-              <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-                <svg
-                  class="favoriteIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-                  />
-                </svg>
-              </button>
-            </p>
-            <div class="divider"></div>
-            <p>작가</p>
-            <div class="divider"></div>
-            <p>출판사</p>
-            <div class="divider"></div>
-            <p>가격</p>
-            <div class="divider"></div>
-          </div>
-        </div>
-        <div class="cardComponent">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="
-                ../../assets/images/others/book_example_webp.webp    1x,
-                ../../assets/images/others/book_example_webp_2x.webp 2x
-              "
-            />
-            <img
-              src="../../assets/images/others/book-example.jpg"
-              srcset="
-                ../../assets/images/others/book-example.jpg    1x,
-                ../../assets/images/others/book-example-2x.jpg 2x
-              "
-              width="117"
-              height="137"
-              alt="도서"
-            />
-          </picture>
-          <div class="textContents">
-            <p class="cardTextContentsTitle">
-              책 제목
-              <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-                <svg
-                  class="favoriteIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  id="Layer_1"
-                  data-name="Layer 1"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-                  />
-                </svg>
-              </button>
-            </p>
-            <div class="divider"></div>
-            <p>작가</p>
-            <div class="divider"></div>
-            <p>출판사</p>
-            <div class="divider"></div>
-            <p>가격</p>
-            <div class="divider"></div>
-          </div>
-        </div>
-      </section>
+        </header>
+
+        <section class="bookDetails">
+          <h2 class="sr-only">도서 상세정보</h2>
+          <p class="bookTitle">제목</p>
+          <p class="bookAuthorPublisher">
+            <span class="bookAuthor">작가</span> |
+            <span class="bookPublisher">출판사</span>
+          </p>
+          <p class="bookPrice">가격</p>
+          <p class="bookDescription">
+            동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산
+            대한 사람 대한으로 길이 보전하세 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은
+            우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세
+          </p>
+          <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
+            <svg
+              class="favoriteIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              id="Layer_1"
+              data-name="Layer 1"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
+              />
+            </svg>
+          </button>
+        </section>
+      </article>
+          </dialog>
+        </section>
+      </div>
+      <button type="button" class="goToTopButton" aria-label="맨 위로 이동">
+        <img src="../../assets/images/icons/go_to_top.svg.svg" alt="" />
+        <span class="sr-only">맨 위로 이동</span>
+      </button>
     </main>
     <footer class="footerContainer">
       <!-- 로고 -->
@@ -412,5 +751,38 @@
         </div>
       </div>
     </footer>
+    <script>
+      const modalList = document.querySelectorAll('.openModal')
+      const titleList = document.querySelectorAll('.cardTextContentsTitle')
+
+      modalList.forEach((modal) => {
+        modal.addEventListener('click', (e) => {
+          const target = e.target
+          const dialog = document.querySelector('.modal')
+
+          dialog.style.display = 'flex'
+        })
+      })
+
+      titleList.forEach((modal) => {
+        modal.addEventListener('click', (e) => {
+          const target = e.target
+          const dialog = document.querySelector('.modal')
+          
+          if(target.closest('button')) return
+          dialog.style.display = 'flex'
+        })
+      })
+      
+      document.querySelector('.closeModal').addEventListener('click', () => {
+        document.querySelector('.modal').style.display = 'none';
+      });
+
+      document.querySelector('.modal').addEventListener('click', (e) => {
+        if (!e.target.closest('.modalContent')) {
+          e.currentTarget.style.display = 'none';
+        }
+      });
+    </script>
   </body>
 </html>
