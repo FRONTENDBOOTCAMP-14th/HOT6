@@ -1,4 +1,4 @@
-main {
+.homePageContainer {
   max-inline-size: 80rem;
   min-inline-size: 20rem;
   margin-inline: auto;
@@ -6,9 +6,37 @@ main {
   @media (min-width: 700px) {
     display: flex;
   }
+
+  .bookListResultWrapper {
+    display: flex;
+    flex-flow: column nowrap;
+
+    @media (min-width: 700px) {
+      padding-inline: 3.5rem;
+    }
+
+    .searchBookComment {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-block-start: var(--margin-20, 1.25rem);
+      margin-block-end: var(--margin-4, 0.25rem);
+      font-family: 'Pretendard Variable';
+      font-size: var(--font-size-16, 1rem);
+      color: var(--gray-600, #787878);
+      text-align: center;
+      line-height: 1.1875;
+      white-space: pre-wrap;
+
+      @media (min-width: 700px) {
+        justify-content: flex-start;
+        margin-block-end: var(--margin-20, 1.25rem);
+      }
+    }
+  }
 }
 
-.bookListWrapper {
+.bookListWrapperHome {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -22,16 +50,28 @@ main {
 
   @media (min-width: 700px) {
     justify-content: flex-start;
+    max-height: 50vh;
+    padding-inline: 0;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+      -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
+    }
   }
 }
 
 .cardComponent {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
   column-gap: var(--gap-16, 1rem);
   inline-size: 18.75rem;
   block-size: 8.75rem;
   background-color: var(--gray-background, #181818);
+
+  picture {
+    cursor: pointer;
+  }
 
   .textContents {
     inline-size: 9rem;
@@ -39,6 +79,7 @@ main {
 
     p {
       margin-block-start: var(--margin-4, 0.25rem);
+      font-family: 'Pretendard Variable';
       color: var(--primary-light, #f5fff8);
       font-size: var(--font-size-14, 0.875rem);
       font-weight: 200;
@@ -50,6 +91,7 @@ main {
       justify-content: space-between;
       font-size: var(--font-size-20, 1.25rem);
       font-weight: 400;
+      cursor: pointer;
     }
 
     .divider {
