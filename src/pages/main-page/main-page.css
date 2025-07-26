@@ -35,11 +35,16 @@
     padding-block-start: var(--padding-20, 1.25rem);
   }
 
+  .cardImageContents {
+    cursor: pointer;
+  }
+
   @media (min-width: 700px) {
     .cardImageContents img {
       display: block;
       inline-size: 12.3125rem;
       block-size: 14.875rem;
+      cursor: pointer;
       transition: transform 0.3s ease;
       &:hover {
         transform: translateY(-0.25rem);
