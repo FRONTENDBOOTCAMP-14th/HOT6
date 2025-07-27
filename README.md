@@ -39,6 +39,13 @@
 🔥 **HOT6**
 ├── 📁 .github
 ├── 📁 .vscode
+├── 📁 dist
+│   ├── 📁 assets
+│   ├── 📁 favicon
+│   ├── 📁 logos
+│   ├── 📁 src
+│   ├── index.html
+├── 📁 node_modules
 ├── 🌐 public
 │   ├── 📁 favicon
 │   ├── 📁 logos
@@ -49,6 +56,8 @@
 │   │   │   ├── 📁 author
 │   │   │   ├── 📁 bg
 │   │   │   ├── 📁 icons
+│   │   │   ├── 📁 landing
+│   │   │   └── 📁 others
 │   │   └── 📁 styles
 │   │   │   ├── 📁 common
 │   │   │   │   ├── a11y.css
@@ -58,9 +67,24 @@
 │   │   │   │   ├── normalize.css
 │   │   │   │   └── theme.css
 │   ├── 📁 components
+│   │   ├── 📁 book-modal
+│   │   ├── 📁 button
 │   │   ├── 📁 card
+│   │   ├── 📁 footer
+│   │   ├── 📁 go-to-top
+│   │   ├── 📁 header
+│   │   ├── 📁 navigation-bar
+│   │   ├── 📁 profile-card
+│   │   └── 📁 searchbar
 │   ├── 📁 pages
+│   │   ├── 📁 about
+│   │   ├── 📁 author
+│   │   ├── 📁 favorites
+│   │   ├── 📁 home
+│   │   ├── 📁 landing
+│   │   └── 📁 main-page
 │   ├── 📁 utils
+│   ├── main.js
 │   ├── main.css
 ├── .editorconfig
 ├── .gitattributes
@@ -72,8 +96,8 @@
 ├── package.json
 ├── pnpm-lock.yami
 ├── pnpm-workspace.yami
-├── README.md
-└── vite.config.js                   
+├── README.md   
+└── vite.config.js                 
 ```
 </details>
 
