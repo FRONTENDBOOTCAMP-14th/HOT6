@@ -6,7 +6,7 @@
   .landingRight {
     position: relative;
     inline-size: 100%;
-    block-size: 100vh;
+    block-size: 100%;
   }
 
   .landingLeft {
@@ -28,8 +28,8 @@
   }
 
   .landingRight {
-    padding-block-start: 40%;
-
+    overflow-x: hidden;
+    padding-block-end: 50%;
     .landingBg {
       position: absolute;
       z-index: -1;
@@ -50,6 +50,7 @@
 
     .hotSixs {
       inline-size: 50%;
+      margin-block-start: 50%;
       margin-block-end: -2.5rem;
     }
 
@@ -74,6 +75,7 @@
 
       .goHotbooks {
         margin-block-start: -2rem;
+        inline-size: 40%;
 
         :hover {
           scale: 1.1;
@@ -89,6 +91,7 @@
 
     .landingLeft {
       display: block;
+      block-size: 100vh;
       max-inline-size: 50%;
 
       .authorComment {
@@ -101,7 +104,9 @@
 
     .landingRight {
       inline-size: 50%;
+      block-size: 100vh;
       padding-block-start: 10%;
+      padding-block-end: 0;
 
       .hotSixs {
         max-inline-size: 19.375rem;
@@ -125,6 +130,10 @@
       .meet {
         max-inline-size: 20rem;
         margin-block-start: var(--margin-20, 1.25rem);
+      }
+
+      .goHotbooksWrapper {
+        margin-block-start: -40px;
       }
     }
   }
