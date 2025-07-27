@@ -1,0 +1,43 @@
+.navigationBar {
+  --gap: var(--gap-10, 0.625rem);
+
+  min-inline-size: 20rem;
+
+  .navigationList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--gap);
+    padding-block: var(--padding-10, 0.625rem);
+    background: var(--dark, #131313);
+
+    color: var(--primary-light, #f5fff8);
+    font-family: 'Pretendard Variable';
+    font-size: var(--font-size-14, 0.875rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    .isSelected {
+      color: var(--primary-700, #04b135);
+      font-weight: 600;
+    }
+  }
+  @media (min-width: 700px) {
+    min-inline-size: 12.5rem;
+    .navigationList {
+      flex-direction: column;
+      justify-content: start;
+      padding-block-start: var(--padding-16, 1rem);
+      padding-inline-start: var(--padding-16, 1rem);
+      block-size: 100%;
+      inline-size: 12.5rem;
+
+      font-size: var(--font-size-20, 1.25rem);
+
+      .isSelected {
+        font-size: var(--font-size-20, 1.25rem);
+      }
+    }
+  }
+}

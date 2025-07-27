@@ -1,43 +1,151 @@
 :root {
   /* 색상 */
-  --white: #FFFFFF;
-  --black: #181818;
+  --light: #FFFFFF;
+  --dark: #131313;
+  --gray-background: #181818;
+  --favorite-color: #ff3c3c;
 
-  --gray-800: #303033;
+  --gray-100: #F7F7F7;
+  --gray-200: #DEDEDE;
+  --gray-300: #C4C4C4;
+  --gray-400: #ABABAB;
+  --gray-500: #919191;
+  --gray-600: #787878;
+  --gray-700: #5E5E5E;
+  --gray-800: #454545;
+  --gray-900: #2B2B2B;
 
-  --green-400: #98D983;
-  --green-500: #60D53B;
-  --green-600: #00D52F;
-  --green-700: #3B9832;
-  --green-800: #318C33;
-  --green-900: #1A3736;
+
+  --primary-light: #F5FFF8;
+  --primary-100: #E6FEED;
+  --primary-200: #B4FDC9;
+  --primary-300: #82FCA5;
+  --primary-400: #50FB81;
+  --primary-500: #1FFA5D;
+  --primary-600: #05E043;
+  --primary-700: #04B135;
+  --primary-800: #037D25;
+  --primary-900: #024B16;
+  --primary-dark: #011907;
+
+  /* 글라스 모피즘용 */
+  --about-bg-color: #00000040;
+  --about-shadow-gray: #ffffff40;
+  --about-shadow-dark: #00000040;
+
 
   color-scheme: light dark;
 
   /* 글자크기 */
+  --font-size-12: .75rem;
+  --font-size-14: .875rem;
   --font-size-16: 1rem;
   --font-size-18: 1.125rem;
   --font-size-20: 1.25rem;
+  --font-size-22: 1.375rem;
   --font-size-24: 1.5rem;
   --font-size-26: 1.625rem;
+  --font-size-28: 1.75rem;
   --font-size-30: 1.875rem;
   --font-size-32: 2rem;
+  --font-size-34: 2.125rem;
+  --font-size-36: 2.25rem;
+  --font-size-38: 2.375rem;
+  --font-size-40: 2.5rem;
 
   /* 여백 */
+  --padding-2: .125rem;
+  --padding-4: .25rem;
+  --padding-6: .375rem;
+  --padding-8: .5rem;
   --padding-10: .625rem;
+  --padding-12: .75rem;
+  --padding-14: .875rem;
   --padding-16: 1rem;
   --padding-18: 1.125rem;
+  --padding-20: 1.25rem;
+  --padding-22: 1.375rem;
   --padding-24: 1.5rem;
+  --padding-26: 1.625rem;
+  --padding-28: 1.75rem;
+  --padding-30: 1.875rem;
+  --padding-32: 2rem;
+  --padding-34: 2.125rem;
+  --padding-36: 2.25rem;
+  --padding-38: 2.375rem;
+  --padding-40: 2.5rem;
 
+  --margin-2: .125rem;
+  --margin-4: .25rem;
+  --margin-6: .375rem;
+  --margin-8: .5rem;
+  --margin-10: .625rem;
+  --margin-12: .75rem;
+  --margin-14: .875rem;
   --margin-16: 1rem;
   --margin-18: 1.125rem;
   --margin-20: 1.25rem;
+  --margin-22: 1.375rem;
+  --margin-24: 1.5rem;
+  --margin-26: 1.625rem;
   --margin-28: 1.75rem;
+  --margin-30: 1.875rem;
   --margin-32: 2rem;
+  --margin-34: 2.125rem;
+  --margin-36: 2.25rem;
+  --margin-38: 2.375rem;
+  --margin-40: 2.5rem;
+
+  /* 간격 */
+  --gap-2: .125rem;
+  --gap-4: .25rem;
+  --gap-6: .375rem;
+  --gap-8: .5rem;
+  --gap-10: .625rem;
+  --gap-12: .75rem;
+  --gap-14: .875rem;
+  --gap-16: 1rem;
+  --gap-18: 1.125rem;
+  --gap-20: 1.25rem;
+  --gap-22: 1.375rem;
+  --gap-24: 1.5rem;
+  --gap-26: 1.625rem;
+  --gap-28: 1.75rem;
+  --gap-30: 1.875rem;
+  --gap-32: 2rem;
+  --gap-34: 2.125rem;
+  --gap-36: 2.25rem;
+  --gap-38: 2.375rem;
+  --gap-40: 2.5rem;
+  --gap-42: 2.625rem;
+  --gap-44: 2.75rem;
+  --gap-46: 2.875rem;
+  --gap-48: 3rem;
 
   /* radius */
+  --radius-2: .125rem;
+  --radius-4: .25rem;
+  --radius-6: .375rem;
+  --radius-8: .5rem;
+  --radius-10: .625rem;
   --radius-12: .75rem;
+  --radius-14: .875rem;
+  --radius-16: 1rem;
+  --radius-18: 1.125rem;
+  --radius-20: 1.25rem;
+  --radius-22: 1.375rem;
+  --radius-24: 1.5rem;
+  --radius-26: 1.625rem;
+  --radius-28: 1.75rem;
+  --radius-30: 1.875rem;
   --radius-32: 2rem;
+  --radius-34: 2.125rem;
+  --radius-36: 2.25rem;
+  --radius-38: 2.375rem;
+  --radius-40: 2.5rem;
+  --radius-42: 2.625rem;
+  --radius-44: 2.75rem;
+  --radius-46: 2.875rem;
   --radius-48: 3rem;
 
 }

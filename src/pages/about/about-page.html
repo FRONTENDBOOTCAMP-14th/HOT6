@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About</title>
+    <meta name="description" content="About Web Developers Profile" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/variable/pretendardvariable-dynamic-subset.min.css"
+      crossorigin
+    />
+    <link rel="icon" href="/public/favicon/favicon_logo.svg" type="image/svg" />
+    <link rel="stylesheet" href="./about-page.css" />
+    <script type="module" src="../../main.js"></script>
+  </head>
+  <body>
+    <div class="aboutPageContainer">
+      <!-- header -->
+      <header class="aboutPageHeader">
+        <!-- Logo - togo Home -->
+        <h1 class="mainLogo">
+          <a href="../main-page/main-page.html">
+            <img
+              src="/public/logos/logo_wide.png"
+              srcset="/public/logos/logo_wide.png 1x, /public/logos/logo_wide_2x.png 2x"
+              width="90"
+              height="36"
+              alt="HOT BOOKS - 홈으로 이동"
+            />
+          </a>
+        </h1>
+
+        <!-- profile button -->
+        <button class="profileButton" type="button" aria-label="내 프로필">
+          <img
+            src="../../assets/images/others/login_profile_webp.webp"
+            srcset="
+              ../../assets/images/others/login_profile_webp.webp    1x,
+              ../../assets/images/others/login_profile_webp_2x.webp 2x
+            "
+            width="24"
+            height="24"
+            alt="프로필"
+          />
+        </button>
+
+        <!-- search bar -->
+        <div class="searchBar">
+          <form action="" method="GET" role="search">
+            <label for="searchInput" class="sr-only">도서 검색</label>
+            <input
+              type="search"
+              id="searchInput"
+              name="keyword"
+              placeholder="도서명/저자를 입력해주세요"
+            />
+            <button class="searchButton" type="submit" aria-label="도서 검색">
+              <img src="../../assets/images/icons/icon_search.svg" alt="" />
+            </button>
+          </form>
+        </div>
+      </header>
+
+      <div class="pageBody">
+        <!-- navigation -->
+        <nav class="navigationBar">
+          <ul class="navigationList">
+            <li class="navigationItem navigationHome">
+              <a href="../home/home.html">HOME</a>
+            </li>
+            <li class="navigationItem navigationFavorites">
+              <a href="../favorites/favorites.html"
+                >FAVORITES(<span id="favoritesBookCount">100</span>)
+              </a>
+            </li>
+            <li class="navigationItem navigationAuthors">
+              <a href="../author/author.html">AUTHORS</a>
+            </li>
+            <li class="navigationItem navigationAbout isSelected">
+              <a href="../about/about-page.html">ABOUT</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- main - profile cards -->
+        <main class="pageMainContents">
+          <section class="profileCardList">
+            <article class="profileCard">
+              <div class="profileCardInfoBox">
+                <div class="profileCardGithub">
+                  <a
+                    href="https://github.com/minji-kim0524"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="githubButton"
+                    aria-label="Goto GitHub profile"
+                  >
+                    <span class="githubLabel">GitHub</span>
+                    <img
+                      src="./../../assets/images/icons/icon_github.svg"
+                      width="24"
+                      height="24"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+                <picture class="profileCardImage">
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./../../assets/images/about/about_minji_webp.webp    1x,
+                      ./../../assets/images/about/about_minji_webp_2x.webp 2x
+                    "
+                  />
+                  <img
+                    src="./../../assets/images/about/about_minji.png"
+                    srcset="
+                      ./../../assets/images/about/about_minji.png    1x,
+                      ./../../assets/images/about/about_minji_2x.png 2x
+                    "
+                    width="100"
+                    height="100"
+                    alt="민지 프로필"
+                  />
+                </picture>
+                <div class="profileCardAbout">
+                  <h2 class="profileCardDeveloperName">
+                    <span class="developerName">민지</span>
+                    <span class="developerNickName">(다람이)</span>
+                  </h2>
+                  <p class="profileCardRole">개발자</p>
+                  <p class="profileCardMbti">ESFJ</p>
+                </div>
+              </div>
+              <p class="profileCardComment">
+                좋은 분들과 함께여서 행복하게 진행한 프로젝트 였습니다. 부족한 점이 많았는데, 덕분에
+                잘 진행할 수 있었습니다. 감사합니다!
+              </p>
+            </article>
+            <article class="profileCard">
+              <div class="profileCardInfoBox">
+                <div class="profileCardGithub">
+                  <a
+                    href="https://github.com/dohyeon0709"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="githubButton"
+                    aria-label="Goto GitHub profile"
+                  >
+                    <span class="githubLabel">GitHub</span>
+                    <img
+                      src="./../../assets/images/icons/icon_github.svg"
+                      width="24"
+                      height="24"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+                <picture class="profileCardImage">
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./../../assets/images/about/about_dohyun_webp.webp    1x,
+                      ./../../assets/images/about/about_dohyun_webp_2x.webp 2x
+                    "
+                  />
+                  <img
+                    src="./../../assets/images/about/about_dohyun.png"
+                    srcset="
+                      ./../../assets/images/about/about_dohyun.png    1x,
+                      ./../../assets/images/about/about_dohyun_2x.png 2x
+                    "
+                    width="100"
+                    height="100"
+                    alt="도현 프로필"
+                  />
+                </picture>
+                <div class="profileCardAbout">
+                  <h2 class="profileCardDeveloperName">
+                    <span class="developerName">도현</span>
+                    <span class="developerNickName">(귀요미)</span>
+                  </h2>
+                  <p class="profileCardRole">개발자</p>
+                  <p class="profileCardMbti">INFP</p>
+                </div>
+              </div>
+              <p class="profileCardComment">
+                함께 프로젝트를 하며 많이 웃고 행복했던 것 같습니다. 정말 재미있었고 또 만날 기회가
+                있었으면 좋겠습니다.
+              </p>
+            </article>
+            <article class="profileCard">
+              <div class="profileCardInfoBox">
+                <div class="profileCardGithub">
+                  <a
+                    href="https://github.com/cjftns"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="githubButton"
+                    aria-label="Goto GitHub profile"
+                  >
+                    <span class="githubLabel">GitHub</span>
+                    <img
+                      src="./../../assets/images/icons/icon_github.svg"
+                      width="24"
+                      height="24"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+                <picture class="profileCardImage">
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./../../assets/images/about/about_chulsoon_webp.webp    1x,
+                      ./../../assets/images/about/about_chulsoon_webp_2x.webp 2x
+                    "
+                  />
+                  <img
+                    src="./../../assets/images/about/about_chulsoon.png"
+                    srcset="
+                      ./../../assets/images/about/about_chulsoon.png    1x,
+                      ./../../assets/images/about/about_chulsoon_2x.png 2x
+                    "
+                    width="100"
+                    height="100"
+                    alt="철순 프로필"
+                  />
+                </picture>
+                <div class="profileCardAbout">
+                  <h2 class="profileCardDeveloperName">
+                    <span class="developerName">철순</span>
+                    <span class="developerNickName">(차분이)</span>
+                  </h2>
+                  <p class="profileCardRole">개발자</p>
+                  <p class="profileCardMbti">ISTP</p>
+                </div>
+              </div>
+              <p class="profileCardComment">
+                회고 또는 함께 진행했던 팀원들에게 하고싶은 말? 핫하다 Hot6!<br />또는 함께 진행했던
+                팀원들에게 하고싶은 말? 핫하다 Hot6!
+              </p>
+            </article>
+            <article class="profileCard">
+              <div class="profileCardInfoBox">
+                <div class="profileCardGithub">
+                  <a
+                    href="https://github.com/yoonseo23"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="githubButton"
+                    aria-label="Goto GitHub profile"
+                  >
+                    <span class="githubLabel">GitHub</span>
+                    <img
+                      src="./../../assets/images/icons/icon_github.svg"
+                      width="24"
+                      height="24"
+                      alt="GitHub Icon"
+                    />
+                  </a>
+                </div>
+                <picture class="profileCardImage">
+                  <source
+                    type="image/webp"
+                    srcset="
+                      ./../../assets/images/about/about_yoonseo_webp.webp    1x,
+                      ./../../assets/images/about/about_yoonseo_webp_2x.webp 2x
+                    "
+                  />
+                  <img
+                    src="./../../assets/images/about/about_yoonseo.png"
+                    srcset="
+                      ./../../assets/images/about/about_yoonseo.png    1x,
+                      ./../../assets/images/about/about_yoonseo_2x.png 2x
+                    "
+                    width="100"
+                    height="100"
+                    alt="윤서 프로필"
+                  />
+                </picture>
+                <div class="profileCardAbout">
+                  <h2 class="profileCardDeveloperName">
+                    <span class="developerName">윤서</span>
+                    <span class="developerNickName">(똑똑이)</span>
+                  </h2>
+                  <p class="profileCardRole">개발자</p>
+                  <p class="profileCardMbti">ENTJ</p>
+                </div>
+              </div>
+              <p class="profileCardComment">
+핫하다 못한 천재식스와 함께할 수 있어 행복했던 2주! 꼭 오래 보고픈 분들께 많이 배운 시간이었습니다. :&rpar;
+              </p>
+            </article>
+          </section>
+          <button type="button" class="goToTopButton" aria-label="맨 위로 이동">
+            <img src="../../assets/images/icons/go_to_top.svg" alt="" />
+            <span class="sr-only">맨 위로 이동</span>
+          </button>
+        </main>
+      </div>
+      <footer class="footerContainer">
+        <!-- 로고 -->
+        <div class="footerLogo">
+          <img
+            src="./../../../public/logos/footer_logo.png"
+            alt="핫북스 로고"
+            width="280"
+            height="112"
+          />
+        </div>
+
+        <div class="footerContents">
+          <!-- 내비게이션 메뉴 -->
+
+          <nav aria-label="푸터 내비게이션">
+            <ul class="footerLinkList">
+              <li class="footerLink"><a href="./../../pages/home/home.html">Home</a></li>
+              <li class="footerLink">
+                <a href="./../../pages/favorites/favorites.html">Favorite</a>
+              </li>
+              <li class="footerLink"><a href="./../../pages/author/author.html">Authors</a></li>
+              <li class="footerLink"><a href="./../../pages/about/about-page.html">About</a></li>
+              <li class="footerLink">
+                <a href="mailto:dohy0709@naver.com" target="_blank" rel="noopener noreferrer"
+                  >FEEDBACK</a
+                >
+              </li>
+              <li class="footerLink">
+                <a
+                  href="https://company.lottechilsung.co.kr/kor/brand/hot6/contentsid/625/index.do"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >FAMILY SITE</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!-- 찾아오시는 길 -->
+          <address class="footerAddress">
+            <small>서울특별시 핫식스마시구 화이팅하길 핫북스타워 6층</small>
+          </address>
+
+          <!-- 저작권 -->
+          <div class="footerCopyright">
+            <small>&copy; <strong>HOT B66KS</strong> since 2025. All rights reserved.</small>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

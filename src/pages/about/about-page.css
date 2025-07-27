@@ -1,0 +1,48 @@
+.aboutPageContainer {
+  max-inline-size: 80rem;
+  min-inline-size: 20rem;
+  margin-inline: auto;
+
+  @media (min-width: 700px) {
+    .goToTopButton {
+      display: none;
+    }
+  }
+}
+
+.pageMainContents {
+  inline-size: 100%;
+
+  background-image: image-set(
+    url('./../../assets/images/bg/bg.jpg') type('image/jpg') 1x,
+    url('./../../assets/images/bg/bg_2x.jpg') type('image/jpg') 2x
+  );
+
+  @supports (background-image: image-set(url('image.webp') 1x)) {
+    background-image: image-set(
+      url('./../../assets/images/bg/bg_webp.webp') type('image/webp') 1x,
+      url('./../../assets/images/bg/bg_webp_2x.webp') type('image/webp') 2x
+    );
+  }
+
+  background-size: cover;
+}
+
+.profileCardList {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap-20, 1.25rem);
+  justify-content: center;
+  align-items: center;
+
+  margin-inline: auto;
+  padding-block: var(--padding-20, 1.25rem);
+  padding-inline: var(--padding-20, 1.25rem);
+  max-inline-size: 47.5rem;
+}
+
+@media (min-width: 700px) {
+  .pageBody {
+    display: flex;
+  }
+}

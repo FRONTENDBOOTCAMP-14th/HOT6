@@ -1,0 +1,71 @@
+.profileCard {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-20, 1.25rem);
+
+  /* Box property */
+  padding-inline: var(--padding-30, 1.875rem);
+  padding-block: 2.6875rem var(--padding-20, 1.25rem);
+  inline-size: clamp(16.875rem, calc(100% - 3.125rem), 20rem);
+  /* inline-size: 16.875rem; */
+  block-size: auto;
+  border-radius: var(--radius-30, 1.875rem);
+  box-shadow:
+    0.125rem 0.125rem 0.375rem 0rem var(--about-shadow-gray, #ffffff40) inset,
+    0.4375rem 0.375rem 0.875rem 0rem var(--about-shadow-dark, #00000040);
+
+  /* Background property */
+  background-color: var(--about-bg-color, #00000040);
+  backdrop-filter: blur(10px);
+
+  color: var(--primary-light, #f5fff8);
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  line-height: 1.3125rem;
+
+  @media (min-width: 700px) {
+    inline-size: 100%;
+    max-inline-size: 21.875rem;
+  }
+
+  .profileCardInfoBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.3125rem;
+
+    .profileCardImage {
+      min-inline-size: 6.25rem;
+    }
+
+    .profileCardAbout {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-8, 0.5rem);
+      line-height: 1.3125rem;
+
+      .profileCardDeveloperName .developerName {
+        font-size: var(--font-size-18, 1.125rem);
+        font-weight: 700;
+      }
+
+      .profileCardDeveloperName .developerNickName {
+        display: block;
+        line-height: 1.3125rem;
+        font-size: var(--font-size-14, 0.875rem);
+        font-weight: 400;
+        white-space: nowrap;
+
+        @media (min-width: 700px) {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  .profileCardComment {
+    inline-size: 100%;
+    word-break: keep-all;
+  }
+}

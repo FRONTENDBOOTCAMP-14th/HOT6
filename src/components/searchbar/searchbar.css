@@ -1,0 +1,76 @@
+/* 검색 바 - 모바일 */
+
+/* wrapper */
+.searchBar {
+  display: flex;
+  /* padding-inline: var(--padding-20, 1.25rem); */
+  padding-block-start: var(--padding-16, 1rem);
+}
+
+/* form 전체 */
+.searchBar form {
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+  min-inline-size: 0;
+  overflow: hidden;
+  background-color: var(--primary-light, #f5fff8);
+  border: none;
+  border-radius: var(--radius-8, 0.5rem);
+  box-shadow: none;
+}
+
+/* 검색 입력창 */
+#searchInput {
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-inline-size: 0;
+  padding-inline: var(--padding-14, 0.875rem);
+  padding-block: var(--padding-10, 0.625rem);
+  background-color: var(--primary-light, #f5fff8);
+  border: none;
+  outline: none;
+  color: var(--primary-dark, #011907);
+  font-size: var(--font-size-16, 1rem);
+}
+
+/* 돋보기 버튼 */
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-inline: var(--padding-14, 0.875rem);
+  padding-block: var(--padding-10, 0.625rem);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.searchButton img {
+  display: block;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+/* x 버튼 제거 (임시, 코드 삭제 예정) */
+#searchInput::-webkit-search-cancel-button {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* 브라우저 자동입력 스타일 제거 */
+#searchInput:-webkit-autofill {
+  box-shadow: 0 0 0 62.5rem var(--primary-light, #f5fff8) inset !important;
+  -webkit-text-fill-color: var(--primary-dark, #011907) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 검색 바 - PC */
+@media (min-width: 700px) {
+  .searchBar {
+    inline-size: 27.5rem;
+    /* padding-block-start: var(--padding-34, 2.125rem); */
+  }
+}
