@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      vercel:
-        specifier: 44.6.3
-        version: 44.6.3(rollup@4.45.1)
     devDependencies:
       '@eslint/js':
         specifier: 9.31.0
