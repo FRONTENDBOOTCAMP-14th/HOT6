@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modal.innerHTML = `
     <article class="modalContent bookModal">
+      <h2 class="sr-only">도서 정보 안내창</h2>
       <header class="bookHeader">
         <button class="closeModal" aria-label="닫기">&times;</button>
         <div class="bookImageWrapper">
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </header>
       <section class="bookDetails">
-        <h2 class="sr-only">도서 상세정보</h2>
+        <h3 class="sr-only">도서 상세정보</h3>
         <p class="bookTitle">제목</p>
         <p class="bookAuthorPublisher">
           <span class="bookAuthor">작가</span> | <span class="bookPublisher">출판사</span>
@@ -53,11 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 닫기 이벤트
   modal.querySelector('.closeModal').addEventListener('click', () => {
+    modal.querySelector('.bookDetails').scrollTop = 0;
     modal.style.display = 'none';
   });
 
   modal.addEventListener('click', (e) => {
     if (!e.target.closest('.modalContent')) {
+      modal.querySelector('.bookDetails').scrollTop = 0;
       modal.style.display = 'none';
     }
   });
@@ -88,9 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         data.items.forEach((item) => {
           const title = item.title;
-          const isMobile = window.innerWidth < 700;
-          const maxLength = isMobile ? 8 : 12;
-          const shortTitle = title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
+          //   const shortTitle = title;
+          //   const isMobile = window.innerWidth < 700;
+          //   if (isMobile) {
+          //     shortTitle = title.length > 8 ? title.slice(0, 8) + '...' : title;
+          //   } else {
+          //     shortTitle = title;
+          //   }
+
           const image = item.image;
           const author = item.author;
           const publisher = item.publisher;
@@ -112,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <img src="${image || '../../assets/images/others/book-example.jpg'}" width="117" height="137" alt="도서" />
             </picture>
             <div class="textContents">
-              <p class="cardTextContentsTitle">${shortTitle}</p>
+              <p class="cardTextContentsTitle">${title}</p>
               <div class="divider"></div>
               <p>${author || '작가 정보 없음'}</p>
               <div class="divider"></div>
