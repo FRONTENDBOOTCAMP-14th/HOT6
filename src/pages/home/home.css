@@ -69,7 +69,13 @@
   background-color: var(--gray-background, #181818);
 
   picture {
+    position: relative;
     cursor: pointer;
+
+    .favoriteButton {
+      position: absolute;
+      inset: auto 0.5rem 0.5rem auto;
+    }
   }
 
   .textContents {
