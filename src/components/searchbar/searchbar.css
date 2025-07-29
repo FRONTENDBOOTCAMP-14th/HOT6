@@ -53,18 +53,26 @@
   block-size: 1.25rem;
 }
 
-/* x 버튼 제거 (임시, 코드 삭제 예정) */
-#searchInput::-webkit-search-cancel-button {
-  display: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
 /* 브라우저 자동입력 스타일 제거 */
 #searchInput:-webkit-autofill {
   box-shadow: 0 0 0 62.5rem var(--primary-light, #f5fff8) inset !important;
   -webkit-text-fill-color: var(--primary-dark, #011907) !important;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 취소 버튼 */
+.clearButton {
+  display: none;
+  position: relative;
+  inset-block-end: 5%;
+  color: var(--gray-500, #919191);
+  font-size: 1.2rem;
+  line-height: 100%;
+
+  &:hover {
+    color: var(--dark, #131313);
+    font-weight: 550;
+  }
 }
 
 /* 검색 바 - PC */
