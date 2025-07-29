@@ -2,6 +2,9 @@ const searchBar = document.querySelector('.searchBar')
 const form = searchBar.querySelector('form')
 const clearButton = form.querySelector('.clearButton')
 
+/**
+ * Webkit 브라우저 여부를 확인하는 식을 반환하는 함수
+ */
 function isWebkit() {
   return /AppleWebKit/.test(navigator.userAgent)
 }
