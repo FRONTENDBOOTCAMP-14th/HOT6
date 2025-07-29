@@ -42,10 +42,16 @@
   justify-content: center;
   min-inline-size: 20rem;
   max-inline-size: 80rem;
+  block-size: 50vh;
   padding-inline: var(--padding-28, 1.75rem);
   padding-block-start: var(--padding-20, 1.25rem);
   row-gap: var(--gap-20, 1.25rem);
   column-gap: var(--gap-30, 1.875rem);
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+  -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
+  }
 
   @media (min-width: 700px) {
     justify-content: flex-start;
