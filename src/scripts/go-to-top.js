@@ -1,4 +1,3 @@
-
   const topButton = document.querySelector('.goToTopButton')
   const bookListWrapper = document.querySelector('.jsbookListWrapper')
 
