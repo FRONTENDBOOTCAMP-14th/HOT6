@@ -24,6 +24,7 @@
     "vite": "^7.0.5"
   },
   "dependencies": {
-    "dompurify": "3.2.6"
+    "dompurify": "3.2.6",
+    "gsap": "3.13.0"
   }
 }
