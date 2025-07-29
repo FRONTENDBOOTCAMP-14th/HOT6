@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 모달 생성
   const modal = document.createElement('dialog');
   modal.className = 'modal';
-  modal.setAttribute('role', 'dialog');
   modal.setAttribute('aria-modal', 'true');
   modal.style.display = 'none';
 
@@ -65,6 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.querySelector('.bookDetails').scrollTop = 0;
+      modal.style.display = 'none';
+    }
+  });
+
   // 검색 이벤트
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -91,13 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         data.items.forEach((item) => {
           const title = item.title;
-          //   const shortTitle = title;
-          //   const isMobile = window.innerWidth < 700;
-          //   if (isMobile) {
-          //     shortTitle = title.length > 8 ? title.slice(0, 8) + '...' : title;
-          //   } else {
-          //     shortTitle = title;
-          //   }
+
+          const isMobile = window.innerWidth < 700;
+          const maxLength = isMobile ? 8 : 100;
+          const shortTitle = title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
 
           const image = item.image;
           const author = item.author;
@@ -116,11 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
           card.dataset.description = description;
           card.className = 'cardComponent';
           card.innerHTML = `
-            <picture class="openModal" tabindex="0">
+            <picture class="openModal">
               <img src="${image || '../../assets/images/others/book-example.jpg'}" width="117" height="137" alt="도서" />
             </picture>
             <div class="textContents">
-              <p class="cardTextContentsTitle">${title}</p>
+              <p class="cardTextContentsTitle" tabindex="0">${shortTitle}</p>
               <div class="divider"></div>
               <p>${author || '작가 정보 없음'}</p>
               <div class="divider"></div>
@@ -130,9 +133,24 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           `;
           resultContainer.appendChild(card);
+
+          isOverflow();
         });
       });
   });
+
+  /**
+   * 텍스트 길이를 판단하고 자동 슬라이드 애니메이션을 없애는 함수
+   */
+  function isOverflow() {
+    const titleElement = document.querySelectorAll('.cardTextContentsTitle');
+    titleElement.forEach((title) => {
+      const isOverflowing = title.scrollWidth > title.clientWidth;
+      if (!isOverflowing) {
+        title.style.animation = 'none';
+      }
+    });
+  }
 
   // 모달 열기
   resultContainer.addEventListener('click', (e) => {
@@ -142,6 +160,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = e.target.closest('.cardComponent');
     if (!card) return;
 
+    openBookModal(card);
+  });
+
+  resultContainer.addEventListener('keydown', (e) => {
+    if (
+      (e.target.classList.contains('cardTextContentsTitle') ||
+        e.target.classList.contains('openModal')) &&
+      (e.key === 'Enter' || e.key === ' ')
+    ) {
+      e.preventDefault();
+
+      const card = e.target.closest('.cardComponent');
+      if (!card) return;
+
+      openBookModal(card);
+    }
+  });
+
+  /**
+   * 모달을 열면 아래 내용들이 모달로 대입
+   * @param {*} card 이벤트가 작동된 카드
+   */
+  function openBookModal(card) {
     modal.querySelector('.bookTitle').textContent = card.dataset.title || '제목 없음';
     modal.querySelector('.bookAuthor').textContent = card.dataset.author || '작가 없음';
     modal.querySelector('.bookPublisher').textContent = card.dataset.publisher || '출판사 없음';
@@ -150,5 +191,39 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.querySelector('.bookDescription').textContent = card.dataset.description || '설명 없음';
 
     modal.style.display = 'flex';
-  });
+
+    const closeBtn = modal.querySelector('.closeModal');
+    if (closeBtn) closeBtn.focus();
+
+    // 포커스 트랩 함수 호출
+    trapFocus(modal);
+  }
+
+  /**
+   * 포커스 트랩 함수
+   * @param {*} modal 이벤트가 작동된 모달
+   */
+  function trapFocus(modal) {
+    const focusableElement = modal.querySelectorAll('button');
+    const firstElement = focusableElement[0];
+    const lastElement = focusableElement[focusableElement.length - 1];
+
+    modal.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          // Shift + Tab
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          // Tab
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    });
+  }
 });
