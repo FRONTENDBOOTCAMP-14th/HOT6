@@ -22,6 +22,7 @@
 | 배포        | <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=Vercel&logoColor=white"/> |
 
 ### 🔗 배포사이트
+[<img width="250" height="158" alt="Image" src="https://github.com/user-attachments/assets/68f72907-6318-481d-8297-d47cdf7cb7b5" />](https://hot-6.vercel.app/)
 
 
 ### 🔰 프로젝트 팀&팀원 소개
