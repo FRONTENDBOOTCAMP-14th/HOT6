@@ -61,12 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
   modal.querySelector('.closeModal').addEventListener('click', () => {
     modal.querySelector('.bookDetails').scrollTop = 0;
     modal.style.display = 'none';
+    document.body.style.overflow = '';
   });
 
   modal.addEventListener('click', (e) => {
     if (!e.target.closest('.modalContent')) {
       modal.querySelector('.bookDetails').scrollTop = 0;
       modal.style.display = 'none';
+      document.body.style.overflow = '';
     }
   });
 
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       modal.querySelector('.bookDetails').scrollTop = 0;
       modal.style.display = 'none';
+      document.body.style.overflow = '';
     }
   });
 
@@ -241,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.querySelector('.bookDescription').textContent = card.dataset.description || '설명 없음';
 
     modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
 
     const closeBtn = modal.querySelector('.closeModal');
     if (closeBtn) closeBtn.focus();
