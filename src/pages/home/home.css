@@ -142,7 +142,34 @@
 }
 
 @media (min-width: 700px) {
-  .cardTextContentsTitle {
-    inline-size: 12.375rem;
+  .cardComponent {
+    .textContents {
+      overflow: hidden;
+      inline-size: 12.375rem;
+
+      .cardTextContentsTitle {
+        white-space: nowrap;
+
+        &:hover {
+          animation: titleSlide 4s linear infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes titleSlide {
+  0% {
+    transform: translateX(0%);
+  }
+  10% {
+    transform: translateX(0%);
+  }
+
+  80% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
