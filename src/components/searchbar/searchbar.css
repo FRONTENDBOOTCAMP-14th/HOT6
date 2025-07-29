@@ -53,13 +53,6 @@
   block-size: 1.25rem;
 }
 
-/* x 버튼 제거 (임시, 코드 삭제 예정) */
-#searchInput::-webkit-search-cancel-button {
-  display: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
 /* 브라우저 자동입력 스타일 제거 */
 #searchInput:-webkit-autofill {
   box-shadow: 0 0 0 62.5rem var(--primary-light, #f5fff8) inset !important;
