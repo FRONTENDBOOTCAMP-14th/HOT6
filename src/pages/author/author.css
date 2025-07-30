@@ -79,4 +79,8 @@
   .authorCard h2 {
     text-align: start;
   }
+
+  .goToTopButton {
+    display: none;
+  }
 }
