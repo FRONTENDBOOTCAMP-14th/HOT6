@@ -1,3 +1,5 @@
+import DOMPurify from '../modules/dompurify';
+
 const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
 
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const countElement = document.getElementById('searchBookCount');
   const nameElement = document.getElementById('searchBookName');
 
+  let cleanQuery = '';
   let query = '';
   let start = 1;
   const display = 12;
@@ -84,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     query = input.value.trim();
-    if (!query) return alert('검색어 입력은 필수입니다.');
+    cleanQuery = DOMPurify.sanitize(query);
+    if (!cleanQuery) return alert('검색어 입력은 필수입니다.');
 
     start = 1;
     moreBooks = true;
@@ -101,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isLoading = true;
 
     fetch(
-      `/v1/search/book.json?query=${encodeURIComponent(query)}&start=${start}&display=${display}`,
+      `/v1/search/book.json?query=${encodeURIComponent(cleanQuery)}&start=${start}&display=${display}`,
       {
         headers: {
           'X-Naver-Client-Id': clientId,
@@ -177,14 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </button>
       </picture>
       <div class="textContents">
-        <p class="cardTextContentsTitle" tabindex="0">${shortTitle}</p>
+        <p class="cardTextContentsTitle" tabindex="0">${DOMPurify.sanitize(shortTitle)}</p>
         
         <div class="divider"></div>
-        <p>${author || '작가 정보 없음'}</p>
+        <p>${DOMPurify.sanitize(author) || '작가 정보 없음'}</p>
         <div class="divider"></div>
-        <p>${publisher || '출판사 정보 없음'}</p>
+        <p>${DOMPurify.sanitize(publisher) || '출판사 정보 없음'}</p>
         <div class="divider"></div>
-        <p>${discount ? discount + '원' : '가격 정보 없음'}</p>
+        <p>${discount ? DOMPurify.sanitize(discount) + '원' : '가격 정보 없음'}</p>
       </div>
     `;
     resultContainer.appendChild(card);
