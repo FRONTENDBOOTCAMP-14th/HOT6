@@ -96,18 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 닫을때 속성 주기 함수
+  function modalClose() {
+    modal.querySelector('.bookDetails').scrollTop = 0;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+    const cards =
+      modal.previousElementSibling.previousElementSibling.querySelectorAll('.cardComponent');
+    const selectedCard = cards.find((card) => card.dataset.isbn === modal.dataset.isbn);
+    // console.log(modal.dataset.isbn);
+    // console.log(selectedCardId)
+    syncFavorite(selectedCard, modal);
+  }
   // 닫기 이벤트
   modal.querySelector('.closeModal').addEventListener('click', () => {
-    modal.querySelector('.bookDetails').scrollTop = 0;
-    // addColorToCardFav(selectedCard);
-    modal.style.display = 'none';
+    modalClose();
   });
 
   modal.addEventListener('click', (e) => {
     if (!e.target.closest('.modalContent')) {
-      modal.querySelector('.bookDetails').scrollTop = 0;
-      // addColorToCardFav(selectedCard);
-      modal.style.display = 'none';
+      modalClose();
     }
     const favoriteButton = e.target.closest('.favoriteButton');
     const favoriteModal = e.currentTarget;
@@ -150,8 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modal.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      modal.querySelector('.bookDetails').scrollTop = 0;
-      modal.style.display = 'none';
+      modalClose();
     }
   });
 
@@ -291,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.querySelector('.bookCover').src = card.dataset.image || '';
     modal.querySelector('.bookDescription').textContent = card.dataset.description || '설명 없음';
     modal.querySelector('.bookDetails').dataset.isbn = card.dataset.isbn || '';
+    modal.dataset.isbn = card.dataset.isbn;
 
     modal.style.display = 'flex';
     addColorToModalFav(modal);
@@ -299,8 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeBtn) closeBtn.focus();
 
     // 모달이 열렸을 때, 해당 카드의 도서식별번호
-    // const selectedCardId = modal.previousElementSibling.previousElementSibling.querySelector('.cardComponent').dataset
-    //   .isbn
+    // const selectedCardId = modal.previousElementSibling.previousElementSibling.querySelector('.cardComponent').dataset.isbn
 
     // 포커스 트랩 함수 호출
     trapFocus(modal);
@@ -482,6 +489,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const index = dataList.findIndex((item) => item.isbn === modalId); // 배열에서 뺄 아이템 인덱스 찾기~
     if (index === -1) return;
     favoriteButton.classList.add(SELECTED_CLASSNAME); // 색 넣기
+  }
+  function syncFavorite(card, modal) {
+    const favoriteButtonCard = card.querySelector('.favoriteButton');
+    const favoriteButtonModal = modal.querySelector('.favoriteButton');
+    const SELECTED_CLASSNAME = 'isClicked';
+
+    if (favoriteButtonModal.classList.contains(SELECTED_CLASSNAME)) {
+      favoriteButtonCard.classList.add(SELECTED_CLASSNAME);
+    } else {
+      favoriteButtonCard.classList.remove(SELECTED_CLASSNAME);
+    }
   }
 
   // 추가로 할 일 --------------------------------------------------------------------------
