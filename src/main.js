@@ -8,4 +8,4 @@ import './scripts/naver-api.js';
 import '../src/scripts/go-to-top.js';
 
 // 작가 페이지
-import '../src/scripts/author.js';
+// import '../src/scripts/author.js';
