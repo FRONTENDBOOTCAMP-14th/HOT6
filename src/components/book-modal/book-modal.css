@@ -21,9 +21,12 @@
     color: var(--primary-light, #f5fff8);
     overflow-y: auto;
 
-    .closeModal {
+  .closeModal {
       position: absolute;
-      inset: 1rem 1rem auto auto;
+      inset: 0rem 0rem auto auto;
+      padding: 0.0625rem var(--padding-10, 0.625rem) 0.3125rem var(--padding-10, 0.625rem);
+      border-radius: 50%;
+      background: #00000099;
       color: var(--primary-light, #f5fff8);
       font-size: var(--font-size-32, 2rem);
     }
