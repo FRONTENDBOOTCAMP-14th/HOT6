@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(modal);
 
   // 검색 이벤트
-  form.addEventListener('submit', (e) => {
+if (form && input){  form.addEventListener('submit', (e) => {
     e.preventDefault();
     query = input.value.trim();
     cleanQuery = DOMPurify.sanitize(query);
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     start = 1;
     moreBooks = true;
     searchBooks(true);
-  });
+  })};
 
   // 모달 열기
   resultContainer.addEventListener('click', (e) => {
@@ -295,7 +295,8 @@ if (form && input){  form.addEventListener('submit', (e) => {
   }
 
   // 모달 열기
-if(resultContainer){  resultContainer.addEventListener('click', (e) => {
+if(resultContainer){ 
+  resultContainer.addEventListener('click', (e) => {
     if (e.target.closest('.favoriteButton') || e.target.closest('.favoriteIcon')) {
       return;
     }
@@ -305,7 +306,8 @@ if(resultContainer){  resultContainer.addEventListener('click', (e) => {
     openBookModal(card);
   })};
 
-if(resultContainer){  resultContainer.addEventListener('keydown', (e) => {
+if(resultContainer){
+  resultContainer.addEventListener('keydown', (e) => {
     if (
       (e.target.classList.contains('cardTextContentsTitle') ||
         e.target.classList.contains('openModal')) &&
@@ -379,12 +381,15 @@ if(resultContainer){  resultContainer.addEventListener('keydown', (e) => {
     });
   }
 
-if(resultContainer){  resultContainer.addEventListener('scroll', () => {
+if(resultContainer){
+  resultContainer.addEventListener('scroll', () => {
     const scrollTop = resultContainer.scrollTop;
     const scrollHeight = resultContainer.scrollHeight;
     const clientHeight = resultContainer.clientHeight;
     if (scrollTop + clientHeight >= scrollHeight - 100 && !isLoading && moreBooks) {
       searchBooks();
+    } 
+  }
   /**
    * 카드 컴포넌트의 즐겨찾기 버튼을 다루는 함수(로컬저장소에 추가/클래스 추가)
    * @param {*} button 즐겨찾기 버튼
