@@ -100,18 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 닫을때 속성 주기 함수
-  function modalClose() {
-    modal.querySelector('.bookDetails').scrollTop = 0;
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-    const cards =
-      modal.previousElementSibling.previousElementSibling.querySelectorAll('.cardComponent');
-    const selectedCard = cards.find((card) => card.dataset.isbn === modal.dataset.isbn);
-    // console.log(modal.dataset.isbn);
-    // console.log(selectedCardId)
-    syncFavorite(selectedCard, modal);
-  }
   // 닫기 이벤트
   modal.querySelector('.closeModal').addEventListener('click', () => {
     modalClose();
@@ -123,8 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const favoriteButton = e.target.closest('.favoriteButton');
     const favoriteModal = e.currentTarget;
-    console.log(1, favoriteButton);
-    // console.log(favoriteModal)
 
     if (!favoriteModal) return;
     if (favoriteModal) {
@@ -139,24 +125,31 @@ document.addEventListener('DOMContentLoaded', () => {
         description: favoriteModal.querySelector('.bookDescription').textContent,
       };
 
+      const cards =
+        modal.previousElementSibling.previousElementSibling.querySelectorAll('.cardComponent');
+
+      const selectedCard = Array.from(cards).find(
+        (card) => card.dataset.isbn === modal.dataset.isbn
+      );
+
       const dataListKey = 'favoriteBooks';
       const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
       const SELECTED_CLASSNAME = 'isClicked';
 
-      const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
+      const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn);
       if (index === -1) {
-        console.log(2, favoriteButton);
         // 아이템이 없으면
-        dataList.push(favoriteBookData); //  배열에 추가
-        // localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-        favoriteButton.classList.add(SELECTED_CLASSNAME); // 색입히기
+        dataList.push(favoriteBookData);
+
+        favoriteButton.classList.add(SELECTED_CLASSNAME);
+        selectedCard.querySelector('.favoriteButton').classList.add(SELECTED_CLASSNAME);
       } else {
-        console.log(3, favoriteButton);
         // 아이템이 이미 있으면
-        dataList.splice(index, 1); // 배열에서 빼기
-        favoriteButton.classList.remove(SELECTED_CLASSNAME); // 색빼기
+        dataList.splice(index, 1);
+        favoriteButton.classList.remove(SELECTED_CLASSNAME);
+        selectedCard.querySelector('.favoriteButton').classList.remove(SELECTED_CLASSNAME);
       }
-      localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
+      localStorage.setItem(dataListKey, JSON.stringify(dataList));
     }
   });
 
@@ -166,6 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // 무한 스크롤
   resultContainer.addEventListener('scroll', () => {
     const scrollTop = resultContainer.scrollTop;
     const scrollHeight = resultContainer.scrollHeight;
@@ -216,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isLoading = false;
       });
   }
+
   /**
    * 카드 아이템들을 만들어주는 함수
    * @param {*} item API에서 받아온 정보
@@ -317,6 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
     trapFocus(modal);
   }
 
+  // 닫을때 속성 주기 함수
+  function modalClose() {
+    modal.querySelector('.bookDetails').scrollTop = 0;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
   /**
    * 포커스 트랩 함수
    * @param {*} modal 이벤트가 작동된 모달
@@ -345,11 +347,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /**
+   * 카드 컴포넌트의 즐겨찾기 버튼을 다루는 함수(로컬저장소에 추가/클래스 추가)
+   * @param {*} button 즐겨찾기 버튼
+   */
   function getFavoriteBookFromCard(button) {
-    // container.addEventListener('click', (e) => {
     const favoriteButton = button;
 
-    //   if (favoriteButton) {
     const favoriteCard = favoriteButton.closest('.cardComponent');
     if (!favoriteCard) return;
     const favoriteBookData = {
@@ -379,99 +383,11 @@ document.addEventListener('DOMContentLoaded', () => {
       favoriteButton.classList.remove(SELECTED_CLASSNAME); // 색빼기
     }
     // favoriteButton.classList.toggle(SELECTED_CLASSNAME); // 색 조정
-    // }
-    // });
   }
-  // function getFavoriteBookFromModal(button) {
-  //   // container.addEventListener('click', (e) => {
-  //   const favoriteButton = button
-
-  //   //   if (favoriteButton) {
-  //   const favoriteCard = favoriteButton.closest('.cardComponent');
-  //   if (!favoriteCard) return;
-  //   const favoriteBookData = {
-  //     title: favoriteCard.dataset.title,
-  //     image: favoriteCard.dataset.image,
-  //     author: favoriteCard.dataset.author,
-  //     publisher: favoriteCard.dataset.publisher,
-  //     discount: favoriteCard.dataset.discount,
-  //     isbn: favoriteCard.dataset.isbn,
-  //     description: favoriteCard.dataset.description,
-  //   };
-
-  //   const dataListKey = 'favoriteBooks';
-  //   const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
-  //   const SELECTED_CLASSNAME = 'isClicked';
-
-  //   const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
-  //   if (index === -1) {
-  //     // 아이템이 없으면
-  //     dataList.push(favoriteBookData); //  배열에 추가
-  //     localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-  //     favoriteButton.classList.add(SELECTED_CLASSNAME); // 색입히기
-  //   } else {
-  //     // 아이템이 이미 있으면
-  //     dataList.splice(index, 1); // 배열에서 빼기
-  //     localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-  //     favoriteButton.classList.remove(SELECTED_CLASSNAME); // 색빼기
-  //   }
-  //   // favoriteButton.classList.toggle(SELECTED_CLASSNAME); // 색 조정
-  //   // }
-  //   // });
-  // }
-
-  // 도서 목록 전체 컨테이너에 클릭 이벤트리스너 연결
-  // favorite 버튼 찾고, 해당 카드 찾음. -> 해당 카드의 데이터 객체로 저장
-  // 로컬 스토리지에서 키(객체명) 가져오거나, 없다면 빈 배열 가져옴.
-  // index에 해당 도서 위치 탐색
-  //    없으면 -> push + className 추가 -> 저장소에 반영
-  //    있으면 -> splice + className 제거 -> 저장소에 반영
-
-  // 카드에 클릭이벤트를 걸고
-  // 해당 카드의 도서정보를 가져오고
-  // 버튼에 클릭이벤트 연결
-  // 좋아요()
-  // modal.addEventListener('click', (e) => {
-  //   const favoriteButton = e.target.closest('.favoriteButton');
-  //   console.log(favoriteButton)
-
-  //   if (favoriteButton) {
-  //     const favoriteModal = favoriteButton.closest('.bookModal');
-  //     const favoriteCard = favoriteButton.closest('.cardContent');
-  //     if (!favoriteModal) return;
-  //     const favoriteBookData = {
-  //       title: favoriteCard.dataset.title,
-  //       image: favoriteCard.dataset.image,
-  //       author: favoriteCard.dataset.author,
-  //       publisher: favoriteCard.dataset.publisher,
-  //       discount: favoriteCard.dataset.discount,
-  //       isbn: favoriteCard.dataset.isbn,
-  //       description: favoriteCard.dataset.description,
-  //     };
-
-  //     const dataListKey = 'favoriteBooks';
-  //     const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
-  //     const SELECTED_CLASSNAME = 'isClicked';
-
-  //     const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
-  //     if (index === -1) {
-  //       // 아이템이 없으면
-  //       dataList.push(favoriteBookData); //  배열에 추가
-  //       localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-  //       favoriteButton.classList.add(SELECTED_CLASSNAME); // 색입히기
-  //     } else {
-  //       // 아이템이 이미 있으면
-  //       dataList.splice(index, 1); // 배열에서 빼기
-  //       localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-  //       favoriteButton.classList.remove(SELECTED_CLASSNAME); // 색빼기
-  //     }
-  //     // favoriteButton.classList.toggle(SELECTED_CLASSNAME); // 색 조정
-  //   }
-  // });
 
   /**
-   * 카드 뿌릴 때 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
-   * @param {Element} card
+   * 카드 리스트 렌더링 시 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
+   * @param {Element} card 카드 컴포넌트
    */
   function addColorToCardFav(card) {
     const favoriteButton = card.querySelector('.favoriteButton');
@@ -483,6 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (index === -1) return;
     favoriteButton.classList.add(SELECTED_CLASSNAME); // 색빼기
   }
+
+  /**
+   * 카드 뿌릴 때 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
+   * @param {Element} modal 선택된 카드에 대한 모달
+   */
   function addColorToModalFav(modal) {
     const favoriteButton = modal.querySelector('.favoriteButton');
     const dataListKey = 'favoriteBooks';
@@ -494,28 +415,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (index === -1) return;
     favoriteButton.classList.add(SELECTED_CLASSNAME); // 색 넣기
   }
-  function syncFavorite(card, modal) {
-    const favoriteButtonCard = card.querySelector('.favoriteButton');
-    const favoriteButtonModal = modal.querySelector('.favoriteButton');
-    const SELECTED_CLASSNAME = 'isClicked';
-
-    if (favoriteButtonModal.classList.contains(SELECTED_CLASSNAME)) {
-      favoriteButtonCard.classList.add(SELECTED_CLASSNAME);
-    } else {
-      favoriteButtonCard.classList.remove(SELECTED_CLASSNAME);
-    }
-  }
-
-  // 추가로 할 일 --------------------------------------------------------------------------
-  // 함수로 정의
-  // favorite 탭에 뿌려주기
-  // --------------------------------------------------------------------------
-
-  /*  localStorage에 저장된 데이터 양식
-  DataList = [
-  {title: "윈드 브레이커 1",…}, 
-  {title: "윈드 브레이커 1",…}
-  ]
-  */
 });
-
