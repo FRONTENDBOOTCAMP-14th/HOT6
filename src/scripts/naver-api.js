@@ -377,12 +377,10 @@ document.addEventListener('DOMContentLoaded', () => {
       dataList.push(favoriteBookData);
       localStorage.setItem(dataListKey, JSON.stringify(dataList));
       favoriteButton.classList.add(SELECTED_CLASSNAME);
-      modal.querySelector('.favoriteButton').classList.add(SELECTED_CLASSNAME);
     } else {
       dataList.splice(index, 1);
       localStorage.setItem(dataListKey, JSON.stringify(dataList));
       favoriteButton.classList.remove(SELECTED_CLASSNAME);
-      modal.querySelector('.favoriteButton').classList.remove(SELECTED_CLASSNAME);
     }
     // favoriteButton.classList.toggle(SELECTED_CLASSNAME); // 색 조정
   }
@@ -398,8 +396,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const SELECTED_CLASSNAME = 'isClicked';
 
     const index = dataList.findIndex((item) => item.isbn === card.dataset.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
-    if (index === -1) return;
-    favoriteButton.classList.add(SELECTED_CLASSNAME); // 색빼기
+    if (index === -1) {
+      favoriteButton.classList.remove(SELECTED_CLASSNAME);
+    }
+    else {
+      favoriteButton.classList.add(SELECTED_CLASSNAME);
+    }
   }
 
   /**
@@ -413,8 +415,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const SELECTED_CLASSNAME = 'isClicked';
     const modalId = modal.querySelector('.bookDetails').dataset.isbn;
 
-    const index = dataList.findIndex((item) => item.isbn === modalId); // 배열에서 뺄 아이템 인덱스 찾기~
-    if (index === -1) return;
-    favoriteButton.classList.add(SELECTED_CLASSNAME); // 색 넣기
+    const index = dataList.findIndex((item) => item.isbn === modalId);
+    if (index === -1) {
+      favoriteButton.classList.remove(SELECTED_CLASSNAME);
+    }
+    else {
+      favoriteButton.classList.add(SELECTED_CLASSNAME);
+    }
   }
 });
