@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isLoading = true;
 
     fetch(
-      `/v1/search/book.json?query=${encodeURIComponent(cleanQuery)}&start=${start}&display=${display}`,
+      `/api/v1/search/book.json?query=${encodeURIComponent(cleanQuery)}&start=${start}&display=${display}`,
       {
         headers: {
           'X-Naver-Client-Id': clientId,
