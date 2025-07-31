@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 검색 이벤트
-  form.addEventListener('submit', (e) => {
+if (form && input){  form.addEventListener('submit', (e) => {
     e.preventDefault();
     query = input.value.trim();
     if (!query) return alert('검색어 입력은 필수입니다.');
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     start = 1;
     moreBooks = true;
     searchBooks(true);
-  });
+  })};
 
   /**
    * 도서 검색 함수
@@ -101,11 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     isLoading = true;
 
     fetch(
-      `/v1/search/book.json?query=${encodeURIComponent(query)}&start=${start}&display=${display}`,
+      `/api/v1/search/book.json?query=${encodeURIComponent(query)}&start=${start}&display=${display}`,
       {
         headers: {
           'X-Naver-Client-Id': clientId,
-          'X-Naver-Client-Secret': clientSecret,
+          'X-Naver-Client-Secret': clientSecret
         },
       }
     )
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 모달 열기
-  resultContainer.addEventListener('click', (e) => {
+if(resultContainer){  resultContainer.addEventListener('click', (e) => {
     if (e.target.closest('.favoriteButton') || e.target.closest('.favoriteIcon')) {
       return;
     }
@@ -214,9 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!card) return;
 
     openBookModal(card);
-  });
+  })};
 
-  resultContainer.addEventListener('keydown', (e) => {
+if(resultContainer){  resultContainer.addEventListener('keydown', (e) => {
     if (
       (e.target.classList.contains('cardTextContentsTitle') ||
         e.target.classList.contains('openModal')) &&
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       openBookModal(card);
     }
-  });
+  })};
 
   /**
    * 모달을 열면 아래 내용들이 모달로 대입
@@ -281,12 +281,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  resultContainer.addEventListener('scroll', () => {
+if(resultContainer){  resultContainer.addEventListener('scroll', () => {
     const scrollTop = resultContainer.scrollTop;
     const scrollHeight = resultContainer.scrollHeight;
     const clientHeight = resultContainer.clientHeight;
     if (scrollTop + clientHeight >= scrollHeight - 100 && !isLoading && moreBooks) {
       searchBooks();
     }
-  });
+  })};
 });
