@@ -361,8 +361,6 @@ document.addEventListener('DOMContentLoaded', () => {
       description: favoriteCard.dataset.description,
     };
 
-    const modal = favoriteCard.closest('body').lastElementChild;
-
     const dataListKey = 'favoriteBooks';
     const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
     const SELECTED_CLASSNAME = 'isClicked';
@@ -377,7 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(dataListKey, JSON.stringify(dataList));
       favoriteButton.classList.remove(SELECTED_CLASSNAME);
     }
-    
   }
 
   /**
@@ -393,8 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const index = dataList.findIndex((item) => item.isbn === card.dataset.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
     if (index === -1) {
       favoriteButton.classList.remove(SELECTED_CLASSNAME);
-    }
-    else {
+    } else {
       favoriteButton.classList.add(SELECTED_CLASSNAME);
     }
   }
@@ -413,8 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const index = dataList.findIndex((item) => item.isbn === modalId);
     if (index === -1) {
       favoriteButton.classList.remove(SELECTED_CLASSNAME);
-    }
-    else {
+    } else {
       favoriteButton.classList.add(SELECTED_CLASSNAME);
     }
   }
