@@ -389,7 +389,7 @@ if(resultContainer){
     if (scrollTop + clientHeight >= scrollHeight - 100 && !isLoading && moreBooks) {
       searchBooks();
     } 
-  }
+  },
   /**
    * 카드 컴포넌트의 즐겨찾기 버튼을 다루는 함수(로컬저장소에 추가/클래스 추가)
    * @param {*} button 즐겨찾기 버튼
@@ -423,7 +423,7 @@ if(resultContainer){
       localStorage.setItem(dataListKey, JSON.stringify(dataList));
       favoriteButton.classList.remove(SELECTED_CLASSNAME);
     }
-  }
+  },
 
   /**
    * 카드 리스트 렌더링 시 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
@@ -441,7 +441,7 @@ if(resultContainer){
     } else {
       favoriteButton.classList.add(SELECTED_CLASSNAME);
     }
-  }
+  },
 
   /**
    * 카드 뿌릴 때 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
@@ -462,4 +462,4 @@ if(resultContainer){
     }
   })};
   }
-});
+);
