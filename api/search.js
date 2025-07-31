@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 
 export default async function handler(req, res) {
   const query = req.query.q || '';
