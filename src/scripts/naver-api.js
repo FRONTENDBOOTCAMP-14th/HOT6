@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const card = e.target.closest('.cardComponent');
       if (!card) return;
+      
+      openBookModal(modal, card);
     }
-
-    openBookModal(modal, card);
   });
 
   // 닫기 이벤트
