@@ -50,7 +50,7 @@ export default defineConfig({
     },
   },
   appType: 'mpa',
-});
+}});
 
 const filesMap = findAllHtmlFiles(path.resolve(__dirname, 'src'));
 console.log('filesMap:', filesMap);
