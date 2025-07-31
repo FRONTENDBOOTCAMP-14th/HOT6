@@ -14,14 +14,19 @@
     position: relative;
     padding: var(--padding-18, 1.125rem);
     max-inline-size: 16.25rem;
+    max-block-size: 31.25rem;
     border-radius: var(--radius-8, 0.5rem);
     background: var(--gray-900, #2b2b2b);
     box-shadow: 0 0.375rem 0.25rem 0 var(--about-shadow-dark, #00000040);
     color: var(--primary-light, #f5fff8);
+    overflow-y: auto;
 
-    .closeModal {
+  .closeModal {
       position: absolute;
-      inset: 1rem 1rem auto auto;
+      inset: 0rem 0rem auto auto;
+      padding: 0.0625rem var(--padding-10, 0.625rem) 0.3125rem var(--padding-10, 0.625rem);
+      border-radius: 50%;
+      background: #00000099;
       color: var(--primary-light, #f5fff8);
       font-size: var(--font-size-32, 2rem);
     }
@@ -39,6 +44,7 @@
       gap: var(--gap-10, 0.625rem);
       margin-block-end: var(--margin-10, 0.625rem);
       font-size: var(--font-size-16, 1rem);
+      overflow-y: auto;
 
       .bookTitle {
         font-weight: bold;
@@ -83,7 +89,9 @@
       flex-direction: row;
       padding: 0;
       block-size: 25rem;
+      max-block-size: none;
       max-inline-size: 50rem;
+      overflow: visible;
 
       .bookImageWrapper {
         position: relative;

@@ -28,11 +28,17 @@
     justify-content: center;
     min-inline-size: 20rem;
     max-inline-size: 80rem;
+    block-size: 50vh;
     row-gap: var(--gap-20, 1.25rem);
     column-gap: var(--gap-30, 1.875rem);
     margin: 0 auto;
     padding-inline: var(--padding-28, 1.75rem);
     padding-block-start: var(--padding-20, 1.25rem);
+    overflow-y: auto;
+      &::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+  -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
+  }
   }
 
   .cardImageContents {
@@ -149,6 +155,10 @@
       .mainPagePC {
         display: block;
       }
+
+      .goToTopButton {
+        display: none;
+      }
     }
   }
 
@@ -210,7 +220,6 @@
   }
 
   .footerContainer {
-    display: none;
     @media (min-width: 700px) {
       display: flex;
       margin: auto;

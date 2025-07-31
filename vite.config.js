@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 function findAllHtmlFiles(directory) {
   const htmlFiles = {};
-    function scanDirectory(dir) {
+  function scanDirectory(dir) {
     const files = fs.readdirSync(dir);
 
     for (const file of files) {
@@ -29,17 +29,25 @@ function findAllHtmlFiles(directory) {
 }
 
 export default defineConfig({
-  // base: './',
+  // 기존 설정 유지
   server: {
     port: 3000,
+    proxy: {
+      '/api': {
+      '/api': {
+        target: 'https://openapi.naver.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
   build: {
     rollupOptions: {
       input: {
         index: path.resolve(__dirname, 'index.html'),
         ...findAllHtmlFiles(path.resolve(__dirname, 'src')),
-      }
-    }
+      },
+    },
   },
   appType: 'mpa',
 });
