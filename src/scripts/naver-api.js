@@ -1,4 +1,8 @@
 import DOMPurify from '../modules/dompurify';
+import { createBookModal, openBookModal, modalClose } from '../utils/modal';
+import { addColorToCardFav } from '../utils/add-color-to-card-fav';
+import { getFavoriteBookFromCard } from '../utils/get-favorite-book-from-card';
+import { getFavoriteBookFromModal } from '../utils/get-favorite-book-from-modal';
 
 const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
@@ -18,47 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let isLoading = false;
   let moreBooks = true;
 
-  // 모달 생성
-  const modal = document.createElement('dialog');
-  modal.className = 'modal';
-  modal.setAttribute('aria-modal', 'true');
-  modal.style.display = 'none';
-
-  modal.innerHTML = `
-    <article class="modalContent bookModal">
-      <h2 class="sr-only">도서 정보 안내창</h2>
-      <header class="bookHeader">
-        <button class="closeModal" aria-label="닫기">&times;</button>
-        <div class="bookImageWrapper">
-          <img src="" alt="책 표지" class="bookCover" width="117" height="137" />
-        </div>
-      </header>
-      <section class="bookDetails" data-isbn="">
-        <h3 class="sr-only">도서 상세정보</h3>
-        <p class="bookTitle">제목</p>
-        <p class="bookAuthorPublisher">
-          <span class="bookAuthor">작가</span> | <span class="bookPublisher">출판사</span>
-        </p>
-        <p class="bookPrice">가격</p>
-        <p class="bookDescription">설명 없음</p>
-        <button class="favoriteButton" type="button" aria-label="즐겨찾기 추가/삭제">
-          <svg
-            class="favoriteIcon"
-            xmlns="http://www.w3.org/2000/svg"
-            id="Layer_1"
-            data-name="Layer 1"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            >
-            <path
-                d="M16.074,3.781c-1.39-1.106-2.703-2.152-3.691-3.333L12.006-.002l-.384,.444c-1.491,1.722-1.905,3.821-2.238,5.508-.405,2.051-.654,3.037-1.884,3.037-.198,0-.35-.069-.492-.224-.607-.663-.687-2.586-.594-3.643l.123-1.403-.98,1.011c-1.418,1.463-4.057,4.186-4.057,8.771,0,5.79,4.71,10.5,10.5,10.5s10.5-4.71,10.5-10.5c0-4.603-3.267-7.204-6.426-9.719Zm-6.902,18.048c-1.56-1.562-1.56-4.101-.022-5.639l2.851-2.522,2.828,2.502c1.559,1.561,1.559,4.1,0,5.659-1.559,1.559-4.097,1.561-5.657,0Zm6.643,.365c1.642-1.962,1.563-4.888-.301-6.752l-3.513-3.11-3.536,3.13c-1.843,1.842-1.921,4.766-.279,6.731-3.343-1.473-5.685-4.813-5.685-8.694,0-3.233,1.37-5.396,2.888-7.122,.036,1.015,.221,2.338,.882,3.06,.329,.359,.753,.549,1.229,.549,2.107,0,2.476-1.867,2.865-3.844,.294-1.492,.624-3.164,1.655-4.595,.984,1.066,2.177,2.016,3.431,3.014,2.974,2.368,6.049,4.816,6.049,8.937,0,3.882-2.343,7.222-5.686,8.695Z"
-            />
-          </svg>
-        </button>
-      </section>
-    </article>
-  `;
-  document.body.appendChild(modal);
+  const modal = createBookModal();
 
   // 검색 이벤트
   form.addEventListener('submit', (e) => {
@@ -72,13 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBooks(true);
   });
 
-  // 모달 열기
   resultContainer.addEventListener('click', (e) => {
     const favoriteButton = e.target.closest('.favoriteButton');
     const openFavButtonCondition = favoriteButton || e.target.closest('.favoriteIcon');
     const card = e.target.closest('.cardComponent');
     const openModalCondition = !openFavButtonCondition && card;
-    if (openModalCondition) openBookModal(card);
+    if (openModalCondition) openBookModal(modal, card);
 
     if (openFavButtonCondition) {
       getFavoriteBookFromCard(favoriteButton);
@@ -96,64 +59,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.cardComponent');
       if (!card) return;
 
-      openBookModal(card);
+      openBookModal(modal, card);
     }
   });
 
   // 닫기 이벤트
   modal.querySelector('.closeModal').addEventListener('click', () => {
-    modalClose();
+    modalClose(modal);
   });
 
   modal.addEventListener('click', (e) => {
     if (!e.target.closest('.modalContent')) {
-      modalClose();
+      modalClose(modal);
     }
+
     const favoriteButton = e.target.closest('.favoriteButton');
     const favoriteModal = e.currentTarget;
-
-    if (!favoriteModal) return;
-    if (favoriteModal) {
-      if (favoriteButton !== e.currentTarget.querySelector('.favoriteButton')) return;
-      const favoriteBookData = {
-        title: favoriteModal.querySelector('.bookTitle').textContent,
-        image: favoriteModal.querySelector('.bookCover').src,
-        author: favoriteModal.querySelector('.bookAuthor').textContent,
-        publisher: favoriteModal.querySelector('.bookPublisher').textContent,
-        discount: favoriteModal.querySelector('.bookPrice').textContent,
-        isbn: favoriteModal.querySelector('.bookDetails').dataset.isbn,
-        description: favoriteModal.querySelector('.bookDescription').textContent,
-      };
-
-      const cards =
-        modal.previousElementSibling.previousElementSibling.querySelectorAll('.cardComponent');
-
-      const selectedCard = Array.from(cards).find(
-        (card) => card.dataset.isbn === modal.dataset.isbn
-      );
-
-      const dataListKey = 'favoriteBooks';
-      const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
-      const SELECTED_CLASSNAME = 'isClicked';
-
-      const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn);
-      if (index === -1) {
-        dataList.push(favoriteBookData);
-
-        favoriteButton.classList.add(SELECTED_CLASSNAME);
-        selectedCard.querySelector('.favoriteButton').classList.add(SELECTED_CLASSNAME);
-      } else {
-        dataList.splice(index, 1);
-        favoriteButton.classList.remove(SELECTED_CLASSNAME);
-        selectedCard.querySelector('.favoriteButton').classList.remove(SELECTED_CLASSNAME);
-      }
-      localStorage.setItem(dataListKey, JSON.stringify(dataList));
-    }
+    getFavoriteBookFromModal(favoriteButton, favoriteModal);
   });
 
   modal.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      modalClose();
+      modalClose(modal);
     }
   });
 
@@ -281,136 +208,5 @@ document.addEventListener('DOMContentLoaded', () => {
         title.style.animation = 'none';
       }
     });
-  }
-
-  /**
-   * 모달을 열면 아래 내용들이 모달로 대입
-   * @param {*} card 이벤트가 작동된 카드
-   */
-  function openBookModal(card) {
-    modal.querySelector('.bookTitle').textContent = card.dataset.title || '제목 없음';
-    modal.querySelector('.bookAuthor').textContent = card.dataset.author || '작가 없음';
-    modal.querySelector('.bookPublisher').textContent = card.dataset.publisher || '출판사 없음';
-    modal.querySelector('.bookPrice').textContent = card.dataset.discount + '원' || '가격 없음';
-    modal.querySelector('.bookCover').src = card.dataset.image || '';
-    modal.querySelector('.bookDescription').textContent = card.dataset.description || '설명 없음';
-    modal.querySelector('.bookDetails').dataset.isbn = card.dataset.isbn || '';
-    modal.dataset.isbn = card.dataset.isbn;
-
-    modal.style.display = 'flex';
-    addColorToModalFav(modal);
-
-    const closeBtn = modal.querySelector('.closeModal');
-    if (closeBtn) closeBtn.focus();
-
-    // 포커스 트랩 함수 호출
-    trapFocus(modal);
-  }
-
-  // 닫을때 속성 주기 함수
-  function modalClose() {
-    modal.querySelector('.bookDetails').scrollTop = 0;
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  /**
-   * 포커스 트랩 함수
-   * @param {*} modal 이벤트가 작동된 모달
-   */
-  function trapFocus(modal) {
-    const focusableElement = modal.querySelectorAll('button');
-    const firstElement = focusableElement[0];
-    const lastElement = focusableElement[focusableElement.length - 1];
-
-    modal.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab') {
-        if (e.shiftKey) {
-          // Shift + Tab
-          if (document.activeElement === firstElement) {
-            e.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          // Tab
-          if (document.activeElement === lastElement) {
-            e.preventDefault();
-            firstElement.focus();
-          }
-        }
-      }
-    });
-  }
-
-  /**
-   * 카드 컴포넌트의 즐겨찾기 버튼을 다루는 함수(로컬저장소에 추가/클래스 추가)
-   * @param {*} button 즐겨찾기 버튼
-   */
-  function getFavoriteBookFromCard(button) {
-    const favoriteButton = button;
-
-    const favoriteCard = favoriteButton.closest('.cardComponent');
-    if (!favoriteCard) return;
-    const favoriteBookData = {
-      title: favoriteCard.dataset.title,
-      image: favoriteCard.dataset.image,
-      author: favoriteCard.dataset.author,
-      publisher: favoriteCard.dataset.publisher,
-      discount: favoriteCard.dataset.discount,
-      isbn: favoriteCard.dataset.isbn,
-      description: favoriteCard.dataset.description,
-    };
-
-    const dataListKey = 'favoriteBooks';
-    const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
-    const SELECTED_CLASSNAME = 'isClicked';
-
-    const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
-    if (index === -1) {
-      dataList.push(favoriteBookData);
-      localStorage.setItem(dataListKey, JSON.stringify(dataList));
-      favoriteButton.classList.add(SELECTED_CLASSNAME);
-    } else {
-      dataList.splice(index, 1);
-      localStorage.setItem(dataListKey, JSON.stringify(dataList));
-      favoriteButton.classList.remove(SELECTED_CLASSNAME);
-    }
-  }
-
-  /**
-   * 카드 리스트 렌더링 시 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
-   * @param {Element} card 카드 컴포넌트
-   */
-  function addColorToCardFav(card) {
-    const favoriteButton = card.querySelector('.favoriteButton');
-    const dataListKey = 'favoriteBooks';
-    const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
-    const SELECTED_CLASSNAME = 'isClicked';
-
-    const index = dataList.findIndex((item) => item.isbn === card.dataset.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
-    if (index === -1) {
-      favoriteButton.classList.remove(SELECTED_CLASSNAME);
-    } else {
-      favoriteButton.classList.add(SELECTED_CLASSNAME);
-    }
-  }
-
-  /**
-   * 카드 뿌릴 때 즐겨찾기 등록 여부를 확인해 클래스를 추가해주는 함수
-   * @param {Element} modal 선택된 카드에 대한 모달
-   */
-  function addColorToModalFav(modal) {
-    const favoriteButton = modal.querySelector('.favoriteButton');
-    const dataListKey = 'favoriteBooks';
-    const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
-    const SELECTED_CLASSNAME = 'isClicked';
-    const modalId = modal.querySelector('.bookDetails').dataset.isbn;
-
-    const index = dataList.findIndex((item) => item.isbn === modalId);
-    if (index === -1) {
-      favoriteButton.classList.remove(SELECTED_CLASSNAME);
-    } else {
-      favoriteButton.classList.add(SELECTED_CLASSNAME);
-    }
   }
 });
