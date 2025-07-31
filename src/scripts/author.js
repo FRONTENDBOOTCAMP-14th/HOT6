@@ -1,3 +1,32 @@
+// 이미지 자동 import
+const webpImages = import.meta.glob('/src/assets/images/author/author_*_webp.webp', {
+  eager: true,
+  import: 'default',
+});
+const webp2xImages = import.meta.glob('/src/assets/images/author/author_*_webp_2x.webp', {
+  eager: true,
+  import: 'default',
+});
+const pngImages = import.meta.glob('/src/assets/images/author/author_*.png', {
+  eager: true,
+  import: 'default',
+});
+const png2xImages = import.meta.glob('/src/assets/images/author/author_*_2x.png', {
+  eager: true,
+  import: 'default',
+});
+
+// 이미지 매핑 함수
+function getAuthorImages(imgName) {
+  return {
+    webp: webpImages[`/src/assets/images/author/author_${imgName}_webp.webp`],
+    webp2x: webp2xImages[`/src/assets/images/author/author_${imgName}_webp_2x.webp`],
+    png: pngImages[`/src/assets/images/author/author_${imgName}.png`],
+    png2x: png2xImages[`/src/assets/images/author/author_${imgName}_2x.png`],
+  };
+}
+
+// 작가 데이터
 const authors = [
   {
     name: '한강',
@@ -85,37 +114,31 @@ const authors = [
   },
 ];
 
-/**
- * 한국 작가인지 확인
- */
+// 한국 작가인지 확인
 function isKorean(author) {
   return author.nationality === 'korean';
 }
 
-/**
- * 해당 작가가 국제적인 작가인지 확인
- */
+// 해당 작가가 국제적인 작가인지 확인
 function isInternational(author) {
   return author.nationality === 'international';
 }
 
-/**
- * 작가 데이터를 받아 프로필 렌더링
- */
+// 작가 데이터를 받아 프로필 렌더링
 function renderAuthors(list, containerId) {
   const container = document.getElementById(containerId);
   list.forEach(function (author) {
+    const images = getAuthorImages(author.img);
+
     const article = document.createElement('article');
     article.innerHTML = `
       <a href="${author.wiki}" target="_blank" rel="noopener noreferrer">
         <figure>
           <picture>
             <source type="image/webp"
-              srcset="/src/assets/images/author/author_${author.img}_webp.webp 1x,
-                      /src/assets/images/author/author_${author.img}_webp_2x.webp 2x" />
-            <img src="/src/assets/images/author/author_${author.img}.png"
-                 srcset="/src/assets/images/author/author_${author.img}.png 1x,
-                         /src/assets/images/author/author_${author.img}_2x.png 2x"
+              srcset="${images.webp} 1x, ${images.webp2x} 2x" />
+            <img src="${images.png}"
+                 srcset="${images.png} 1x, ${images.png2x} 2x"
                  alt="${author.name}의 나무위키로 이동" />
           </picture>
           <figcaption>${author.displayName}</figcaption>
