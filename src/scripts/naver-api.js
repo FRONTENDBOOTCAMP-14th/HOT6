@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.searchBar form');
   const input = document.getElementById('searchInput');
   const resultContainer = document.querySelector('.bookListWrapperHome');
-  const searchBookComment = document.querySelector('.searchBookComment');
   const countElement = document.getElementById('searchBookCount');
   const nameElement = document.getElementById('searchBookName');
 
@@ -33,14 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     queryVariables.start = 1;
     queryVariables.moreBooks = true;
-    searchBooks(
-      queryVariables,
-      true,
-      resultContainer,
-      countElement,
-      nameElement,
-      searchBookComment
-    );
+    searchBooks(queryVariables, true, resultContainer, countElement, nameElement);
   });
 
   resultContainer.addEventListener('click', (e) => {
@@ -101,14 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       !queryVariables.isLoading &&
       queryVariables.moreBooks
     ) {
-      searchBooks(
-        queryVariables,
-        false,
-        resultContainer,
-        countElement,
-        nameElement,
-        searchBookComment
-      );
+      searchBooks(queryVariables, false, resultContainer, countElement, nameElement);
     }
   });
 });

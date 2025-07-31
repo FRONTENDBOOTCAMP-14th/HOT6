@@ -8,14 +8,10 @@ const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
  * @param {*} isNewSearch 첫 검색인지 추가 검색인지 구분해줌
  * @returns
  */
-export function searchBooks(
-  queryVariables,
-  isNewSearch = false,
-  container,
-  bookCount,
-  bookName,
-  resultCount
-) {
+export function searchBooks(queryVariables, isNewSearch = false, container, bookCount, bookName) {
+  const bookListResultWrapper = document.querySelector('.bookListResultWrapper');
+  const noResult = bookListResultWrapper.lastElementChild;
+
   let { cleanQuery, display } = queryVariables;
   if (queryVariables.isLoading || !queryVariables.moreBooks) return;
   queryVariables.isLoading = true;
@@ -32,12 +28,15 @@ export function searchBooks(
     .then((data) => {
       if (isNewSearch) {
         container.innerHTML = '';
+        noResult.textContent = '';
         // 결과 텍스트
         bookCount.textContent = data.total;
         bookName.textContent = cleanQuery;
       }
       if (data.items.length === 0) {
-        resultCount.innerHTML = `<p>검색 결과가 없습니다.</p>`;
+        noResult.textContent = '검색 결과가 없습니다.';
+
+        bookListResultWrapper.appendChild(noResult);
         queryVariables.moreBooks = false;
         return;
       }
