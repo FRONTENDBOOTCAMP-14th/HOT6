@@ -25,16 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = createBookModal();
 
   // 검색 이벤트
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    query = input.value.trim();
-    cleanQuery = DOMPurify.sanitize(query);
-    if (!cleanQuery) return alert('검색어 입력은 필수입니다.');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      query = input.value.trim();
+      cleanQuery = DOMPurify.sanitize(query);
+      if (!cleanQuery) return alert('검색어 입력은 필수입니다.');
 
-    start = 1;
-    moreBooks = true;
-    searchBooks(true);
-  });
+      start = 1;
+      moreBooks = true;
+      searchBooks(true);
+    });
 
   resultContainer.addEventListener('click', (e) => {
     const favoriteButton = e.target.closest('.favoriteButton');
@@ -45,23 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (openFavButtonCondition) {
       getFavoriteBookFromCard(favoriteButton);
-    }
-  });
-
+    } 
+   });
+  
   resultContainer.addEventListener('keydown', (e) => {
-    if (
-      (e.target.classList.contains('cardTextContentsTitle') ||
-        e.target.classList.contains('openModal')) &&
-      (e.key === 'Enter' || e.key === ' ')
-    ) {
-      e.preventDefault();
+      if (
+        (e.target.classList.contains('cardTextContentsTitle') ||
+          e.target.classList.contains('openModal')) &&
+        (e.key === 'Enter' || e.key === ' ')
+      ) {
+        e.preventDefault();
 
-      const card = e.target.closest('.cardComponent');
-      if (!card) return;
+        const card = e.target.closest('.cardComponent');
+        if (!card) return;
 
-      openBookModal(modal, card);
-    }
-  });
+
+   openBookModal(modal, card);
+   });
+
+   
 
   // 닫기 이벤트
   modal.querySelector('.closeModal').addEventListener('click', () => {
@@ -84,17 +86,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+ 
   // 무한 스크롤
-  resultContainer.addEventListener('scroll', () => {
-    const scrollTop = resultContainer.scrollTop;
-    const scrollHeight = resultContainer.scrollHeight;
-    const clientHeight = resultContainer.clientHeight;
-    if (scrollTop + clientHeight >= scrollHeight - 100 && !isLoading && moreBooks) {
-      searchBooks();
-    }
-  });
+ 
+    resultContainer.addEventListener('scroll', () => {
+      const scrollTop = resultContainer.scrollTop;
+      const scrollHeight = resultContainer.scrollHeight;
+      const clientHeight = resultContainer.clientHeight;
+      if (scrollTop + clientHeight >= scrollHeight - 100 && !isLoading && moreBooks) {
+        searchBooks();
+      }
+    });
+ 
 
-  /**
+/**
    * 도서 검색 함수
    * @param {*} isNewSearch 첫 검색인지 추가 검색인지 구분해줌
    * @returns
@@ -102,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function searchBooks(isNewSearch = false) {
     if (isLoading || !moreBooks) return;
     isLoading = true;
-
     fetch(
       `/api/v1/search/book.json?query=${encodeURIComponent(cleanQuery)}&start=${start}&display=${display}`,
       {
@@ -125,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
           moreBooks = false;
           return;
         }
-
+      
         data.items.forEach((item) => createCard(item));
 
         start += display;
@@ -191,13 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>${discount ? DOMPurify.sanitize(discount) + '원' : '가격 정보 없음'}</p>
       </div>
     `;
+
     resultContainer.appendChild(card);
     addColorToCardFav(card);
 
     isOverflow();
-  }
 
-  /**
+/**
    * 텍스트 길이를 판단하고 자동 슬라이드 애니메이션을 없애는 함수
    */
   function isOverflow() {
