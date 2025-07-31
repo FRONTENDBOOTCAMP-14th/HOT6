@@ -5,10 +5,6 @@
 
   @media (min-width: 700px) {
     display: flex;
-
-    .goToTopButton {
-      display: none;
-    }
   }
 }
 
@@ -30,7 +26,7 @@
   text-align: center;
   color: var(--primary-300, #82fca5);
   font-family: 'Pretendard Variable';
-  font-size: var(--font-size-24, 1.5rem);
+  font-size: var(--font-size-20, 1.25rem);
   font-style: normal;
   font-weight: 400;
   line-height: 1.8125rem;
@@ -60,7 +56,7 @@
   transform: scale(1.05);
 }
 
-.authorCardImage h3 {
+.authorCardImage figcaption {
   margin-block: var(--margin-16, 1rem);
   color: var(--primary-light, #f5fff8);
   font-family: 'Pretendard Variable';
@@ -68,6 +64,10 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.1875rem;
+}
+
+.authorCardImage a:hover figcaption {
+  color: var(--primary-500, #1ffa5d);
 }
 
 @media (min-width: 700px) {
@@ -78,5 +78,9 @@
 
   .authorCard h2 {
     text-align: start;
+  }
+
+  .goToTopButton {
+    display: none;
   }
 }
