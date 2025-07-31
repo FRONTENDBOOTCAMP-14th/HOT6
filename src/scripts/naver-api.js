@@ -83,6 +83,38 @@ if (form && input){  form.addEventListener('submit', (e) => {
     if (openFavButtonCondition) {
       getFavoriteBookFromCard(favoriteButton);
     }
+
+
+    function getFavoriteBookFromCard(button) {
+    const favoriteButton = button;
+
+    const favoriteCard = favoriteButton.closest('.cardComponent');
+    if (!favoriteCard) return;
+    const favoriteBookData = {
+      title: favoriteCard.dataset.title,
+      image: favoriteCard.dataset.image,
+      author: favoriteCard.dataset.author,
+      publisher: favoriteCard.dataset.publisher,
+      discount: favoriteCard.dataset.discount,
+      isbn: favoriteCard.dataset.isbn,
+      description: favoriteCard.dataset.description,
+    };
+
+    const dataListKey = 'favoriteBooks';
+    const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
+    const SELECTED_CLASSNAME = 'isClicked';
+
+    const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
+    if (index === -1) {
+      dataList.push(favoriteBookData);
+      localStorage.setItem(dataListKey, JSON.stringify(dataList));
+      favoriteButton.classList.add(SELECTED_CLASSNAME);
+    } else {
+      dataList.splice(index, 1);
+      localStorage.setItem(dataListKey, JSON.stringify(dataList));
+      favoriteButton.classList.remove(SELECTED_CLASSNAME);
+    }
+  }
   });
 
   resultContainer.addEventListener('keydown', (e) => {
@@ -275,10 +307,26 @@ if (form && input){  form.addEventListener('submit', (e) => {
         <p>${discount ? DOMPurify.sanitize(discount) + '원' : '가격 정보 없음'}</p>
       </div>
     `;
+    
     resultContainer.appendChild(card);
     addColorToCardFav(card);
-
+  
     isOverflow();
+
+
+      function addColorToCardFav(card) {
+    const favoriteButton = card.querySelector('.favoriteButton');
+    const dataListKey = 'favoriteBooks';
+    const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
+    const SELECTED_CLASSNAME = 'isClicked';
+
+    const index = dataList.findIndex((item) => item.isbn === card.dataset.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
+    if (index === -1) {
+      favoriteButton.classList.remove(SELECTED_CLASSNAME);
+    } else {
+      favoriteButton.classList.add(SELECTED_CLASSNAME);
+    }
+  }
   }
 
   /**
@@ -336,6 +384,8 @@ if(resultContainer){
     modal.querySelector('.bookDetails').dataset.isbn = card.dataset.isbn || '';
     modal.dataset.isbn = card.dataset.isbn;
 
+    
+
     modal.style.display = 'flex';
     addColorToModalFav(modal);
 
@@ -344,6 +394,22 @@ if(resultContainer){
 
     // 포커스 트랩 함수 호출
     trapFocus(modal);
+
+
+      function addColorToModalFav(modal) {
+    const favoriteButton = modal.querySelector('.favoriteButton');
+    const dataListKey = 'favoriteBooks';
+    const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
+    const SELECTED_CLASSNAME = 'isClicked';
+    const modalId = modal.querySelector('.bookDetails').dataset.isbn;
+
+    const index = dataList.findIndex((item) => item.isbn === modalId);
+    if (index === -1) {
+      favoriteButton.classList.remove(SELECTED_CLASSNAME);
+    } else {
+      favoriteButton.classList.add(SELECTED_CLASSNAME);
+    }
+  }
   }
 
   // 닫을때 속성 주기 함수
