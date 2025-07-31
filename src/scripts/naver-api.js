@@ -138,13 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn);
       if (index === -1) {
-        // 아이템이 없으면
         dataList.push(favoriteBookData);
 
         favoriteButton.classList.add(SELECTED_CLASSNAME);
         selectedCard.querySelector('.favoriteButton').classList.add(SELECTED_CLASSNAME);
       } else {
-        // 아이템이 이미 있으면
         dataList.splice(index, 1);
         favoriteButton.classList.remove(SELECTED_CLASSNAME);
         selectedCard.querySelector('.favoriteButton').classList.remove(SELECTED_CLASSNAME);
@@ -305,9 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = modal.querySelector('.closeModal');
     if (closeBtn) closeBtn.focus();
 
-    // 모달이 열렸을 때, 해당 카드의 도서식별번호
-    // const selectedCardId = modal.previousElementSibling.previousElementSibling.querySelector('.cardComponent').dataset.isbn
-
     // 포커스 트랩 함수 호출
     trapFocus(modal);
   }
@@ -382,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem(dataListKey, JSON.stringify(dataList));
       favoriteButton.classList.remove(SELECTED_CLASSNAME);
     }
-    // favoriteButton.classList.toggle(SELECTED_CLASSNAME); // 색 조정
+    
   }
 
   /**
