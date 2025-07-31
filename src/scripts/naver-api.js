@@ -366,21 +366,23 @@ document.addEventListener('DOMContentLoaded', () => {
       description: favoriteCard.dataset.description,
     };
 
+    const modal = favoriteCard.closest('body').lastElementChild;
+
     const dataListKey = 'favoriteBooks';
     const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
     const SELECTED_CLASSNAME = 'isClicked';
 
     const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
     if (index === -1) {
-      // 아이템이 없으면
-      dataList.push(favoriteBookData); //  배열에 추가
-      localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-      favoriteButton.classList.add(SELECTED_CLASSNAME); // 색입히기
+      dataList.push(favoriteBookData);
+      localStorage.setItem(dataListKey, JSON.stringify(dataList));
+      favoriteButton.classList.add(SELECTED_CLASSNAME);
+      modal.querySelector('.favoriteButton').classList.add(SELECTED_CLASSNAME);
     } else {
-      // 아이템이 이미 있으면
-      dataList.splice(index, 1); // 배열에서 빼기
-      localStorage.setItem(dataListKey, JSON.stringify(dataList)); // 저장소에 추가
-      favoriteButton.classList.remove(SELECTED_CLASSNAME); // 색빼기
+      dataList.splice(index, 1);
+      localStorage.setItem(dataListKey, JSON.stringify(dataList));
+      favoriteButton.classList.remove(SELECTED_CLASSNAME);
+      modal.querySelector('.favoriteButton').classList.remove(SELECTED_CLASSNAME);
     }
     // favoriteButton.classList.toggle(SELECTED_CLASSNAME); // 색 조정
   }
