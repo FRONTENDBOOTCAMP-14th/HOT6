@@ -45,7 +45,7 @@
 
       <!-- search bar -->
       <div class="searchBar jsSearchBar">
-        <form action="" method="GET" role="search">
+        <form action="#" method="GET" role="search">
           <label for="searchInput" class="sr-only">도서 검색</label>
           <input
             type="search"
@@ -53,14 +53,15 @@
             name="keyword"
             placeholder="도서명/저자를 입력해주세요"
           />
-          <button class="clearButton" type="button">x</button>
           <button class="searchButton" type="submit" aria-label="도서 검색">
             <img src="../../assets/images/icons/icon_search.svg" alt="" />
           </button>
         </form>
       </div>
     </header>
+
     <main class="authorPageContainer">
+      <!-- 내비게이션 영역 -->
       <nav class="navigationBar">
         <ul class="navigationList">
           <li class="navigationItem navigationHome">
@@ -79,367 +80,27 @@
           </li>
         </ul>
       </nav>
-      <section class="authorCard">
-        <h2>Famous Korean Authors</h2>
-        <div class="authorCardImage">
-          <article>
-            <a
-              href="https://namu.wiki/w/한강(소설가)"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="한강의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Han_Kang_webp.webp    1x,
-                    ../../assets/images/author/author_Han_Kang_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Han_Kang.png"
-                  srcset="
-                    ../../assets/images/author/author_Han_Kang.png    1x,
-                    ../../assets/images/author/author_Han_Kang_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Han Kang</h3>
-          </article>
 
-          <article>
-            <a
-              href="https://namu.wiki/w/김금희"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="김금희의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Kim_Keum_Hee_webp.webp    1x,
-                    ../../assets/images/author/author_Kim_Keum_Hee_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Kim_Keum_Hee.png"
-                  srcset="
-                    ../../assets/images/author/author_Kim_Keum_Hee.png    1x,
-                    ../../assets/images/author/author_Kim_Keum_Hee_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Kim Keum-Hee</h3>
-          </article>
+      <!-- 메인 컨텐츠 영역 -->
+      <section class="authors">
+        <section class="authorCard">
+          <h2>Famous Korean Authors</h2>
+          <div class="authorCardImage" id="koreanAuthors"></div>
+        </section>
 
-          <article>
-            <a
-              href="https://namu.wiki/w/김애란"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="김애란의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Kim_Ae_Ran_webp.webp    1x,
-                    ../../assets/images/author/author_Kim_Ae_Ran_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Kim_Ae_Ran.png"
-                  srcset="
-                    ../../assets/images/author/author_Kim_Ae_Ran.png    1x,
-                    ../../assets/images/author/author_Kim_Ae_Ran_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Kim Ae-Ran</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/김영하"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="김영하의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Kim_Young_Ha_webp.webp    1x,
-                    ../../assets/images/author/author_Kim_Young_Ha_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Kim_Young_Ha.png"
-                  srcset="
-                    ../../assets/images/author/author_Kim_Young_Ha.png    1x,
-                    ../../assets/images/author/author_Kim_Young_Ha_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Kim Young-Ha</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/성해나"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="성해나의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Sung_Hae_Na_webp.webp    1x,
-                    ../../assets/images/author/author_Sung_Hae_Na_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Sung_Hae_Na.png"
-                  srcset="
-                    ../../assets/images/author/author_Sung_Hae_Na.png    1x,
-                    ../../assets/images/author/author_Sung_Hae_Na_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Sung Hae-Na</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/황석영"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="황석영의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Hwang_Sok_yong_webp.webp    1x,
-                    ../../assets/images/author/author_Hwang_Sok_yong_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Hwang_Sok_yong.png"
-                  srcset="
-                    ../../assets/images/author/author_Hwang_Sok_yong.png    1x,
-                    ../../assets/images/author/author_Hwang_Sok_yong_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Hwang Sok-Yong</h3>
-          </article>
-        </div>
-
-        <h2>Famous International Authors</h2>
-
-        <div class="authorCardImage">
-          <article>
-            <a
-              href="https://namu.wiki/w/앙투안%20드%20생텍쥐페리"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="앙투안 드 생텍쥐페리의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Saint_Exupery_webp.webp    1x,
-                    ../../assets/images/author/author_Saint_Exupery_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Saint_Exupery.png"
-                  srcset="
-                    ../../assets/images/author/author_Saint_Exupery.png    1x,
-                    ../../assets/images/author/author_Saint_Exupery_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Antoine de Saint-Exupery</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/어니스트%20헤밍웨이"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="어니스트 헤밍웨이의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Hemingway_webp.webp    1x,
-                    ../../assets/images/author/author_Hemingway_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Hemingway.png"
-                  srcset="
-                    ../../assets/images/author/author_Hemingway.png    1x,
-                    ../../assets/images/author/author_Hemingway_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Ernest Miller Hemingway</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/J.%20K.%20롤링"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="J.K.롤링의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Joanne_K_webp.webp    1x,
-                    ../../assets/images/author/author_Joanne_K_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Joanne_K.png"
-                  srcset="
-                    ../../assets/images/author/author_Joanne_K.png    1x,
-                    ../../assets/images/author/author_Joanne_K_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>J.K. Rowling</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/헤르만%20헤세"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="헤르만 헤세의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Herman_Hesse_webp.webp    1x,
-                    ../../assets/images/author/author_Herman_Hesse_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Herman_Hesse.png"
-                  srcset="
-                    ../../assets/images/author/author_Herman_Hesse.png    1x,
-                    ../../assets/images/author/author_Herman_Hesse_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Hermann Hesse</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/레프%20톨스토이"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="레프 톨스토이의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Tolstoy_webp.webp    1x,
-                    ../../assets/images/author/author_Tolstoy_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Tolstoy.png"
-                  srcset="
-                    ../../assets/images/author/author_Tolstoy.png    1x,
-                    ../../assets/images/author/author_Tolstoy_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Leo Tolstoy</h3>
-          </article>
-
-          <article>
-            <a
-              href="https://namu.wiki/w/베르나르%20베르베르"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="베르나르 베르베르의 나무위키 페이지로 이동"
-            >
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="
-                    ../../assets/images/author/author_Bernard_Werber_webp.webp    1x,
-                    ../../assets/images/author/author_Bernard_Werber_webp_2x.webp 2x
-                  "
-                />
-                <img
-                  src="../../assets/images/author/author_Bernard_Werber.png"
-                  srcset="
-                    ../../assets/images/author/author_Bernard_Werber.png    1x,
-                    ../../assets/images/author/author_Bernard_Werber_2x.png 2x
-                  "
-                  alt=""
-                  aria-hidden="true"
-                />
-              </picture>
-            </a>
-            <h3>Bernard Werber</h3>
-          </article>
-        </div>
+        <section class="authorCard">
+          <h2>Famous International Authors</h2>
+          <div class="authorCardImage" id="internationalAuthors"></div>
+        </section>
       </section>
+
+      <!-- 맨 위로 버튼 -->
       <button type="button" class="goToTopButton" aria-label="맨 위로 이동">
         <img src="../../assets/images/icons/go_to_top.svg" alt="" />
         <span class="sr-only">맨 위로 이동</span>
       </button>
     </main>
+
     <footer class="footerContainer">
       <!-- 로고 -->
       <div class="footerLogo">

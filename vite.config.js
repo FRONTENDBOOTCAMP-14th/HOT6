@@ -34,6 +34,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
+      '/api': {
         target: 'https://openapi.naver.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
