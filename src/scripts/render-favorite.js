@@ -1,3 +1,5 @@
+import '../pages/favorites/favorites.css';
+
 import { createBookModal, openBookModal, modalClose } from '../utils/modal';
 import { getFavoriteBookFromCard } from '../utils/get-favorite-book-from-card';
 import { getFavoriteBookFromModal } from '../utils/get-favorite-book-from-modal';
