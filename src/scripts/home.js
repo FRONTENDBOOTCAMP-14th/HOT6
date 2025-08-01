@@ -1,3 +1,5 @@
+import '../pages/home/home.css';
+
 import DOMPurify from '../modules/dompurify';
 import { createBookModal, openBookModal, modalClose } from '../utils/modal';
 import { searchBooks } from '../utils/search-book';
@@ -21,7 +23,7 @@ const queryVariables = {
 const modal = createBookModal();
 
 // 리디렉션 검색
-const query = new URLSearchParams(window.location.search).get('query');
+let query = new URLSearchParams(window.location.search).get('query');
 
 if (query) {
   const cleanQuery = DOMPurify.sanitize(decodeURIComponent(query.trim()));
