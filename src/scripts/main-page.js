@@ -1,4 +1,4 @@
-import { createBookModal, openBookModal, modalClose } from '../utils/modal';
+import { createBookModal, openBookModal, modalClose } from '../utils/modal'
 
 const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
@@ -108,10 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!e.target.closest('.modalContent')) {
       modalClose(modal);
     }
-
-    const favoriteButton = e.target.closest('.favoriteButton');
-    const favoriteModal = e.currentTarget;
-    getFavoriteBookFromModal(favoriteButton, favoriteModal);
   });
 
   modal.addEventListener('keydown', (e) => {
@@ -126,4 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderBooks();
     }
   });
+
+  const mainFavButton = modal.querySelector('.favoriteButton')
+  mainFavButton.style.display = 'none'
 });
