@@ -9,19 +9,12 @@
 }
 
 .authorCard {
-  /* display: flex; */
-  /* flex-direction: column; */
   padding-block: var(--padding-32, 2rem);
   padding-inline: 3.5rem;
   background: var(--gray-background, #181818);
-
-  /* @media (min-width: 700px) {
-    display: block;
-  } */
 }
 
 .authorCard h2 {
-  /* align-self: center; */
   margin-block: var(--margin-32, 2rem);
   text-align: center;
   color: var(--primary-300, #82fca5);
@@ -30,7 +23,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.8125rem;
-  /* white-space: nowrap; */
 }
 
 .authorCardImage {
@@ -71,9 +63,14 @@
 }
 
 @media (min-width: 700px) {
+  .authors {
+    overflow: hidden;
+  }
+
   .authorCardImage {
     grid-template-columns: repeat(6, 1fr);
     gap: var(--gap-16, 1rem);
+    overflow-x: auto;
   }
 
   .authorCard h2 {
