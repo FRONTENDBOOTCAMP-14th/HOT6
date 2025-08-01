@@ -13,8 +13,8 @@ try {  const response = await fetch(`https://openapi.naver.com/v1/search/book.js
 
     const data = await apiRes.text(); // 디버깅을 위해 text()로 받음
 
-    if (!apiRes.ok) {
-      return res.status(apiRes.status).send(`네이버 API 에러: ${apiRes.status}\n${data}`);
+    if (!response.ok) {
+      return res.status(response.status).send(`네이버 API 에러: ${response.status}\n${data}`);
     }
 
     return res.status(200).send(data); // 임시로 text 출력
