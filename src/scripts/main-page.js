@@ -76,7 +76,7 @@ function fetchBooksAndRender() {
   const query = getRandomQuery();
   const display = 12;
 
-  fetch(`/api/search?query=${encodeURIComponent(query)}&display=${display}`, {
+  fetch(`/api/search?q=${encodeURIComponent(query)}&display=${display}`, {
     method: 'GET'
   })
     .then((res) => {
