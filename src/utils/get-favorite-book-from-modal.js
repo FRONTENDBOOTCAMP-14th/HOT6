@@ -4,6 +4,9 @@
  * @param {*} modal 모달 다이얼로그
  */
 export function getFavoriteBookFromModal(button, modal) {
+  let favoriteCount = document.getElementById('favoritesBookCount');
+  let favCounter = Number(favoriteCount.textContent);
+
   if (!modal) return;
   if (modal) {
     if (button !== modal.querySelector('.favoriteButton')) return;
@@ -30,14 +33,17 @@ export function getFavoriteBookFromModal(button, modal) {
     if (index === -1) {
       // 아이템이 없으면
       dataList.push(favoriteBookData);
-
       button.classList.add(SELECTED_CLASSNAME);
       selectedCard.querySelector('.favoriteButton').classList.add(SELECTED_CLASSNAME);
+      favCounter += 1;
+      favoriteCount.textContent = favCounter;
     } else {
       // 아이템이 이미 있으면
       dataList.splice(index, 1);
       button.classList.remove(SELECTED_CLASSNAME);
       selectedCard.querySelector('.favoriteButton').classList.remove(SELECTED_CLASSNAME);
+      favCounter -= 1;
+      favoriteCount.textContent = favCounter;
     }
     localStorage.setItem(dataListKey, JSON.stringify(dataList));
   }

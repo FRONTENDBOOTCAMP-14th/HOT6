@@ -1,17 +1,12 @@
-const favoritesBookCount = document.getElementById('favoritesBookCount');
 const favoritesContainer = document.querySelector('.bookListWrapper');
 const favoriteComment = document.querySelector('.favoriteComment');
 
 const dataListKey = 'favoriteBooks';
 const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
 
-// 내비게이션에 숫자 업데이트
-const favoriteListCount = dataList.length;
-favoritesBookCount.textContent = favoriteListCount;
-
 // 화면에 카드 렌더링
 
-if (favoriteListCount > 0) {
+if (dataList.length > 0) {
   dataList.forEach((item) => createFavoriteCard(item));
 }
 // 즐겨찾기 목록이 없을 경우, 안내 멘트 생성
