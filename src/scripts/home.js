@@ -4,7 +4,7 @@ import { searchBooks } from '../utils/search-book';
 import { getFavoriteBookFromCard } from '../utils/get-favorite-book-from-card';
 import { getFavoriteBookFromModal } from '../utils/get-favorite-book-from-modal';
 
-document.addEventListener('DOMContentLoaded', () => {
+() => {
   const form = document.querySelector('.searchBar form');
   const input = document.getElementById('searchInput');
   const resultContainer = document.querySelector('.bookListWrapperHome');
@@ -96,4 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
       searchBooks(queryVariables, false, resultContainer, countElement, nameElement);
     }
   });
-});
+};
