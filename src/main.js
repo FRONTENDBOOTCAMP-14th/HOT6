@@ -1,7 +1,10 @@
 import '../src/main.css';
 
+// 메인 페이지
+import './scripts/main-page.js';
+
 // 검색 바(취소 버튼)
-import './scripts/clear-button.js'
+import './scripts/clear-button.js';
 
 // 맨위로 버튼(go-to-top)
 import './scripts/go-to-top.js';
