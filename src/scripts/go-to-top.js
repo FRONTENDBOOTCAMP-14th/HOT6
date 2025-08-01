@@ -1,8 +1,16 @@
-  const topButton = document.querySelector('.goToTopButton')
-  const bookListWrapper = document.querySelector('.jsbookListWrapper')
+const topButton = document.querySelector('.goToTopButton');
+const ListWrapper = document.querySelector('.jsListWrapper');
 
- if (topButton && bookListWrapper) {
+if (topButton && ListWrapper) {
   topButton.addEventListener('click', () => {
-    bookListWrapper.scrollTop = 0;
+    ListWrapper.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   });
 }
