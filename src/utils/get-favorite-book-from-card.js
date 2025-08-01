@@ -4,6 +4,8 @@
  */
 export function getFavoriteBookFromCard(button) {
   const favoriteButton = button;
+  let favoriteCount = document.getElementById('favoritesBookCount')
+  let favCounter = Number(favoriteCount.textContent)
 
   const favoriteCard = favoriteButton.closest('.cardComponent');
   if (!favoriteCard) return;
@@ -26,10 +28,14 @@ export function getFavoriteBookFromCard(button) {
     dataList.push(favoriteBookData);
     localStorage.setItem(dataListKey, JSON.stringify(dataList));
     favoriteButton.classList.add(SELECTED_CLASSNAME);
+    favCounter += 1
+    favoriteCount.textContent = favCounter
   } else {
     dataList.splice(index, 1);
     localStorage.setItem(dataListKey, JSON.stringify(dataList));
     favoriteButton.classList.remove(SELECTED_CLASSNAME);
+    favCounter -= 1
+    favoriteCount.textContent = favCounter
   }
 
 }

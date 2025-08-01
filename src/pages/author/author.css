@@ -5,23 +5,31 @@
 
   @media (min-width: 700px) {
     display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .authors {
+    display: flex;
+    flex-flow: column nowrap;
+    block-size: 100vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+      -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
+    }
   }
 }
 
 .authorCard {
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-flow: column nowrap;
   padding-block: var(--padding-32, 2rem);
   padding-inline: 3.5rem;
   background: var(--gray-background, #181818);
-
-  /* @media (min-width: 700px) {
-    display: block;
-  } */
+  justify-content: center;
 }
 
-.authorCard h2 {
-  /* align-self: center; */
+.authorCard h3 {
   margin-block: var(--margin-32, 2rem);
   text-align: center;
   color: var(--primary-300, #82fca5);
@@ -30,7 +38,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1.8125rem;
-  /* white-space: nowrap; */
 }
 
 .authorCardImage {
@@ -71,9 +78,14 @@
 }
 
 @media (min-width: 700px) {
+  .authors {
+    overflow: hidden;
+  }
+
   .authorCardImage {
     grid-template-columns: repeat(6, 1fr);
     gap: var(--gap-16, 1rem);
+    overflow-x: auto;
   }
 
   .authorCard h2 {

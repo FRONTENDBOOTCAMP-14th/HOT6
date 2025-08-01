@@ -11,7 +11,7 @@
       crossorigin
     />
     <link rel="icon" href="/public/favicon/favicon_logo.svg" type="image/svg" />
-    <link rel="stylesheet" href="./home.css" />
+    <script type="module" src="../../scripts/home.js"></script>
     <script type="module" src="../../main.js"></script>
   </head>
   <body>
@@ -86,9 +86,10 @@
           ><span id="searchBookName"></span><span>"</span>
         </p>
         <!-- 메인페이지 도서 목록영역 -->
-        <section class="bookListWrapperHome jsbookListWrapper">
+        <section class="bookListWrapperHome jsListWrapper">
           <h2 class="sr-only">도서목록</h2>
         </section>
+        <p class="noResult"></p>
       </div>
       <button type="button" class="goToTopButton" aria-label="맨 위로 이동">
         <img src="../../assets/images/icons/go_to_top.svg" alt="" />
