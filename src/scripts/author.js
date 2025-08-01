@@ -1,3 +1,5 @@
+import '../pages/author/author.css';
+
 // 이미지 자동 import
 const webpImages = import.meta.glob('/src/assets/images/author/author_*_webp.webp', {
   eager: true,

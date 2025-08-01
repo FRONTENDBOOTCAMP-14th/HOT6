@@ -1,4 +1,6 @@
-import { createBookModal, openBookModal, modalClose } from '../utils/modal'
+import '../pages/main-page/main-page.css';
+
+import { createBookModal, openBookModal, modalClose } from '../utils/modal';
 
 const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
 const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
@@ -123,6 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const mainFavButton = modal.querySelector('.favoriteButton')
-  mainFavButton.style.display = 'none'
+  const mainFavButton = modal.querySelector('.favoriteButton');
+  mainFavButton.style.display = 'none';
 });
