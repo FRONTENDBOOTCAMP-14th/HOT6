@@ -1,5 +1,8 @@
 import '../src/main.css';
 
+// 메인 페이지
+import './scripts/main-page.js';
+
 // 검색 바(취소 버튼)
 import './scripts/clear-button.js';
 
@@ -14,5 +17,3 @@ import './scripts/home.js';
 
 // 작가 페이지
 // import './scripts/author.js';
-
-
