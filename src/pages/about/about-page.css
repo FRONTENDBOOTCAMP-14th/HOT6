@@ -39,6 +39,16 @@
   padding-block: var(--padding-20, 1.25rem);
   padding-inline: var(--padding-20, 1.25rem);
   max-inline-size: 47.5rem;
+  block-size: 100vh;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+    -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
+  }
+
+  @media(min-width: 700px) {
+    block-size: 100%;
+  }
 }
 
 @media (min-width: 700px) {

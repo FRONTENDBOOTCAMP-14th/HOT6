@@ -5,16 +5,31 @@
 
   @media (min-width: 700px) {
     display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .authors {
+    display: flex;
+    flex-flow: column nowrap;
+    block-size: 100vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+      -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
+    }
   }
 }
 
 .authorCard {
+  display: flex;
+  flex-flow: column nowrap;
   padding-block: var(--padding-32, 2rem);
   padding-inline: 3.5rem;
   background: var(--gray-background, #181818);
+  justify-content: center;
 }
 
-.authorCard h2 {
+.authorCard h3 {
   margin-block: var(--margin-32, 2rem);
   text-align: center;
   color: var(--primary-300, #82fca5);

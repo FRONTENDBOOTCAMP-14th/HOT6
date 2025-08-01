@@ -39,20 +39,8 @@
 /* landing 페이지 url */
 @import './pages/landing/landing-page.css' layer(pages);
 
-/* main 페이지 url */
-@import './pages/main-page/main-page.css' layer(pages);
-
 /* home 페이지 url */
 @import './pages/home/home.css' layer(pages);
-
-/* favorites 페이지 url */
-@import './pages/favorites/favorites.css' layer(pages);
-
-/* authors 페이지 url */
-@import './pages/author/author.css' layer(pages);
-
-/* about 페이지 url */
-@import './pages/about/about-page.css' layer(pages);
 
 body {
   background-color: var(--gray-background, #181818);
