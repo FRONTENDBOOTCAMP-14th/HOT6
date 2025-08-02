@@ -44,6 +44,10 @@
   .favoriteIcon {
     fill: var(--primary-light, #f5fff8);
   }
+
+  &:hover {
+    background: var(--favorite-color-hover, #730909);
+  }
 }
 
 /* 작가 버튼 */
