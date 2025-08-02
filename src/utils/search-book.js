@@ -1,7 +1,7 @@
 import { createCard } from './create-card';
 
-const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
-const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
+// const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
+// const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
 
 /**
  * 도서 검색 함수
@@ -16,12 +16,8 @@ export function searchBooks(queryVariables, isNewSearch = false, container, book
   if (queryVariables.isLoading || !queryVariables.moreBooks) return;
   queryVariables.isLoading = true;
   fetch(
-    `/api/v1/search/book.json?query=${encodeURIComponent(cleanQuery)}&start=${queryVariables.start}&display=${display}`,{
-    method: 'GET',
-    headers: {
-      'X-Naver-Client-Id': clientId,
-      'X-Naver-Client-Secret': clientSecret,
-    },
+    `/api/search?q=${encodeURIComponent(cleanQuery)}&start=${queryVariables.start}&display=${display}`,{
+    method: 'GET'
   })
     .then((res) => res.json())
     .then((data) => {

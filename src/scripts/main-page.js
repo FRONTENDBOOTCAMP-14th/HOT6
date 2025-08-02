@@ -2,8 +2,8 @@ import '../pages/main-page/main-page.css'
 
 import { createBookModal, openBookModal, modalClose } from '../utils/modal'
 
-const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
-const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
+// const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
+// const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
 
 let modal;
 let bookData = [];
@@ -76,12 +76,8 @@ function fetchBooksAndRender() {
   const query = getRandomQuery();
   const display = 12;
 
-  fetch(`/api/v1/search/book.json?query=${encodeURIComponent(query)}&display=${display}`, {
-    method: 'GET',
-    headers: {
-      'X-Naver-Client-Id': clientId,
-      'X-Naver-Client-Secret': clientSecret,
-    },
+  fetch(`/api/search?q=${encodeURIComponent(query)}&display=${display}`, {
+    method: 'GET'
   })
     .then((res) => {
       if (!res.ok) throw new Error(`API 호출 실패: ${res.status}`);
