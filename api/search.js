@@ -2,10 +2,11 @@
 
 export default async function handler(req, res) {
   const query = req.query.q || '';
+  const start = req.query.start || 1;      
+  const display = req.query.display || 12;
   
   // 네이버 API 호출 (필요에 따라 node-fetch 설치하거나 Vercel 내장 fetch 사용)
   const response = await fetch(`https://openapi.naver.com/v1/search/book.json?query=${encodeURIComponent(query)}&start=${queryVariables.start}&display=${display}`, {
-    method: 'GET',
     headers: {
       'X-Naver-Client-Id': process.env.NAVER_CLIENT_ID,
       'X-Naver-Client-Secret': process.env.NAVER_CLIENT_SECRET,
