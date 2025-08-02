@@ -25,31 +25,34 @@
 [<img width="250" height="158" alt="Image" src="https://github.com/user-attachments/assets/68f72907-6318-481d-8297-d47cdf7cb7b5" />](https://hot-6.vercel.app/)
 
 
-### 🔰 프로젝트 팀&팀원 소개
+### 🔰 프로젝트 팀원 소개
 | 김민지 | 남도현 | 박철순 | 정윤서 | 
 | ------ | ----- | ------ | ----- | 
 | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/48d8c0f5-3e7d-4137-8f48-55835fdac18c" /> | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/4a5f274d-4636-4957-826d-54d66552a9e1" /> | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/c8ba88bc-f55c-4e52-a3c2-070a1c5c0381" /> | <img width="234" height="234" alt="Image" src="https://github.com/user-attachments/assets/9600a4f8-d752-4cc9-875a-ad0c76c48882" /> |
 | <div align="center">ESFJ</div> | <div align="center">INFP</div> | <div align="center">ISTP</div> | <div align="center">ENTJ<div> | 
 | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/minji-kim0524)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/dohyeon0709)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/cjftns)</div> | <div align="center">[<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>](https://github.com/yoonseo23)</div> | 
 
-### 📂 프로젝트 폴더 구조 (1차)
+### 📂 프로젝트 폴더 구조
 <details> 
 <summary>폴더 구조 보기</summary>
   
 ```
 🔥 **HOT6**
 ├── 📁 .github
+├── 📁 .vercel
 ├── 📁 .vscode
+├── 📁 .api
+│   └── search.js
 ├── 📁 dist
 │   ├── 📁 assets
 │   ├── 📁 favicon
 │   ├── 📁 logos
 │   ├── 📁 src
-│   ├── index.html
+│   └── index.html
 ├── 📁 node_modules
 ├── 🌐 public
 │   ├── 📁 favicon
-│   ├── 📁 logos
+│   └── 📁 logos
 ├── 📁 src
 │   ├── 📁 assets
 │   │   ├── 📁 images
@@ -77,6 +80,9 @@
 │   │   ├── 📁 navigation-bar
 │   │   ├── 📁 profile-card
 │   │   └── 📁 searchbar
+│   ├── 📁 modules
+│   │   ├── dompurify.js
+│   │   └── gsap.js
 │   ├── 📁 pages
 │   │   ├── 📁 about
 │   │   ├── 📁 author
@@ -84,10 +90,28 @@
 │   │   ├── 📁 home
 │   │   ├── 📁 landing
 │   │   └── 📁 main-page
+│   ├── 📁 scripts
+│   │   ├── author.js
+│   │   ├── clear-button.js
+│   │   ├── go-to-top.js
+│   │   ├── home.js
+│   │   ├── main-page.js
+│   │   ├── navigation-favorite-count.js
+│   │   ├── redirection.js
+│   │   └── render-favorite.js
 │   ├── 📁 utils
+│   │   ├── add-color-to-card-fav.js
+│   │   ├── add-color-to-modal-fav.js
+│   │   ├── create-card.js
+│   │   ├── get-favorite-book-from-card.js
+│   │   ├── get-favorite-book-from-modal.js
+│   │   ├── is-overflow.js
+│   │   ├── modal.js
+│   │   └── search-book.js
 │   ├── main.js
 │   ├── main.css
 ├── .editorconfig
+├── .env
 ├── .gitattributes
 ├── .gitignore
 ├── .npmrc
@@ -98,7 +122,7 @@
 ├── pnpm-lock.yami
 ├── pnpm-workspace.yami
 ├── README.md   
-└── vite.config.js                 
+└── vite.config.js                  
 ```
 </details>
 
