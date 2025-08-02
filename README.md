@@ -96,6 +96,7 @@
 │   │   ├── go-to-top.js
 │   │   ├── home.js
 │   │   ├── main-page.js
+│   │   ├── move-search-bar.js
 │   │   ├── navigation-favorite-count.js
 │   │   ├── redirection.js
 │   │   └── render-favorite.js
