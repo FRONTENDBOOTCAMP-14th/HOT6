@@ -1,5 +1,3 @@
-import '../pages/home/home.css';
-
 import DOMPurify from '../modules/dompurify';
 import { createBookModal, openBookModal, modalClose } from '../utils/modal';
 import { searchBooks } from '../utils/search-book';
