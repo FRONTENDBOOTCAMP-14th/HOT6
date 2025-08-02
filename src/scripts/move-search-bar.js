@@ -24,5 +24,8 @@ function moveSearchBar() {
     }
 }
 
+// 초기실행
+moveSearchBar();
+
 // 창 크기 변경될 때도 처리
 window.addEventListener('resize', moveSearchBar);
