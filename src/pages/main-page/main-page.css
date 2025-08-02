@@ -4,22 +4,30 @@
   main {
     max-inline-size: 80rem;
     margin: auto;
+
+        @media (min-width: 700px) {
+        display: flex;
+        flex-flow: row nowrap;
+    }
   }
 
-  .searchBarMainMobile {
-    padding-block-start: var(--padding-16, 1rem);
-  }
-
-  .searchBarMainMobile form {
-    display: flex;
-    align-items: center;
-    inline-size: 100%;
-    min-inline-size: 0;
-    overflow: hidden;
-    background-color: var(--primary-light, #f5fff8);
-    border: none;
-    border-radius: var(--radius-8, 0.5rem);
-    box-shadow: none;
+  .searcBarMain {
+    .searchBar {
+      padding-block-start: var(--padding-16, 1rem);
+    }
+  
+    .searchBar form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 100%;
+      min-inline-size: 0;
+      overflow: hidden;
+      background-color: var(--primary-light, #f5fff8);
+      border: none;
+      border-radius: var(--radius-8, 0.5rem);
+      box-shadow: none;
+    }
   }
 
   .bookListWrapperMobile {
@@ -28,7 +36,7 @@
     justify-content: center;
     min-inline-size: 20rem;
     max-inline-size: 80rem;
-    block-size: 50vh;
+    block-size: 100%;
     row-gap: var(--gap-20, 1.25rem);
     column-gap: var(--gap-30, 1.875rem);
     margin: 0 auto;
@@ -39,10 +47,35 @@
   display: none; /* Chrome/Safari */
   -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
   }
+
+  @media(min-width: 700px) {
+      display: none;
+  }
   }
 
   .cardImageContents {
     cursor: pointer;
+
+    @media(min-width: 700px) {  
+      margin-block: var(--margin-30, 1.875rem);
+      flex-shrink: 0;
+  
+        &:nth-child(even) {
+          transform: translateY(4rem);
+        }
+        &:nth-child(odd) {
+          transform: translateY(0.625rem);
+        }
+    }    
+  }
+  
+  /* PC 버전 */
+  .mainPagePC {
+    display: none;
+
+    @media(min-width: 700px) {
+      display: block;
+    }
   }
 
   @media (min-width: 700px) {
@@ -57,54 +90,6 @@
       }
     }
 
-    .bookListWrapperMobile {
-      display: flex;
-      flex-flow: row wrap;
-      min-inline-size: 20rem;
-      max-inline-size: 80rem;
-      margin: 0 auto;
-      padding-inline: var(--padding-28, 1.75rem);
-      padding-block-start: var(--padding-20, 1.25rem);
-      row-gap: var(--gap-20, 1.25rem);
-      column-gap: var(--gap-30, 1.875rem);
-    }
-
-    @media (min-width: 700px) {
-      .cardImageContents img {
-        display: block;
-        inline-size: 12.3125rem;
-        block-size: 14.875rem;
-      }
-    }
-
-    @media (min-width: 700px) {
-      main {
-        display: flex;
-        flex-flow: row nowrap;
-      }
-    }
-
-    /* PC 버전 */
-    /* form 전체 */
-    .searchBarMainPC form {
-      display: none;
-      align-items: center;
-      inline-size: 27.5rem;
-      margin: 0 auto;
-      min-inline-size: 0;
-      margin-block-start: var(--margin-34, 2.125rem);
-      margin-block-end: 7.375rem;
-      overflow: hidden;
-      background-color: var(--primary-light, #f5fff8);
-      border: none;
-      border-radius: var(--radius-8, 0.5rem);
-      box-shadow: none;
-    }
-
-    .mainPagePC {
-      display: none;
-    }
-
     .mainPageLogoPC {
       display: flex;
       flex-flow: column nowrap;
@@ -112,24 +97,12 @@
       margin: 0 auto;
     }
 
-    @media (min-width: 700px) {
-      .searchBarMainMobile form {
-        display: none;
-      }
-
-      .searchBarMainPC form {
-        display: flex;
-      }
-
-      .bookListWrapperMobile {
-        display: none;
-      }
-
       .bookListWrapperPC {
         display: flex;
         flex-flow: row nowrap;
         margin: 0 auto;
         column-gap: var(--gap-16, 1rem);
+        margin-block-start: 7.375rem;
         margin-block-end: 3.25rem;
         padding-inline: var(--padding-14, 0.875rem);
         padding-block-end: 4rem;
@@ -140,83 +113,10 @@
           -webkit-overflow-scrolling: touch; /* iOS 부드럽게 */
         }
       }
-      .cardImageContents {
-        margin-block: var(--margin-30, 1.875rem);
-        flex-shrink: 0;
-
-        &:nth-child(even) {
-          transform: translateY(4rem);
-        }
-        &:nth-child(odd) {
-          transform: translateY(0.625rem);
-        }
-      }
-
-      .mainPagePC {
-        display: block;
-      }
 
       .goToTopButton {
         display: none;
       }
-    }
-  }
-
-  /* PC 버전 */
-  /* form 전체 */
-  .searchBarPC form {
-    display: none;
-    align-items: center;
-    inline-size: 27.5rem;
-    margin: 0 auto;
-    min-inline-size: 0;
-    margin-block-start: var(--margin-34, 2.125rem);
-    margin-block-end: 7.375rem;
-    overflow: hidden;
-    background-color: var(--primary-light, #f5fff8);
-    border: none;
-    border-radius: var(--radius-8, 0.5rem);
-    box-shadow: none;
-  }
-
-  .mainPagePC {
-    display: none;
-  }
-
-  .mainPageLogoPC {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 700px) {
-    .searchBar form {
-      display: none;
-    }
-
-    .searchBarPC form {
-      display: flex;
-    }
-
-    .bookListWrapperMobile {
-      display: none;
-    }
-
-    .cardImageContents {
-      margin-block: var(--margin-30, 1.875rem);
-
-      &:nth-child(even) {
-        transform: translateY(4rem);
-      }
-      &:nth-child(odd) {
-        transform: translateY(0.625rem);
-      }
-    }
-
-    .mainPagePC {
-      display: block;
-    }
   }
 
   .footerContainer {

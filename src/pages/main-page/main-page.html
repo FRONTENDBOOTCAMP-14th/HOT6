@@ -12,6 +12,7 @@
     />
     <link rel="icon" href="/public/favicon/favicon_logo.svg" type="image/svg" />
     <script type="module" src="../../scripts/main-page.js"></script>
+    <script type="module" src="../../scripts/move-search-bar.js"></script>
     <script type="module" src="../../main.js"></script>
   </head>
   <body>
@@ -45,21 +46,23 @@
         </button>
 
         <!-- search bar -->
-        <div class="searchBarMainMobile jsSearchBar">
-          <form action="#" method="GET" role="search">
-            <label for="searchInput" class="sr-only">도서 검색</label>
-            <input
-              type="search"
-              id="searchInput"
-              name="keyword"
-              placeholder="도서명/저자를 입력해주세요"
-            />
-            <button class="clearButton" type="button">x</button>
-            <button class="searchButton" type="submit" aria-label="도서 검색">
-              <img src="../../assets/images/icons/icon_search.svg" alt="" />
-            </button>
-          </form>
-        </div>
+         <div class="searcBarMain">
+           <div class="searchBar jsSearchBar">
+             <form action="#" method="GET" role="search">
+               <label for="searchInput" class="sr-only">도서 검색</label>
+               <input
+                 type="search"
+                 id="searchInput"
+                 name="keyword"
+                 placeholder="도서명/저자를 입력해주세요"
+               />
+               <button class="clearButton" type="button">x</button>
+               <button class="searchButton" type="submit" aria-label="도서 검색">
+                 <img src="../../assets/images/icons/icon_search.svg" alt="" />
+               </button>
+             </form>
+           </div>
+         </div>
       </header>
       <main>
         <!-- 내비게이션 영역 -->
@@ -82,7 +85,7 @@
           </ul>
         </nav>
         <!-- 메인페이지 도서 목록영역 -->
-        <section class="bookListWrapperMobile">
+        <section class="bookListWrapperMobile jsListWrapper">
           <h2 class="sr-only">도서목록(모바일버전)</h2>
         </section>
         <button type="button" class="goToTopButton" aria-label="맨 위로 이동">
@@ -102,21 +105,6 @@
                 alt="HOT BOOKS - 홈으로 이동"
               />
             </a>
-          </div>
-          <div class="searchBarMainPC jsSearchBar">
-            <form action="#" method="GET" role="search">
-              <label for="searchInput" class="sr-only">도서 검색</label>
-              <input
-                type="search"
-                id="searchInput"
-                name="keyword"
-                placeholder="도서명/저자를 입력해주세요"
-              />
-              <button class="clearButton" type="button">x</button>
-              <button class="searchButton" type="submit" aria-label="도서 검색">
-                <img src="../../assets/images/icons/icon_search.svg" alt="" />
-              </button>
-            </form>
           </div>
           <div class="bookListWrapperPC"></div>
         </section>
