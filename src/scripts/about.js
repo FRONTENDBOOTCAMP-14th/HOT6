@@ -1,4 +1,4 @@
-import gsap from '../../modules/gsap';
+import gsap from '../modules/gsap';
 
 const profile = document.querySelectorAll('.profileCardImage')
 
