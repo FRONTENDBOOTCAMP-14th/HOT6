@@ -65,7 +65,7 @@ function getRandomQuery() {
     '리액트',
     'ux',
     'ui',
-    'html',
+    'Typescript',
     'css',
     'javascript',
   ];
