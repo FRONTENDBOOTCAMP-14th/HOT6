@@ -1,9 +1,10 @@
 import '../pages/main-page/main-page.css'
 
-import { createBookModal, openBookModal, modalClose } from '../utils/modal'
+import { createBookModal, openBookModal, modalClose, trapFocus } from '../utils/modal';
 
-// const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
-// const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
+const clientId = import.meta.env.VITE_NAVER_CLIENT_ID;
+const clientSecret = import.meta.env.VITE_NAVER_CLIENT_SECRET;
+
 
 let modal;
 let bookData = [];
@@ -76,8 +77,12 @@ function fetchBooksAndRender() {
   const query = getRandomQuery();
   const display = 12;
 
-  fetch(`/api/search?q=${encodeURIComponent(query)}&display=${display}`, {
-    method: 'GET'
+  fetch(`/api/v1/search/book.json?query=${encodeURIComponent(query)}&display=${display}`, {
+    method: 'GET',
+    headers: {
+      'X-Naver-Client-Id': clientId,
+      'X-Naver-Client-Secret': clientSecret,
+    },
   })
     .then((res) => {
       if (!res.ok) throw new Error(`API 호출 실패: ${res.status}`);
@@ -94,7 +99,7 @@ function fetchBooksAndRender() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+
   modal = createBookModal();
   fetchBooksAndRender();
 
@@ -110,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modal.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      modalClose(modal);
+      modalClose(modal)
     }
   });
 
@@ -121,6 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  modal.addEventListener('keydown', (e) => {
+    if(e.key === 'Tab') {
+      e.preventDefault()
+      trapFocus(modal)
+    }
+  })
+
   const mainFavButton = modal.querySelector('.favoriteButton')
   mainFavButton.style.display = 'none'
-});
