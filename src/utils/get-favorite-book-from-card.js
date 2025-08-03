@@ -23,7 +23,7 @@ export function getFavoriteBookFromCard(button) {
   const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
   const SELECTED_CLASSNAME = 'isClicked';
 
-  const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
+  const index = dataList.findIndex((item) => item.isbn === favoriteBookData.isbn);
   if (index === -1) {
     dataList.push(favoriteBookData);
     localStorage.setItem(dataListKey, JSON.stringify(dataList));

@@ -8,7 +8,7 @@ export function addColorToCardFav(card) {
   const dataList = JSON.parse(localStorage.getItem(dataListKey)) || [];
   const SELECTED_CLASSNAME = 'isClicked';
 
-  const index = dataList.findIndex((item) => item.isbn === card.dataset.isbn); // 배열에서 뺄 아이템 인덱스 찾기~
+  const index = dataList.findIndex((item) => item.isbn === card.dataset.isbn);
   if (index === -1) {
     favoriteButton.classList.remove(SELECTED_CLASSNAME);
   } else {
