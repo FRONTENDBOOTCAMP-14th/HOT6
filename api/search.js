@@ -1,6 +1,8 @@
 /* eslint-disable */
 
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  
   const query = req.query.q || '';
   const start = req.query.start || 1;      
   const display = req.query.display || 12;
