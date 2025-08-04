@@ -12,7 +12,7 @@ export function createBookModal() {
       <header class="bookHeader">
         <button class="closeModal" aria-label="닫기">&times;</button>
         <div class="bookImageWrapper">
-          <img src="" alt="책 표지" class="bookCover" width="117" height="137" />
+          <img src="" alt="책 표지" class="bookCover" width="117" height="137" loading="lazy"/>
         </div>
       </header>
       <section class="bookDetails" data-isbn="">
