@@ -2,7 +2,9 @@
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*')
-  
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
   const query = req.query.q || '';
   const start = req.query.start || 1;      
   const display = req.query.display || 12;
